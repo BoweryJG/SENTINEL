@@ -76,25 +76,38 @@ function triggerSlideAnimations(slideNum) {
 
 // Crisis Statistics Animation (Slide 2)
 function animateCrisisStats() {
-    // Animate readmission rate
-    const readmissionCounter = new CountUp('readmissionRate', 0, 19.5, 1, 2, {
-        suffix: '%'
-    });
-    readmissionCounter.start();
-    
-    // Animate Medicare cost
-    const medicareCounter = new CountUp('medicareCost', 0, 17.4, 1, 2.5, {
-        prefix: '$',
-        suffix: 'B'
-    });
-    medicareCounter.start();
-    
-    // Animate malpractice cost
-    const malpracticeCounter = new CountUp('malpracticeCost', 0, 348000, 0, 3, {
-        prefix: '$',
-        separator: ','
-    });
-    malpracticeCounter.start();
+    // Check if CountUp is available
+    if (typeof countUp !== 'undefined' && countUp.CountUp) {
+        // Animate readmission rate
+        const readmissionCounter = new countUp.CountUp('readmissionRate', 19.5, {
+            suffix: '%',
+            duration: 2,
+            decimalPlaces: 1
+        });
+        readmissionCounter.start();
+        
+        // Animate Medicare cost
+        const medicareCounter = new countUp.CountUp('medicareCost', 17.4, {
+            prefix: '$',
+            suffix: 'B',
+            duration: 2.5,
+            decimalPlaces: 1
+        });
+        medicareCounter.start();
+        
+        // Animate malpractice cost
+        const malpracticeCounter = new countUp.CountUp('malpracticeCost', 348000, {
+            prefix: '$',
+            separator: ',',
+            duration: 3
+        });
+        malpracticeCounter.start();
+    } else {
+        // Fallback if CountUp isn't loaded
+        document.getElementById('readmissionRate').textContent = '19.5%';
+        document.getElementById('medicareCost').textContent = '$17.4B';
+        document.getElementById('malpracticeCost').textContent = '$348,000';
+    }
 }
 
 // Live Counters (Slide 2)
@@ -116,11 +129,18 @@ function startLiveCounters() {
 }
 
 // Market Chart (Slide 3)
+let marketChartInstance = null;
+
 function animateMarketChart() {
     const ctx = document.getElementById('marketChart');
     if (!ctx) return;
     
-    const chart = new Chart(ctx, {
+    // Destroy existing chart if it exists
+    if (marketChartInstance) {
+        marketChartInstance.destroy();
+    }
+    
+    marketChartInstance = new Chart(ctx, {
         type: 'line',
         data: {
             labels: ['2024', '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', '2034'],
@@ -190,9 +210,16 @@ function animateMarketChart() {
 }
 
 // Dashboard Animation (Slide 5)
+let vitalsChartInstance = null;
+
 function animateDashboard() {
     const ctx = document.getElementById('vitalsChart');
     if (!ctx) return;
+    
+    // Destroy existing chart if it exists
+    if (vitalsChartInstance) {
+        vitalsChartInstance.destroy();
+    }
     
     // Simulated vital signs data
     const labels = [];
@@ -205,7 +232,7 @@ function animateDashboard() {
         bpData.push(110 + Math.random() * 15);
     }
     
-    new Chart(ctx, {
+    vitalsChartInstance = new Chart(ctx, {
         type: 'line',
         data: {
             labels: labels,
