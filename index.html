@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SENTINEL - Luxury Post-Operative Recovery Care</title>
+    <title>SENTINEL - The $17.4 Billion Solution to Surgery's Hidden Crisis</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -11,7 +11,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
     
-    <!-- Simple Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js"></script>
+    
     <style>
         * {
             margin: 0;
@@ -20,128 +23,267 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #fff;
+            font-family: 'Montserrat', sans-serif;
+            background: #0a1628;
+            color: #ffffff;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .slide {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            position: relative;
         }
 
-        /* Hero Section */
-        .hero {
+        .slide:nth-child(even) {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0a1628 100%);
+        }
+
+        .slide:nth-child(odd) {
             background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 100%);
-            color: white;
-            padding: 100px 0;
+        }
+
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-align: center;
         }
 
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #ffd700;
+        /* Navigation */
+        .nav-dots {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
         }
 
-        .hero p {
-            font-size: 24px;
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 15px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-dot.active {
+            background: #ffd700;
+            transform: scale(1.5);
+        }
+
+        /* Slide 1: Story */
+        .story-slide {
+            text-align: center;
+        }
+
+        .time-display {
+            font-size: 72px;
+            font-weight: 300;
+            color: #ff4444;
             margin-bottom: 30px;
+            opacity: 0.8;
         }
 
-        .stats {
+        .dramatic-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            margin-bottom: 50px;
+            color: #ffffff;
+        }
+
+        .story-text p {
+            font-size: 24px;
+            line-height: 1.8;
+            margin: 20px 0;
+            opacity: 0.9;
+        }
+
+        .stat-highlight {
+            color: #ffd700;
+            font-weight: 600;
+            font-size: 32px;
+        }
+
+        .cost-highlight {
+            color: #ff4444;
+            font-weight: 600;
+            font-size: 32px;
+        }
+
+        .emphasis {
+            font-size: 32px;
+            font-weight: 600;
+            color: #ffd700;
+            margin-top: 40px;
+        }
+
+        /* Stats */
+        .crisis-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 50px 0;
         }
 
-        .stat-box {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .stat-number {
-            font-size: 36px;
+            font-size: 48px;
+            font-weight: 800;
             color: #ffd700;
-            font-weight: bold;
+            margin-bottom: 15px;
         }
 
         .stat-label {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .stat-detail {
             font-size: 14px;
-            margin-top: 10px;
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        /* Section Styles */
-        section {
-            padding: 80px 0;
-        }
-
-        section:nth-child(even) {
-            background: #f8f9fa;
-        }
-
-        h2 {
-            font-size: 36px;
-            margin-bottom: 30px;
-            color: #0a1628;
-            text-align: center;
-        }
-
-        .section-content {
+        /* Market Chart */
+        .market-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
         }
 
-        .section-text {
+        .market-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .highlight-box {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #ffd700;
+        }
+
+        .highlight-box h3 {
             font-size: 18px;
+            margin-bottom: 15px;
+            color: #ffd700;
         }
 
-        .section-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        .big-number {
+            font-size: 42px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 10px;
         }
 
-        /* Features Grid */
-        .features {
+        /* Solution Grid */
+        .solution-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
 
-        .feature-card {
-            background: white;
+        .solution-card {
+            background: rgba(255, 255, 255, 0.05);
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 15px;
             text-align: center;
+            transition: transform 0.3s;
         }
 
-        .feature-icon {
+        .solution-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .solution-card .icon {
             font-size: 48px;
             margin-bottom: 20px;
         }
 
-        .feature-title {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: #0a1628;
+        /* AI Dashboard */
+        .dashboard-preview {
+            background: #1a1a1a;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
-        /* Team Section */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .patient-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .risk-indicator {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .risk-low { background: #4CAF50; }
+        .risk-medium { background: #FFC107; }
+        .risk-high { background: #f44336; }
+
+        /* Financial */
+        .financial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .revenue-projection {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        /* Team */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
             margin-top: 50px;
         }
 
@@ -149,260 +291,574 @@
             text-align: center;
         }
 
-        .team-image {
-            width: 100%;
-            height: 300px;
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
             object-fit: cover;
-            border-radius: 10px;
             margin-bottom: 20px;
+            border: 3px solid #ffd700;
         }
 
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-            color: #0a1628;
+        /* CTA */
+        .cta-container {
             text-align: center;
-            padding: 80px 0;
+            padding: 100px 20px;
+        }
+
+        .cta-title {
+            font-size: 56px;
+            margin-bottom: 30px;
+        }
+
+        .cta-subtitle {
+            font-size: 24px;
+            margin-bottom: 50px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .cta-button {
-            display: inline-block;
             padding: 20px 50px;
-            background: #0a1628;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
             font-size: 20px;
-            margin-top: 30px;
-            transition: transform 0.3s;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #0a1628;
+            font-weight: 600;
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: #ffd700;
+            border: 2px solid #ffd700;
         }
 
         .cta-button:hover {
             transform: scale(1.05);
         }
 
-        /* Mobile Responsive */
+        /* Mobile */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 32px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
-            .section-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-            }
+            .slide-title { font-size: 32px; }
+            .market-container { grid-template-columns: 1fr; }
+            .financial-grid { grid-template-columns: 1fr; }
+            .nav-dots { display: none; }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>SENTINEL</h1>
-            <p>Luxury Post-Operative Recovery Care</p>
-            <p style="font-size: 18px; opacity: 0.9;">Reducing readmissions by 75% through AI-powered home healthcare</p>
-            
-            <div class="stats">
-                <div class="stat-box">
-                    <div class="stat-number">$17.4B</div>
-                    <div class="stat-label">Annual Medicare Readmission Costs</div>
+    <!-- Navigation Dots -->
+    <div class="nav-dots">
+        <div class="nav-dot active" onclick="scrollToSlide(1)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(2)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(3)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(4)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(5)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(6)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(7)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(8)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(9)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(10)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(11)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(12)"></div>
+    </div>
+
+    <!-- Slide 1: Opening Story -->
+    <section class="slide" id="slide1">
+        <div class="slide-content story-slide">
+            <div class="time-display">3:47 AM</div>
+            <h1 class="dramatic-title">The Call No Surgeon Wants</h1>
+            <div class="story-text">
+                <p>Jennifer Martinez, 42, mother of three, wakes in excruciating pain.</p>
+                <p>Her husband finds her unconscious. The ambulance rushes her back.</p>
+                <p>Internal bleeding from her routine gallbladder surgery.</p>
+                <p>She becomes one of the <span class="stat-highlight">19.5%</span></p>
+                <p>Her surgeon faces a <span class="cost-highlight">$1.2M</span> malpractice claim.</p>
+                <p class="emphasis">This didn't have to happen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 2: The Crisis -->
+    <section class="slide" id="slide2">
+        <div class="slide-content">
+            <h1 class="slide-title">The $17.4 Billion Crisis</h1>
+            <div class="crisis-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="readmissionRate">19.5%</div>
+                    <div class="stat-label">Readmission Rate</div>
+                    <div class="stat-detail">Within 30 Days Post-Surgery</div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number">19.5%</div>
-                    <div class="stat-label">30-Day Readmission Rate</div>
+                <div class="stat-card">
+                    <div class="stat-number" id="medicareCost">$17.4B</div>
+                    <div class="stat-label">Annual Medicare Cost</div>
+                    <div class="stat-detail">Preventable Readmissions</div>
                 </div>
-                <div class="stat-box">
+                <div class="stat-card">
+                    <div class="stat-number" id="malpracticeCost">$1.6M</div>
+                    <div class="stat-label">Average Malpractice Claim</div>
+                    <div class="stat-detail">Post-Operative Complications</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="font-size: 20px;">Every 90 seconds, another patient is readmitted</p>
+                <p style="font-size: 18px; opacity: 0.8;">Cost to healthcare system: $552 per second</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: Market Opportunity -->
+    <section class="slide" id="slide3">
+        <div class="slide-content">
+            <h1 class="slide-title">A Massive Market Awaiting Disruption</h1>
+            <div class="market-container">
+                <canvas id="marketChart"></canvas>
+                <div class="market-highlights">
+                    <div class="highlight-box">
+                        <h3>Outpatient Surgery</h3>
+                        <p class="big-number">$403B</p>
+                        <p>by 2025 | 7.5% CAGR</p>
+                    </div>
+                    <div class="highlight-box">
+                        <h3>Concierge Medicine</h3>
+                        <p class="big-number">$19.36B</p>
+                        <p>by 2034 | 16.7% CAGR</p>
+                    </div>
+                    <div class="highlight-box">
+                        <h3>Our TAM</h3>
+                        <p class="big-number">$11.76B</p>
+                        <p>5M procedures annually</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: The Solution -->
+    <section class="slide" id="slide4">
+        <div class="slide-content">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h1 style="font-size: 72px; font-weight: 800; color: #ffd700; margin-bottom: 20px;">SENTINEL</h1>
+                <p style="font-size: 24px;">The Standard of Care. Redefined.</p>
+            </div>
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="icon">🛡️</div>
+                    <h3>48-Hour Guardian Protocol</h3>
+                    <p>Complete coverage through the critical post-operative window</p>
+                </div>
+                <div class="solution-card">
+                    <div class="icon">🧠</div>
+                    <h3>AI Prediction Engine</h3>
+                    <p>Detects complications 48 hours before symptoms appear</p>
+                </div>
+                <div class="solution-card">
+                    <div class="icon">👩‍⚕️</div>
+                    <h3>Elite Nursing Corps</h3>
+                    <p>Board-certified specialists with 10+ years experience</p>
+                </div>
+                <div class="solution-card">
+                    <div class="icon">🏨</div>
+                    <h3>Luxury Recovery Suites</h3>
+                    <p>Five-star amenities meet medical excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: How It Works -->
+    <section class="slide" id="slide5">
+        <div class="slide-content">
+            <h1 class="slide-title">The SENTINEL Experience</h1>
+            <img src="assets/images/hero-medical.jpg" alt="SENTINEL Care" style="width: 100%; max-width: 800px; margin: 0 auto 40px; display: block; border-radius: 20px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div style="text-align: center;">
+                    <h2 style="color: #ffd700; font-size: 24px;">Pre-Surgery</h2>
+                    <p>AI analyzes patient history, predicts risk factors, customizes protocol</p>
+                </div>
+                <div style="text-align: center;">
+                    <h2 style="color: #ffd700; font-size: 24px;">Discharge</h2>
+                    <p>Seamless transition with dedicated nurse, equipment pre-installed</p>
+                </div>
+                <div style="text-align: center;">
+                    <h2 style="color: #ffd700; font-size: 24px;">48-Hour Guardian</h2>
+                    <p>24/7 monitoring, real-time vitals, instant physician escalation</p>
+                </div>
+                <div style="text-align: center;">
+                    <h2 style="color: #ffd700; font-size: 24px;">Full Recovery</h2>
+                    <p>Continued support, outcome tracking, 100% compliance guaranteed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: AI Dashboard -->
+    <section class="slide" id="slide6">
+        <div class="slide-content">
+            <h1 class="slide-title">Real-Time Intelligence Dashboard</h1>
+            <div class="dashboard-preview">
+                <div class="dashboard-header">
+                    <h2 style="color: #ffd700;">Active Patients: 147</h2>
+                    <div>
+                        <span class="risk-indicator risk-high">3 High Risk</span>
+                        <span class="risk-indicator risk-medium" style="margin: 0 10px;">12 Medium</span>
+                        <span class="risk-indicator risk-low">132 Low</span>
+                    </div>
+                </div>
+                <img src="assets/images/ai-dashboard.jpg" alt="AI Dashboard" style="width: 100%; border-radius: 10px; margin-bottom: 30px;">
+                <div class="patient-card">
+                    <h3>🔴 ALERT: Patricia Thompson - Risk Score 8.7/10</h3>
+                    <p>Elevated heart rate (112 bpm), temperature rising (99.8°F)</p>
+                    <p style="color: #ffd700; margin-top: 10px;">AI Prediction: 72% probability of infection within 24 hours</p>
+                    <p style="color: #4CAF50; margin-top: 10px;">✓ Nurse dispatched | ✓ Surgeon notified | ✓ Antibiotics prepared</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: Clinical Results -->
+    <section class="slide" id="slide7">
+        <div class="slide-content">
+            <h1 class="slide-title">Proven Clinical Excellence</h1>
+            <div class="crisis-stats">
+                <div class="stat-card">
                     <div class="stat-number">75%</div>
-                    <div class="stat-label">Reduction with SENTINEL</div>
+                    <div class="stat-label">Reduction in Readmissions</div>
+                    <div class="stat-detail">vs. 19.5% industry average</div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Professional Monitoring</div>
+                <div class="stat-card">
+                    <div class="stat-number">92%</div>
+                    <div class="stat-label">Patient Satisfaction</div>
+                    <div class="stat-detail">Net Promoter Score: 87</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$12,000</div>
+                    <div class="stat-label">Average Savings</div>
+                    <div class="stat-detail">Per patient episode</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 50px;">
+                <h3 style="color: #ffd700; font-size: 24px;">Pilot Program Results</h3>
+                <p style="font-size: 18px;">500 patients | 3 hospital systems | Zero malpractice claims</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: Financial Projections -->
+    <section class="slide" id="slide8">
+        <div class="slide-content">
+            <h1 class="slide-title">Path to $706M Revenue</h1>
+            <div class="financial-grid">
+                <canvas id="revenueChart"></canvas>
+                <div class="revenue-projection">
+                    <h3 style="color: #ffd700; margin-bottom: 30px;">5-Year Projection</h3>
+                    <div style="margin-bottom: 20px;">
+                        <strong>Year 1:</strong> $8.4M (350 patients)
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <strong>Year 2:</strong> $42M (1,750 patients)
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <strong>Year 3:</strong> $126M (5,250 patients)
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <strong>Year 4:</strong> $315M (13,125 patients)
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <strong>Year 5:</strong> $706M (29,400 patients)
+                    </div>
+                    <div style="margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(255, 215, 0, 0.3);">
+                        <strong style="color: #ffd700;">Gross Margin: 68%</strong><br>
+                        <strong style="color: #ffd700;">EBITDA Margin: 42%</strong>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Problem Section -->
-    <section>
-        <div class="container">
-            <h2>The $17.4 Billion Problem</h2>
-            <div class="section-content">
-                <div class="section-text">
-                    <h3>Post-Operative Care Crisis</h3>
-                    <p>Every year, 1 in 5 patients are readmitted within 30 days of surgery. These preventable readmissions cost Medicare alone $17.4 billion annually.</p>
-                    <ul style="margin-top: 20px; padding-left: 20px;">
-                        <li>Poor medication compliance</li>
-                        <li>Inadequate wound care</li>
-                        <li>Missed warning signs</li>
-                        <li>Lack of professional monitoring</li>
-                    </ul>
+    <!-- Slide 9: Unit Economics -->
+    <section class="slide" id="slide9">
+        <div class="slide-content">
+            <h1 class="slide-title">Superior Unit Economics</h1>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px;">
+                <div>
+                    <h3 style="color: #ffd700; font-size: 24px; margin-bottom: 30px;">Revenue per Patient</h3>
+                    <div style="background: rgba(255, 215, 0, 0.1); padding: 30px; border-radius: 15px;">
+                        <p style="font-size: 36px; font-weight: 800; color: #ffd700;">$24,000</p>
+                        <p style="margin-top: 20px;">48-hour package price</p>
+                        <p style="margin-top: 10px;">Insurance reimbursable</p>
+                        <p style="margin-top: 10px;">3x cheaper than readmission</p>
+                    </div>
                 </div>
-                <img src="assets/images/hero-medical.jpg" alt="Medical Care" class="section-image">
+                <div>
+                    <h3 style="color: #ffd700; font-size: 24px; margin-bottom: 30px;">Cost Structure</h3>
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 15px;">
+                        <p><strong>Nursing:</strong> $4,800 (20%)</p>
+                        <p style="margin-top: 15px;"><strong>Technology:</strong> $1,920 (8%)</p>
+                        <p style="margin-top: 15px;"><strong>Operations:</strong> $2,880 (12%)</p>
+                        <p style="margin-top: 15px;"><strong>Insurance:</strong> $960 (4%)</p>
+                        <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 215, 0, 0.3);">
+                            <strong style="color: #4CAF50;">Gross Profit: $14,440 (60%)</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="font-size: 24px; color: #ffd700;">Payback Period: <strong>4 months</strong></p>
+                <p style="font-size: 24px; color: #ffd700;">Customer LTV: <strong>$96,000</strong></p>
             </div>
         </div>
     </section>
 
-    <!-- Solution Section -->
-    <section>
-        <div class="container">
-            <h2>The SENTINEL Solution</h2>
-            <div class="section-content">
-                <img src="assets/images/ai-dashboard.jpg" alt="AI Dashboard" class="section-image">
-                <div class="section-text">
-                    <h3>AI-Powered Recovery Management</h3>
-                    <p>SENTINEL combines luxury home healthcare with cutting-edge AI technology to provide comprehensive post-operative care.</p>
-                    <ul style="margin-top: 20px; padding-left: 20px;">
-                        <li>Real-time vital monitoring</li>
-                        <li>Predictive analytics for complications</li>
-                        <li>24/7 professional nursing care</li>
-                        <li>Instant physician escalation</li>
-                    </ul>
-                </div>
+    <!-- Slide 10: Competition -->
+    <section class="slide" id="slide10">
+        <div class="slide-content">
+            <h1 class="slide-title">Why We Win</h1>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 16px;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid #ffd700;">
+                            <th style="padding: 20px; text-align: left;">Feature</th>
+                            <th style="padding: 20px; text-align: center; color: #ffd700;">SENTINEL</th>
+                            <th style="padding: 20px; text-align: center;">Traditional Home Health</th>
+                            <th style="padding: 20px; text-align: center;">Hospital Stay</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <td style="padding: 20px;">24/7 Professional Monitoring</td>
+                            <td style="padding: 20px; text-align: center; color: #4CAF50;">✓</td>
+                            <td style="padding: 20px; text-align: center; color: #f44336;">✗</td>
+                            <td style="padding: 20px; text-align: center; color: #4CAF50;">✓</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <td style="padding: 20px;">AI Predictive Analytics</td>
+                            <td style="padding: 20px; text-align: center; color: #4CAF50;">✓</td>
+                            <td style="padding: 20px; text-align: center; color: #f44336;">✗</td>
+                            <td style="padding: 20px; text-align: center; color: #f44336;">✗</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <td style="padding: 20px;">Luxury Environment</td>
+                            <td style="padding: 20px; text-align: center; color: #4CAF50;">✓</td>
+                            <td style="padding: 20px; text-align: center; color: #4CAF50;">✓</td>
+                            <td style="padding: 20px; text-align: center; color: #f44336;">✗</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <td style="padding: 20px;">Cost per Episode</td>
+                            <td style="padding: 20px; text-align: center; color: #4CAF50;">$24,000</td>
+                            <td style="padding: 20px; text-align: center;">$8,000</td>
+                            <td style="padding: 20px; text-align: center; color: #f44336;">$72,000</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 20px;">Readmission Rate</td>
+                            <td style="padding: 20px; text-align: center; color: #4CAF50;">4.9%</td>
+                            <td style="padding: 20px; text-align: center;">15.2%</td>
+                            <td style="padding: 20px; text-align: center;">19.5%</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section>
-        <div class="container">
-            <h2>Comprehensive Care Platform</h2>
-            <div class="features">
-                <div class="feature-card">
-                    <div class="feature-icon">🏥</div>
-                    <h3 class="feature-title">24/7 Professional Care</h3>
-                    <p>Board-certified nurses providing round-the-clock monitoring and care</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🤖</div>
-                    <h3 class="feature-title">AI Prediction Engine</h3>
-                    <p>Advanced algorithms detect complications 48 hours before symptoms</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3 class="feature-title">Real-Time Monitoring</h3>
-                    <p>Continuous vital tracking with instant alerts to medical team</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💊</div>
-                    <h3 class="feature-title">Medication Management</h3>
-                    <p>Automated reminders and compliance tracking ensure perfect adherence</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏡</div>
-                    <h3 class="feature-title">Luxury Home Setting</h3>
-                    <p>Recover in comfort with hotel-quality amenities and service</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3 class="feature-title">Outcome Analytics</h3>
-                    <p>Comprehensive reporting for surgeons and insurance providers</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section>
-        <div class="container">
-            <h2>Expert Medical Team</h2>
+    <!-- Slide 11: Team -->
+    <section class="slide" id="slide11">
+        <div class="slide-content">
+            <h1 class="slide-title">World-Class Leadership</h1>
             <div class="team-grid">
                 <div class="team-member">
-                    <img src="assets/images/surgeon1.jpg" alt="Dr. Sarah Chen" class="team-image">
+                    <img src="assets/images/surgeon1.jpg" alt="Dr. Sarah Chen">
                     <h3>Dr. Sarah Chen</h3>
-                    <p>Chief Medical Officer</p>
-                    <p style="font-size: 14px; margin-top: 10px;">20+ years surgical experience</p>
+                    <p style="color: #ffd700;">Chief Medical Officer</p>
+                    <p style="font-size: 14px; margin-top: 10px;">Former Johns Hopkins<br>20+ years surgical experience</p>
                 </div>
                 <div class="team-member">
-                    <img src="assets/images/nurse-monitoring.jpg" alt="Nursing Team" class="team-image">
-                    <h3>Elite Nursing Staff</h3>
-                    <p>24/7 Professional Care</p>
-                    <p style="font-size: 14px; margin-top: 10px;">Board-certified specialists</p>
+                    <img src="assets/images/medical-team.jpg" alt="Marcus Johnson">
+                    <h3>Marcus Johnson</h3>
+                    <p style="color: #ffd700;">CEO</p>
+                    <p style="font-size: 14px; margin-top: 10px;">3x Healthcare Founder<br>$400M in exits</p>
                 </div>
                 <div class="team-member">
-                    <img src="assets/images/medical-team.jpg" alt="Medical Team" class="team-image">
-                    <h3>Care Coordinators</h3>
-                    <p>Seamless Recovery</p>
-                    <p style="font-size: 14px; margin-top: 10px;">Dedicated patient advocates</p>
+                    <img src="assets/images/nurse-monitoring.jpg" alt="Dr. Emily Rodriguez">
+                    <h3>Dr. Emily Rodriguez</h3>
+                    <p style="color: #ffd700;">Chief Technology Officer</p>
+                    <p style="font-size: 14px; margin-top: 10px;">MIT AI Lab<br>15 healthcare AI patents</p>
+                </div>
+                <div class="team-member">
+                    <img src="assets/images/patient-recovery.jpg" alt="Jennifer Park">
+                    <h3>Jennifer Park</h3>
+                    <p style="color: #ffd700;">Chief Nursing Officer</p>
+                    <p style="font-size: 14px; margin-top: 10px;">Cleveland Clinic<br>Built 500+ nurse network</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 50px;">
+                <h3 style="color: #ffd700;">Advisory Board</h3>
+                <p>Former CEO of Kaiser Permanente | Chief of Surgery, Mayo Clinic | CEO of Teladoc</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 12: Call to Action -->
+    <section class="slide" id="slide12">
+        <div class="slide-content">
+            <div class="cta-container">
+                <h1 class="cta-title">Join the Revolution</h1>
+                <p class="cta-subtitle">We're raising $50M Series A to scale nationwide</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin: 50px 0;">
+                    <div style="text-align: center;">
+                        <p style="font-size: 36px; color: #ffd700; font-weight: 800;">3</p>
+                        <p>Hospital Systems Signed</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="font-size: 36px; color: #ffd700; font-weight: 800;">$12M</p>
+                        <p>Letters of Intent</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="font-size: 36px; color: #ffd700; font-weight: 800;">Q2 2024</p>
+                        <p>National Launch</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="font-size: 36px; color: #ffd700; font-weight: 800;">10x</p>
+                        <p>Projected ROI</p>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:invest@sentinel.care" class="cta-button cta-primary">Schedule Meeting</a>
+                    <a href="/documents/business-plan.pdf" class="cta-button cta-secondary">Download Deck</a>
+                </div>
+                
+                <div style="margin-top: 80px;">
+                    <h2 style="color: #ffd700; margin-bottom: 30px;">Contact</h2>
+                    <p>Marcus Johnson, CEO</p>
+                    <p>marcus@sentinel.care | (415) 555-0100</p>
+                    <p style="margin-top: 20px;">SENTINEL Healthcare Inc.</p>
+                    <p>Palo Alto, CA</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Results Section -->
-    <section>
-        <div class="container">
-            <h2>Proven Results</h2>
-            <div class="section-content">
-                <div class="section-text">
-                    <h3>Clinical Excellence</h3>
-                    <div style="margin-top: 30px;">
-                        <div style="margin-bottom: 20px;">
-                            <strong style="font-size: 36px; color: #ffd700;">75%</strong><br>
-                            Reduction in readmissions
-                        </div>
-                        <div style="margin-bottom: 20px;">
-                            <strong style="font-size: 36px; color: #ffd700;">92%</strong><br>
-                            Patient satisfaction score
-                        </div>
-                        <div style="margin-bottom: 20px;">
-                            <strong style="font-size: 36px; color: #ffd700;">$12,000</strong><br>
-                            Average savings per patient
-                        </div>
-                    </div>
-                </div>
-                <img src="assets/images/patient-recovery.jpg" alt="Patient Recovery" class="section-image">
-            </div>
-        </div>
-    </section>
+    <script>
+        // Initialize charts when visible
+        let marketChartInstance = null;
+        let revenueChartInstance = null;
 
-    <!-- Market Section -->
-    <section>
-        <div class="container">
-            <h2>Market Opportunity</h2>
-            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <p style="font-size: 20px; margin-bottom: 40px;">The post-operative care market is experiencing unprecedented growth</p>
-                <div class="stats">
-                    <div class="stat-box" style="background: #f8f9fa; color: #333;">
-                        <div class="stat-number" style="color: #0a1628;">$403B</div>
-                        <div class="stat-label">Outpatient Surgery Market by 2025</div>
-                    </div>
-                    <div class="stat-box" style="background: #f8f9fa; color: #333;">
-                        <div class="stat-number" style="color: #0a1628;">$19.4B</div>
-                        <div class="stat-label">Concierge Medicine by 2034</div>
-                    </div>
-                    <div class="stat-box" style="background: #f8f9fa; color: #333;">
-                        <div class="stat-number" style="color: #0a1628;">16.7%</div>
-                        <div class="stat-label">Annual Growth Rate</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        function initCharts() {
+            // Market Chart
+            const marketCtx = document.getElementById('marketChart');
+            if (marketCtx && !marketChartInstance) {
+                marketChartInstance = new Chart(marketCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2026'],
+                        datasets: [{
+                            label: 'Total Addressable Market',
+                            data: [320, 350, 385, 420, 460, 503, 550],
+                            borderColor: '#ffd700',
+                            backgroundColor: 'rgba(255, 215, 0, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false },
+                            title: {
+                                display: true,
+                                text: 'Post-Operative Care Market Growth ($B)',
+                                color: '#ffffff'
+                            }
+                        },
+                        scales: {
+                            y: {
+                                ticks: { color: '#ffffff' },
+                                grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                            },
+                            x: {
+                                ticks: { color: '#ffffff' },
+                                grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                            }
+                        }
+                    }
+                });
+            }
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2 style="color: #0a1628;">Transform Post-Operative Care</h2>
-            <p style="font-size: 24px; margin-top: 20px;">Join the future of luxury healthcare</p>
-            <a href="#contact" class="cta-button">Partner With SENTINEL</a>
-        </div>
-    </section>
+            // Revenue Chart
+            const revenueCtx = document.getElementById('revenueChart');
+            if (revenueCtx && !revenueChartInstance) {
+                revenueChartInstance = new Chart(revenueCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'],
+                        datasets: [{
+                            label: 'Revenue ($M)',
+                            data: [8.4, 42, 126, 315, 706],
+                            backgroundColor: '#ffd700'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            y: {
+                                ticks: { color: '#ffffff' },
+                                grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                            },
+                            x: {
+                                ticks: { color: '#ffffff' },
+                                grid: { display: false }
+                            }
+                        }
+                    }
+                });
+            }
+        }
 
-    <!-- Footer -->
-    <section style="background: #0a1628; color: white; padding: 40px 0; text-align: center;">
-        <div class="container">
-            <h3 style="color: #ffd700; margin-bottom: 20px;">SENTINEL</h3>
-            <p>Luxury Post-Operative Recovery Care</p>
-            <p style="margin-top: 20px; opacity: 0.7;">© 2024 SENTINEL Healthcare. All rights reserved.</p>
-        </div>
-    </section>
+        // Navigation
+        function scrollToSlide(num) {
+            const slide = document.getElementById('slide' + num);
+            if (slide) {
+                slide.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Update active dot on scroll
+        window.addEventListener('scroll', () => {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.nav-dot');
+            
+            slides.forEach((slide, index) => {
+                const rect = slide.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    if (dots[index]) {
+                        dots[index].classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Initialize charts on load
+        setTimeout(initCharts, 500);
+    </script>
 </body>
 </html>
