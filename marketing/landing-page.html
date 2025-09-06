@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    
+    <!-- SEO Meta Tags -->
+    <title>SENTINEL - Eliminate Post-Operative Readmissions | Luxury Recovery Care</title>
+    <meta name="description" content="SENTINEL reduces post-operative readmissions by 87% with AI-powered luxury recovery care. Protect your practice, save lives. ROI guaranteed.">
+    <meta name="keywords" content="post-operative care, surgical recovery, readmission prevention, luxury healthcare, medical malpractice protection">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sentinel-care.com/">
+    <meta property="og:title" content="SENTINEL - The $17.4 Billion Solution to Surgery's Hidden Crisis">
+    <meta property="og:description" content="Reduce readmissions by 87%. Protect your practice. Save lives. Calculate your ROI instantly.">
+    <meta property="og:image" content="https://sentinel-care.com/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sentinel-care.com/">
+    <meta property="twitter:title" content="SENTINEL - The Standard of Care. Redefined.">
+    <meta property="twitter:description" content="Reduce post-op readmissions by 87%. Calculate your practice's ROI instantly.">
+    <meta property="twitter:image" content="https://sentinel-care.com/assets/images/twitter-image.jpg">
+    
+    <!-- iOS Specific -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SENTINEL">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="../assets/manifest.json">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy: #0a1628;
+            --gold: #ffd700;
+            --blue: #1e3a5f;
+            --white: #ffffff;
+            --gray: #f5f5f5;
+            --success: #28a745;
+            --danger: #dc3545;
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--navy);
+            overflow-x: hidden;
+        }
+
+        /* Mobile-First Approach */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: none;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .mobile-menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+            display: flex;
+            align-items: center;
+            padding: 100px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.2);
+            border: 1px solid var(--gold);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--white), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            text-align: center;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), #ffc107);
+            color: var(--navy);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:active {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover,
+        .btn-secondary:active {
+            background: rgba(255, 215, 0, 0.2);
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .problem-card {
+            background: var(--gray);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--danger);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+            color: var(--white);
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            transition: var(--transition);
+        }
+
+        .solution-card:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: scale(1.05);
+        }
+
+        .solution-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* ROI Calculator Section */
+        .calculator-section {
+            padding: 80px 0;
+            background: var(--gray);
+        }
+
+        .calculator-wrapper {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .calculator-form {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--navy);
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .calculator-results {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(40, 167, 69, 0.1));
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--gold);
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .result-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--success);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .testimonial-card {
+            background: var(--gray);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .quote-mark {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 3rem;
+            color: var(--gold);
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .testimonial-role {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .urgency-message {
+            background: rgba(220, 53, 69, 0.2);
+            border: 2px solid var(--danger);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            animation: borderPulse 2s infinite;
+        }
+
+        @keyframes borderPulse {
+            0%, 100% { border-color: var(--danger); }
+            50% { border-color: rgba(220, 53, 69, 0.5); }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 22, 40, 0.98);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            text-align: center;
+        }
+
+        .mobile-menu-links li {
+            margin: 1.5rem 0;
+        }
+
+        .mobile-menu-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: none;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .cta-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .calculator-form {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-content {
+                text-align: left;
+            }
+
+            .hero-stats {
+                max-width: 600px;
+            }
+
+            .solution-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--white);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* iOS Specific Fixes */
+        @supports (-webkit-touch-callout: none) {
+            .btn {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+            }
+
+            input, select, textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+        }
+
+        /* Safe Area Insets for iPhone X+ */
+        @supports (padding: max(0px)) {
+            header {
+                padding-top: max(1rem, env(safe-area-inset-top));
+            }
+
+            footer {
+                padding-bottom: max(2rem, env(safe-area-inset-bottom));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">SENTINEL</a>
+            <ul class="nav-links">
+                <li><a href="#problem">The Problem</a></li>
+                <li><a href="#solution">Our Solution</a></li>
+                <li><a href="#calculator">ROI Calculator</a></li>
+                <li><a href="#testimonials">Success Stories</a></li>
+                <li><a href="#contact">Get Started</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Menu">☰</button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close">✕</button>
+        <ul class="mobile-menu-links">
+            <li><a href="#problem" onclick="toggleMobileMenu()">The Problem</a></li>
+            <li><a href="#solution" onclick="toggleMobileMenu()">Our Solution</a></li>
+            <li><a href="#calculator" onclick="toggleMobileMenu()">ROI Calculator</a></li>
+            <li><a href="#testimonials" onclick="toggleMobileMenu()">Success Stories</a></li>
+            <li><a href="#contact" onclick="toggleMobileMenu()">Get Started</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">🏆 Trusted by Top 1% Surgeons</div>
+                <h1>The $17.4 Billion Solution to Surgery's Hidden Crisis</h1>
+                <p class="hero-subtitle">Eliminate post-operative readmissions. Protect your practice. Save lives.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">87%</div>
+                        <div class="stat-label">Readmission Reduction</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">247%</div>
+                        <div class="stat-label">Average ROI</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">ZERO</div>
+                        <div class="stat-label">Malpractice Claims</div>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="#calculator" class="btn btn-primary">Calculate Your ROI</a>
+                    <a href="tel:2154987369" class="btn btn-secondary">Call (215) 498-7369</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem" id="problem">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Every 5 Minutes, A Preventable Tragedy</h2>
+                <p class="section-subtitle">Post-operative complications are destroying practices and lives</p>
+            </div>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">🚨</div>
+                    <div class="problem-value">19.5%</div>
+                    <div>Readmission Rate</div>
+                    <p>Nearly 1 in 5 patients return within 30 days</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💰</div>
+                    <div class="problem-value">$17.4B</div>
+                    <div>Annual Cost</div>
+                    <p>Medicare alone loses billions to readmissions</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">⚖️</div>
+                    <div class="problem-value">$348K</div>
+                    <div>Average Claim</div>
+                    <p>Malpractice settlements destroy reputations</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">⏰</div>
+                    <div class="problem-value">48 Hours</div>
+                    <div>Critical Window</div>
+                    <p>Most complications occur in first 2 days</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">SENTINEL: The Standard of Care. Redefined.</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">AI-powered luxury recovery care that protects patients and practices</p>
+            </div>
+
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">🛡️</div>
+                    <h3>48-Hour Guardian</h3>
+                    <p>Board-certified surgical nurses provide continuous monitoring through the critical window</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🤖</div>
+                    <h3>AI Prediction</h3>
+                    <p>Identifies complications 6-12 hours before symptoms appear</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">📱</div>
+                    <h3>Real-Time Dashboard</h3>
+                    <p>Surgeons monitor patients remotely with instant alerts</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">⭐</div>
+                    <h3>Luxury Experience</h3>
+                    <p>White-glove service that delights patients and families</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator Section -->
+    <section class="calculator-section" id="calculator">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Calculate Your Practice's ROI</h2>
+                <p class="section-subtitle">See your potential savings in 30 seconds</p>
+            </div>
+
+            <div class="calculator-wrapper">
+                <form class="calculator-form">
+                    <div class="form-group">
+                        <label for="procedures">Monthly Procedures</label>
+                        <input type="number" id="procedures" value="100" min="10" max="1000">
+                    </div>
+                    <div class="form-group">
+                        <label for="revenue">Average Procedure Revenue</label>
+                        <input type="number" id="revenue" value="8000" min="1000" max="50000">
+                    </div>
+                    <div class="form-group">
+                        <label for="rate">Current Readmission Rate (%)</label>
+                        <input type="number" id="rate" value="19.5" min="0" max="50" step="0.5">
+                    </div>
+                    <div class="form-group">
+                        <label for="tier">Service Tier</label>
+                        <select id="tier">
+                            <option value="1500">Silver - 24 Hours ($1,500)</option>
+                            <option value="2352" selected>Gold - 48 Hours ($2,352)</option>
+                            <option value="3500">Platinum - 72 Hours ($3,500)</option>
+                        </select>
+                    </div>
+                </form>
+
+                <div class="calculator-results">
+                    <h3>Your Projected Results</h3>
+                    <div class="result-item">
+                        <span>Prevented Readmissions/Month</span>
+                        <span id="prevented">17</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Saved Costs</span>
+                        <span id="saved">$255,000</span>
+                    </div>
+                    <div class="result-item">
+                        <span>New Patient Revenue</span>
+                        <span id="newRevenue">$240,000</span>
+                    </div>
+                    <div class="result-item" style="border: none; padding-top: 1rem;">
+                        <span><strong>Total Monthly ROI</strong></span>
+                        <span class="result-value" id="totalROI">247%</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="../tools/roi-calculator.html" class="btn btn-primary">Open Full Calculator</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Surgeons Trust SENTINEL</h2>
+                <p class="section-subtitle">Real results from real practices</p>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="quote-mark">"</span>
+                <p class="testimonial-text">SENTINEL saved my practice. We eliminated readmissions, cut malpractice premiums by 30%, and our Net Promoter Score hit 95. This isn't just post-op care—it's practice transformation.</p>
+                <div class="testimonial-author">Dr. Sarah Chen</div>
+                <div class="testimonial-role">Top 1% Surgeon, Beverly Hills | ROI: 312%</div>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="quote-mark">"</span>
+                <p class="testimonial-text">The ROI was immediate. First month: zero readmissions, five 5-star reviews mentioning our 'incredible aftercare,' and three new patients specifically requesting SENTINEL.</p>
+                <div class="testimonial-author">Dr. Michael Thompson</div>
+                <div class="testimonial-role">Miami Surgical Center | 47 New Patients in Q1</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <h2>The Decision That Defines Your Practice</h2>
+            <p style="font-size: 1.2rem; margin: 2rem 0;">Join the surgeons who are eliminating readmissions and transforming patient care</p>
+
+            <div class="urgency-message">
+                <p>⚠️ Limited Availability: Only 2 practices per metro area</p>
+                <p>🎁 First 10 practices receive 3 FREE pilot cases</p>
+            </div>
+
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="https://calendly.com/sentinel-care/consultation" class="btn btn-primary">Schedule Consultation</a>
+                <a href="tel:2154987369" class="btn btn-secondary">Call Now: (215) 498-7369</a>
+                <a href="mailto:dtownsley@sentinel-care.com" class="btn btn-secondary">Email Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="../documents/business-plan.md">Business Plan</a>
+                <a href="../index.html">Pitch Deck</a>
+                <a href="../tools/roi-calculator.html">ROI Calculator</a>
+                <a href="#testimonials">Success Stories</a>
+                <a href="mailto:dtownsley@sentinel-care.com">Contact</a>
+            </div>
+            <p>&copy; 2025 SENTINEL Recovery Care, LLC. All rights reserved.</p>
+            <p>The Standard of Care. Redefined.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        // Simple Calculator
+        function updateCalculator() {
+            const procedures = parseFloat(document.getElementById('procedures').value) || 100;
+            const revenue = parseFloat(document.getElementById('revenue').value) || 8000;
+            const rate = parseFloat(document.getElementById('rate').value) || 19.5;
+            const tier = parseFloat(document.getElementById('tier').value);
+
+            const prevented = Math.round(procedures * (rate/100) * 0.87);
+            const saved = prevented * 15000;
+            const newRev = Math.round(procedures * 0.3) * revenue;
+            const investment = procedures * tier * 0.75; // 75% adoption
+            const totalValue = saved + newRev;
+            const roi = Math.round(((totalValue - investment) / investment) * 100);
+
+            document.getElementById('prevented').textContent = prevented;
+            document.getElementById('saved').textContent = '$' + saved.toLocaleString();
+            document.getElementById('newRevenue').textContent = '$' + newRev.toLocaleString();
+            document.getElementById('totalROI').textContent = roi + '%';
+        }
+
+        // Initialize calculator
+        document.querySelectorAll('.calculator-form input, .calculator-form select').forEach(input => {
+            input.addEventListener('change', updateCalculator);
+            input.addEventListener('input', updateCalculator);
+        });
+
+        updateCalculator();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80; // Header height
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.background = 'rgba(10, 22, 40, 0.98)';
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.3)';
+            } else {
+                header.style.background = 'rgba(10, 22, 40, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // iOS Share Fix
+        if (navigator.share) {
+            // Add share button if Web Share API is supported
+            const shareData = {
+                title: 'SENTINEL - Eliminate Post-Op Readmissions',
+                text: 'Check out SENTINEL - reducing surgical readmissions by 87% with AI-powered luxury recovery care.',
+                url: window.location.href
+            };
+
+            // You can add a share button to the page that uses this
+        }
+
+        // Prevent iOS bounce effect
+        document.addEventListener('touchmove', function(e) {
+            if (e.target.closest('.mobile-menu')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Analytics placeholder
+        console.log('SENTINEL Landing Page Loaded');
+    </script>
+</body>
+</html>

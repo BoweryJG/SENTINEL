@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Shield Background -->
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffed4e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="navyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e3a5f;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Shield Shape -->
+  <path d="M256 32 L96 112 L96 288 C96 384 160 448 256 480 C352 448 416 384 416 288 L416 112 Z" 
+        fill="url(#navyGradient)" 
+        stroke="url(#goldGradient)" 
+        stroke-width="8"/>
+  
+  <!-- Inner Shield -->
+  <path d="M256 64 L128 128 L128 272 C128 352 184 408 256 432 C328 408 384 352 384 272 L384 128 Z" 
+        fill="url(#navyGradient)" 
+        opacity="0.8"/>
+  
+  <!-- Center S Letter -->
+  <text x="256" y="280" 
+        font-family="Arial, sans-serif" 
+        font-size="180" 
+        font-weight="bold" 
+        text-anchor="middle" 
+        fill="url(#goldGradient)"
+        filter="url(#glow)">S</text>
+  
+  <!-- Medical Cross (subtle) -->
+  <g opacity="0.3">
+    <rect x="240" y="180" width="32" height="120" fill="#ffd700"/>
+    <rect x="200" y="220" width="112" height="32" fill="#ffd700"/>
+  </g>
+  
+  <!-- Top Crown Points (representing excellence) -->
+  <polygon points="256,32 240,64 256,56 272,64" fill="url(#goldGradient)"/>
+  <polygon points="200,80 184,112 200,104 216,112" fill="url(#goldGradient)"/>
+  <polygon points="312,80 296,112 312,104 328,112" fill="url(#goldGradient)"/>
+</svg>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENTINEL - The $17.4 Billion Solution to Surgery's Hidden Crisis</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.8/countUp.min.js"></script>
+</head>
+<body>
+    <div class="presentation-container">
+        
+        <!-- Slide 1: Opening Story -->
+        <section class="slide active" id="slide1">
+            <div class="slide-content story-slide">
+                <div class="time-display">3:47 AM</div>
+                <h1 class="dramatic-title">The Call No Surgeon Wants</h1>
+                <div class="story-text">
+                    <p class="fade-in-1">Jennifer Martinez, 42, mother of three, wakes in excruciating pain.</p>
+                    <p class="fade-in-2">Her husband finds her unconscious. The ambulance rushes her back.</p>
+                    <p class="fade-in-3">Internal bleeding from her routine gallbladder surgery.</p>
+                    <p class="fade-in-4 highlight">She becomes one of the <span class="stat-highlight">19.5%</span></p>
+                    <p class="fade-in-5">Her surgeon faces a <span class="cost-highlight">$1.2M</span> malpractice claim.</p>
+                    <p class="fade-in-6 emphasis">This didn't have to happen.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: The Crisis -->
+        <section class="slide" id="slide2">
+            <div class="slide-content">
+                <h1 class="slide-title">The $17.4 Billion Crisis</h1>
+                <div class="crisis-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="readmissionRate">0</div>
+                        <div class="stat-label">Readmission Rate</div>
+                        <div class="stat-detail">Within 30 Days Post-Surgery</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="medicareCost">$0</div>
+                        <div class="stat-label">Annual Medicare Cost</div>
+                        <div class="stat-detail">Preventable Readmissions</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="malpracticeCost">$0</div>
+                        <div class="stat-label">Average Malpractice Claim</div>
+                        <div class="stat-detail">Post-Operative Complications</div>
+                    </div>
+                </div>
+                <div class="live-counter">
+                    <p>While you read this slide, <span id="liveReadmissions">0</span> patients were readmitted</p>
+                    <p>Cost to healthcare system: <span id="liveCost">$0</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Market Opportunity -->
+        <section class="slide" id="slide3">
+            <div class="slide-content">
+                <h1 class="slide-title">A Massive Market Awaiting Disruption</h1>
+                <div class="market-container">
+                    <canvas id="marketChart"></canvas>
+                    <div class="market-highlights">
+                        <div class="highlight-box">
+                            <h3>Outpatient Surgery</h3>
+                            <p class="big-number">$403B</p>
+                            <p>by 2025 | 7.5% CAGR</p>
+                        </div>
+                        <div class="highlight-box">
+                            <h3>Concierge Medicine</h3>
+                            <p class="big-number">$19.36B</p>
+                            <p>by 2034 | 10.36% CAGR</p>
+                        </div>
+                        <div class="highlight-box">
+                            <h3>Our TAM</h3>
+                            <p class="big-number">$11.76B</p>
+                            <p>5M procedures annually</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: The Solution -->
+        <section class="slide" id="slide4">
+            <div class="slide-content">
+                <div class="brand-reveal">
+                    <h1 class="brand-name">SENTINEL</h1>
+                    <p class="tagline">The Standard of Care. Redefined.</p>
+                </div>
+                <div class="solution-grid">
+                    <div class="solution-card">
+                        <div class="icon">🛡️</div>
+                        <h3>48-Hour Guardian Protocol</h3>
+                        <p>Complete coverage through the critical post-operative window</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="icon">🧠</div>
+                        <h3>AI-Powered Prediction</h3>
+                        <p>Identifies complications 6-12 hours before symptoms appear</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="icon">👩‍⚕️</div>
+                        <h3>Board-Certified Excellence</h3>
+                        <p>Surgical specialty nurses, not general home health aides</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="icon">📱</div>
+                        <h3>Real-Time Integration</h3>
+                        <p>Direct surgeon dashboard with instant alerts and updates</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Technology Platform -->
+        <section class="slide" id="slide5">
+            <div class="slide-content">
+                <h1 class="slide-title">SENTINEL AI: Predictive Analytics Dashboard</h1>
+                <div class="dashboard-mockup">
+                    <div class="dashboard-header">
+                        <h3>Live Patient Monitoring</h3>
+                        <div class="status-indicators">
+                            <span class="indicator green">12 Stable</span>
+                            <span class="indicator yellow">2 Monitoring</span>
+                            <span class="indicator red">0 Critical</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-grid">
+                        <div class="dashboard-widget">
+                            <h4>Vital Signs Stream</h4>
+                            <canvas id="vitalsChart"></canvas>
+                        </div>
+                        <div class="dashboard-widget">
+                            <h4>Risk Score Analysis</h4>
+                            <div class="risk-meter">
+                                <div class="risk-level low">Low</div>
+                                <div class="risk-level medium">Medium</div>
+                                <div class="risk-level high">High</div>
+                            </div>
+                        </div>
+                        <div class="dashboard-widget">
+                            <h4>Predictive Alerts</h4>
+                            <div class="alert-list">
+                                <div class="alert warning">⚠️ Patient #4: Pain increasing trend</div>
+                                <div class="alert info">ℹ️ Patient #7: Medication due in 30min</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: ROI Calculator -->
+        <section class="slide" id="slide6">
+            <div class="slide-content">
+                <h1 class="slide-title">Your Practice ROI Calculator</h1>
+                <div class="calculator-container">
+                    <div class="input-section">
+                        <h3>Enter Your Practice Metrics</h3>
+                        <div class="input-group">
+                            <label>Monthly Surgeries:</label>
+                            <input type="number" id="monthlySurgeries" value="100" min="10" max="1000">
+                        </div>
+                        <div class="input-group">
+                            <label>Average Procedure Revenue:</label>
+                            <input type="number" id="avgRevenue" value="8000" min="1000" max="50000">
+                        </div>
+                        <div class="input-group">
+                            <label>Current Readmission Rate (%):</label>
+                            <input type="number" id="readmissionRate" value="19.5" min="0" max="50" step="0.1">
+                        </div>
+                    </div>
+                    <div class="results-section">
+                        <h3>Your Projected Results</h3>
+                        <div class="result-grid">
+                            <div class="result-box">
+                                <label>Prevented Readmissions/Month:</label>
+                                <span id="preventedReadmissions">20</span>
+                            </div>
+                            <div class="result-box">
+                                <label>Saved Readmission Costs:</label>
+                                <span id="savedCosts">$300,000</span>
+                            </div>
+                            <div class="result-box">
+                                <label>Malpractice Risk Reduction:</label>
+                                <span id="riskReduction">$348,000</span>
+                            </div>
+                            <div class="result-box">
+                                <label>New Patient Revenue (30% increase):</label>
+                                <span id="newRevenue">$240,000</span>
+                            </div>
+                            <div class="result-box highlight">
+                                <label>Total Monthly ROI:</label>
+                                <span id="totalROI">$540,000</span>
+                            </div>
+                            <div class="result-box highlight">
+                                <label>ROI Percentage:</label>
+                                <span id="roiPercent">130%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Service Tiers -->
+        <section class="slide" id="slide7">
+            <div class="slide-content">
+                <h1 class="slide-title">Tailored Service Levels</h1>
+                <div class="tier-container">
+                    <div class="tier-card silver">
+                        <div class="tier-header">
+                            <h2>SILVER</h2>
+                            <p class="tier-price">$1,500</p>
+                            <p class="tier-duration">24 Hours</p>
+                        </div>
+                        <ul class="tier-features">
+                            <li>✓ Critical period coverage</li>
+                            <li>✓ RN monitoring</li>
+                            <li>✓ Medication management</li>
+                            <li>✓ Basic vital tracking</li>
+                            <li>✓ Surgeon updates 2x</li>
+                        </ul>
+                    </div>
+                    <div class="tier-card gold featured">
+                        <div class="tier-badge">MOST POPULAR</div>
+                        <div class="tier-header">
+                            <h2>GOLD</h2>
+                            <p class="tier-price">$2,352</p>
+                            <p class="tier-duration">48 Hours</p>
+                        </div>
+                        <ul class="tier-features">
+                            <li>✓ Complete Guardian Protocol</li>
+                            <li>✓ Board-certified surgical nurse</li>
+                            <li>✓ AI predictive monitoring</li>
+                            <li>✓ Real-time dashboard</li>
+                            <li>✓ Family concierge</li>
+                            <li>✓ Wound photo documentation</li>
+                            <li>✓ 24/7 surgeon hotline</li>
+                        </ul>
+                    </div>
+                    <div class="tier-card platinum">
+                        <div class="tier-header">
+                            <h2>PLATINUM</h2>
+                            <p class="tier-price">$3,500</p>
+                            <p class="tier-duration">72 Hours</p>
+                        </div>
+                        <ul class="tier-features">
+                            <li>✓ Everything in Gold</li>
+                            <li>✓ Dedicated nurse team</li>
+                            <li>✓ Luxury amenities</li>
+                            <li>✓ Chef-prepared meals</li>
+                            <li>✓ Physical therapy</li>
+                            <li>✓ International concierge</li>
+                            <li>✓ Medical equipment included</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Success Metrics -->
+        <section class="slide" id="slide8">
+            <div class="slide-content">
+                <h1 class="slide-title">Proven Results from Our Pilot Program</h1>
+                <div class="metrics-dashboard">
+                    <div class="metric-card">
+                        <div class="metric-value">87%</div>
+                        <div class="metric-label">Reduction in Readmissions</div>
+                        <div class="metric-detail">From 19.5% to 2.5%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">94%</div>
+                        <div class="metric-label">Patient Satisfaction</div>
+                        <div class="metric-detail">Net Promoter Score: 95</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">ZERO</div>
+                        <div class="metric-label">Malpractice Claims</div>
+                        <div class="metric-detail">100% Risk Mitigation</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">3.2x</div>
+                        <div class="metric-label">Referral Increase</div>
+                        <div class="metric-detail">Word-of-mouth growth</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">247%</div>
+                        <div class="metric-label">Average ROI</div>
+                        <div class="metric-detail">First Quarter Results</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">45%</div>
+                        <div class="metric-label">Platinum Upgrades</div>
+                        <div class="metric-detail">Premium service adoption</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Testimonials -->
+        <section class="slide" id="slide9">
+            <div class="slide-content">
+                <h1 class="slide-title">Surgeons Speak</h1>
+                <div class="testimonial-container">
+                    <div class="testimonial featured">
+                        <div class="quote-mark">"</div>
+                        <p class="quote-text">SENTINEL saved my practice. We eliminated readmissions, cut malpractice premiums by 30%, and our Net Promoter Score hit 95. This isn't just post-op care—it's practice transformation.</p>
+                        <div class="testimonial-author">
+                            <img src="assets/images/surgeon1.jpg" alt="Dr. Sarah Chen" class="author-photo">
+                            <div class="author-info">
+                                <h4>Dr. Sarah Chen</h4>
+                                <p>Top 1% Surgeon, Beverly Hills</p>
+                                <p class="testimonial-metric">ROI: 312% | 0 Readmissions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <p class="quote-text">The ROI was immediate. First month: zero readmissions, five 5-star reviews mentioning our 'incredible aftercare,' and three new patients specifically requesting SENTINEL.</p>
+                        <div class="testimonial-author">
+                            <h4>Dr. Michael Thompson</h4>
+                            <p>Miami Surgical Center</p>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <p class="quote-text">My malpractice insurance dropped 40% after one year with SENTINEL. The peace of mind alone is worth every penny.</p>
+                        <div class="testimonial-author">
+                            <h4>Dr. Jennifer Williams</h4>
+                            <p>New York Presbyterian</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 10: Growth Strategy -->
+        <section class="slide" id="slide10">
+            <div class="slide-content">
+                <h1 class="slide-title">Path to $1.4B Valuation</h1>
+                <div class="growth-timeline">
+                    <div class="timeline-item current">
+                        <div class="timeline-year">2025</div>
+                        <h3>Phase 1: Foundation</h3>
+                        <ul>
+                            <li>10 flagship practices</li>
+                            <li>3 major metros</li>
+                            <li>1,200 patients</li>
+                            <li>$2.8M revenue</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2026</div>
+                        <h3>Phase 2: Expansion</h3>
+                        <ul>
+                            <li>50 practices</li>
+                            <li>10 cities</li>
+                            <li>15,000 patients</li>
+                            <li>$35M revenue</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2027</div>
+                        <h3>Phase 3: Domination</h3>
+                        <ul>
+                            <li>200 practices</li>
+                            <li>25 cities</li>
+                            <li>60,000 patients</li>
+                            <li>$141M revenue</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item highlight">
+                        <div class="timeline-year">2028</div>
+                        <h3>Exit Strategy</h3>
+                        <ul>
+                            <li>Acquisition target</li>
+                            <li>UnitedHealth/Anthem</li>
+                            <li>8-10x multiple</li>
+                            <li>$1.4B valuation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 11: Partnership Models -->
+        <section class="slide" id="slide11">
+            <div class="slide-content">
+                <h1 class="slide-title">Partnership Opportunities</h1>
+                <div class="partnership-grid">
+                    <div class="partnership-card">
+                        <h2>PREFERRED PROVIDER</h2>
+                        <div class="partnership-benefits">
+                            <ul>
+                                <li>✓ Exclusive territory rights</li>
+                                <li>✓ Co-branded materials</li>
+                                <li>✓ 15% revenue share</li>
+                                <li>✓ Marketing support</li>
+                                <li>✓ Priority scheduling</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="partnership-card featured">
+                        <h2>STRATEGIC ALLIANCE</h2>
+                        <div class="partnership-benefits">
+                            <ul>
+                                <li>✓ 20% volume discount (50+ cases)</li>
+                                <li>✓ Dedicated account team</li>
+                                <li>✓ Custom service packages</li>
+                                <li>✓ Quarterly business reviews</li>
+                                <li>✓ Innovation partnership</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="partnership-card premium">
+                        <h2>EQUITY PARTNERSHIP</h2>
+                        <div class="partnership-benefits">
+                            <ul>
+                                <li>✓ 30% ownership stake</li>
+                                <li>✓ Board representation</li>
+                                <li>✓ Regional operations control</li>
+                                <li>✓ Exit participation</li>
+                                <li>✓ Strategic input</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="pilot-offer">
+                    <h3>🚀 Exclusive Pilot Program</h3>
+                    <p>First 10 practices only: 3 FREE cases to prove ROI + Money-back guarantee</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 12: Call to Action -->
+        <section class="slide" id="slide12">
+            <div class="slide-content cta-slide">
+                <div class="final-message">
+                    <h1 class="impact-title">The Decision That Defines Your Practice</h1>
+                    <p class="vision-text">Imagine: It's 2027. Post-operative deaths are extinct. Readmissions are rarities studied in medical history. Your practice is known worldwide as a pioneer. Patients fly in from Dubai, Tokyo, London—not just for your surgical expertise, but for the SENTINEL guarantee.</p>
+                    <p class="vision-text emphasis">This future starts with one decision. Today.</p>
+                </div>
+                <div class="action-buttons">
+                    <button class="cta-button primary" onclick="scheduleCall()">
+                        <span class="button-text">Schedule 15-Min ROI Assessment</span>
+                        <span class="button-subtext">Get your personalized projections</span>
+                    </button>
+                    <button class="cta-button secondary" onclick="requestTour()">
+                        <span class="button-text">Request Facility Tour</span>
+                        <span class="button-subtext">Meet your nurse team</span>
+                    </button>
+                    <button class="cta-button special" onclick="claimPilot()">
+                        <span class="button-text">Claim Your 3 FREE Cases</span>
+                        <span class="button-subtext">First 10 practices only</span>
+                    </button>
+                </div>
+                <div class="urgency-message">
+                    <p>⚠️ Limited Availability: Only accepting 2 practices per metro area</p>
+                    <p>📈 Medicare reimbursement codes pending Q2 2025 - early adopters capture premium pricing</p>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Daniel Townsley</h3>
+                    <p>📧 dtownsley@sentinel-care.com | 📱 (215) 498-7369</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="nav-button prev" onclick="changeSlide(-1)">‹</button>
+            <div class="slide-dots">
+                <span class="dot active" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
+                <span class="dot" onclick="goToSlide(3)"></span>
+                <span class="dot" onclick="goToSlide(4)"></span>
+                <span class="dot" onclick="goToSlide(5)"></span>
+                <span class="dot" onclick="goToSlide(6)"></span>
+                <span class="dot" onclick="goToSlide(7)"></span>
+                <span class="dot" onclick="goToSlide(8)"></span>
+                <span class="dot" onclick="goToSlide(9)"></span>
+                <span class="dot" onclick="goToSlide(10)"></span>
+                <span class="dot" onclick="goToSlide(11)"></span>
+                <span class="dot" onclick="goToSlide(12)"></span>
+            </div>
+            <button class="nav-button next" onclick="changeSlide(1)">›</button>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

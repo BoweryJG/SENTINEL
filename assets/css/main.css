@@ -1,0 +1,1068 @@
+/* SENTINEL - Main Stylesheet */
+
+:root {
+    --primary-navy: #0a1628;
+    --accent-gold: #ffd700;
+    --secondary-blue: #1e3a5f;
+    --light-gray: #f5f5f5;
+    --text-dark: #333333;
+    --success-green: #28a745;
+    --warning-yellow: #ffc107;
+    --danger-red: #dc3545;
+    --gradient-premium: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-gold: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--primary-navy);
+    color: white;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.presentation-container {
+    height: 100vh;
+    position: relative;
+}
+
+/* Slide Base Styles */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.8s ease;
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-blue) 100%);
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide-content {
+    max-width: 1400px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 60px;
+    animation: slideUp 1s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Typography */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(90deg, white, var(--accent-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.slide-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 3.5rem;
+}
+
+/* Slide 1: Story */
+.story-slide {
+    text-align: center;
+}
+
+.time-display {
+    font-size: 6rem;
+    font-weight: 800;
+    color: var(--danger-red);
+    margin-bottom: 2rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.dramatic-title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+.story-text p {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+}
+
+.story-text .fade-in-1 { animation: fadeIn 1s 0.5s forwards; }
+.story-text .fade-in-2 { animation: fadeIn 1s 1s forwards; }
+.story-text .fade-in-3 { animation: fadeIn 1s 1.5s forwards; }
+.story-text .fade-in-4 { animation: fadeIn 1s 2s forwards; }
+.story-text .fade-in-5 { animation: fadeIn 1s 2.5s forwards; }
+.story-text .fade-in-6 { animation: fadeIn 1s 3s forwards; }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.stat-highlight {
+    color: var(--warning-yellow);
+    font-weight: 800;
+    font-size: 2.2rem;
+}
+
+.cost-highlight {
+    color: var(--danger-red);
+    font-weight: 800;
+    font-size: 2.2rem;
+}
+
+.emphasis {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    margin-top: 2rem;
+}
+
+/* Slide 2: Crisis Stats */
+.crisis-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-gold);
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+.stat-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.stat-detail {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.live-counter {
+    background: rgba(220, 53, 69, 0.1);
+    border: 2px solid var(--danger-red);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    animation: borderPulse 2s infinite;
+}
+
+@keyframes borderPulse {
+    0%, 100% {
+        border-color: var(--danger-red);
+    }
+    50% {
+        border-color: rgba(220, 53, 69, 0.5);
+    }
+}
+
+.live-counter p {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.live-counter span {
+    color: var(--danger-red);
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+/* Slide 3: Market Opportunity */
+.market-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+#marketChart {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.market-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.highlight-box {
+    background: rgba(255, 215, 0, 0.1);
+    border-left: 5px solid var(--accent-gold);
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.highlight-box:hover {
+    background: rgba(255, 215, 0, 0.2);
+    transform: translateX(10px);
+}
+
+.highlight-box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-gold);
+}
+
+.big-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0.5rem 0;
+}
+
+/* Slide 4: Solution */
+.brand-reveal {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.brand-name {
+    font-size: 5rem;
+    font-weight: 800;
+    letter-spacing: 5px;
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+    }
+}
+
+.tagline {
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    font-style: italic;
+}
+
+.solution-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.solution-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.solution-card:hover {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: var(--accent-gold);
+    transform: scale(1.05);
+}
+
+.solution-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.solution-card h3 {
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+/* Slide 5: Dashboard Mockup */
+.dashboard-mockup {
+    background: #1a1a2e;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+}
+
+.status-indicators {
+    display: flex;
+    gap: 1rem;
+}
+
+.indicator {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.indicator.green {
+    background: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.indicator.yellow {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+    border: 1px solid #ffc107;
+}
+
+.indicator.red {
+    background: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.dashboard-widget {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+
+.dashboard-widget h4 {
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.risk-meter {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.risk-level {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 10px;
+    opacity: 0.3;
+    transition: all 0.3s ease;
+}
+
+.risk-level.low {
+    background: #28a745;
+    opacity: 1;
+}
+
+.risk-level.medium {
+    background: #ffc107;
+}
+
+.risk-level.high {
+    background: #dc3545;
+}
+
+.alert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.alert {
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.alert.warning {
+    background: rgba(255, 193, 7, 0.1);
+    border-left: 3px solid #ffc107;
+}
+
+.alert.info {
+    background: rgba(23, 162, 184, 0.1);
+    border-left: 3px solid #17a2b8;
+}
+
+/* Slide 6: Calculator */
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.input-section h3,
+.results-section h3 {
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.result-box {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.result-box label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.result-box span {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+}
+
+.result-box.highlight {
+    background: rgba(255, 215, 0, 0.15);
+    border: 2px solid var(--accent-gold);
+    grid-column: span 2;
+}
+
+/* Slide 7: Service Tiers */
+.tier-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.tier-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.tier-card:hover {
+    transform: translateY(-10px);
+}
+
+.tier-card.silver {
+    border-color: #c0c0c0;
+}
+
+.tier-card.gold {
+    border-color: var(--accent-gold);
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.tier-card.gold.featured {
+    transform: scale(1.05);
+}
+
+.tier-card.platinum {
+    border-color: #e5e4e2;
+    background: linear-gradient(135deg, rgba(229, 228, 226, 0.1), rgba(255, 255, 255, 0.05));
+}
+
+.tier-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-gold);
+    color: var(--primary-navy);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 0.8rem;
+}
+
+.tier-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tier-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.tier-price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+}
+
+.tier-duration {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.tier-features {
+    list-style: none;
+}
+
+.tier-features li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tier-features li:last-child {
+    border-bottom: none;
+}
+
+/* Slide 8: Success Metrics */
+.metrics-dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.metric-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.metric-card:hover {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: var(--accent-gold);
+    transform: scale(1.05);
+}
+
+.metric-value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+.metric-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.metric-detail {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Slide 9: Testimonials */
+.testimonial-container {
+    display: grid;
+    gap: 2rem;
+}
+
+.testimonial {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 20px;
+    position: relative;
+    border-left: 5px solid var(--accent-gold);
+}
+
+.testimonial.featured {
+    background: rgba(255, 215, 0, 0.1);
+    padding: 3rem;
+}
+
+.quote-mark {
+    font-size: 4rem;
+    color: var(--accent-gold);
+    opacity: 0.3;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.quote-text {
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    padding-left: 3rem;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 3rem;
+}
+
+.author-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-gold);
+}
+
+.author-info h4 {
+    color: var(--accent-gold);
+    margin-bottom: 0.3rem;
+}
+
+.author-info p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.testimonial-metric {
+    color: #28a745;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+/* Slide 10: Growth Strategy */
+.growth-timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    position: relative;
+}
+
+.growth-timeline::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-gold), var(--danger-red));
+}
+
+.timeline-item {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    border: 4px solid var(--primary-navy);
+}
+
+.timeline-item.current {
+    background: rgba(255, 215, 0, 0.1);
+    border: 2px solid var(--accent-gold);
+}
+
+.timeline-item.highlight {
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.2), rgba(255, 215, 0, 0.2));
+    border: 2px solid var(--danger-red);
+}
+
+.timeline-year {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.timeline-item h3 {
+    margin-bottom: 1rem;
+    color: var(--accent-gold);
+}
+
+.timeline-item ul {
+    list-style: none;
+}
+
+.timeline-item li {
+    padding: 0.3rem 0;
+    font-size: 0.95rem;
+}
+
+/* Slide 11: Partnership Models */
+.partnership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.partnership-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.partnership-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-gold);
+}
+
+.partnership-card.featured {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: var(--accent-gold);
+}
+
+.partnership-card.premium {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    border-color: #764ba2;
+}
+
+.partnership-card h2 {
+    color: var(--accent-gold);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.partnership-benefits ul {
+    list-style: none;
+}
+
+.partnership-benefits li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pilot-offer {
+    background: linear-gradient(135deg, rgba(40, 167, 69, 0.2), rgba(255, 215, 0, 0.2));
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid var(--success-green);
+}
+
+.pilot-offer h3 {
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+/* Slide 12: CTA */
+.cta-slide {
+    text-align: center;
+}
+
+.final-message {
+    margin-bottom: 3rem;
+}
+
+.impact-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.vision-text {
+    font-size: 1.3rem;
+    line-height: 2rem;
+    margin-bottom: 1.5rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.vision-text.emphasis {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    margin-top: 2rem;
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--accent-gold);
+    border-radius: 15px;
+    padding: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.cta-button:hover {
+    background: rgba(255, 215, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+}
+
+.cta-button.primary {
+    background: linear-gradient(135deg, var(--accent-gold), #ffc107);
+    border: none;
+    color: var(--primary-navy);
+}
+
+.cta-button.special {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border: none;
+    animation: specialPulse 2s infinite;
+}
+
+@keyframes specialPulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(40, 167, 69, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(40, 167, 69, 0.8);
+    }
+}
+
+.button-text {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.button-subtext {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.urgency-message {
+    background: rgba(220, 53, 69, 0.1);
+    border: 2px solid var(--danger-red);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+.urgency-message p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.contact-info {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+
+.contact-info h3 {
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+/* Navigation */
+.navigation {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+}
+
+.nav-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--accent-gold);
+    color: var(--accent-gold);
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    background: var(--accent-gold);
+    color: var(--primary-navy);
+}
+
+.slide-dots {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--accent-gold);
+    transform: scale(1.3);
+}
+
+.dot:hover {
+    background: rgba(255, 215, 0, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .slide-content {
+        padding: 40px;
+    }
+    
+    h1 {
+        font-size: 3rem;
+    }
+    
+    .slide-title {
+        font-size: 2.5rem;
+    }
+    
+    .crisis-stats,
+    .metrics-dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tier-container,
+    .partnership-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide-content {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .slide-title {
+        font-size: 1.8rem;
+    }
+    
+    .crisis-stats,
+    .solution-grid,
+    .dashboard-grid,
+    .metrics-dashboard,
+    .growth-timeline {
+        grid-template-columns: 1fr;
+    }
+    
+    .market-container,
+    .calculator-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .navigation {
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .nav-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENTINEL ROI Calculator - Calculate Your Practice's Return on Investment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 100%);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffd700;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .calculator-wrapper {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #ffd700;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .input-prefix, .input-suffix {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .input-prefix {
+            left: 15px;
+        }
+
+        .input-suffix {
+            right: 15px;
+        }
+
+        .input-with-prefix {
+            padding-left: 30px !important;
+        }
+
+        .input-with-suffix {
+            padding-right: 35px !important;
+        }
+
+        .slider-container {
+            margin-top: 0.5rem;
+        }
+
+        .slider {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 8px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            outline: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ffd700;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ffd700;
+            cursor: pointer;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .result-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .result-detail {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(40, 167, 69, 0.2));
+            border: 2px solid #ffd700;
+            grid-column: span 3;
+        }
+
+        .roi-breakdown {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+
+        .breakdown-title {
+            font-size: 1.3rem;
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .breakdown-label {
+            opacity: 0.9;
+        }
+
+        .breakdown-value {
+            font-weight: 600;
+            color: #ffd700;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ffd700, #ffc107);
+            color: #0a1628;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid #ffd700;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 215, 0, 0.2);
+        }
+
+        .comparison-chart {
+            margin-top: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .highlight-card {
+                grid-column: span 1;
+            }
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+            color: #ffd700;
+            margin-left: 5px;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">SENTINEL</div>
+            <div class="tagline">Calculate Your Practice's Return on Investment</div>
+        </div>
+
+        <div class="calculator-wrapper">
+            <div class="calculator-grid">
+                <!-- Input Section -->
+                <div class="section">
+                    <h2 class="section-title">Your Practice Metrics</h2>
+                    
+                    <div class="input-group">
+                        <label>Monthly Surgical Procedures
+                            <span class="tooltip">ℹ️
+                                <span class="tooltiptext">Total number of outpatient surgical procedures performed per month</span>
+                            </span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" id="procedures" value="100" min="10" max="1000" onchange="calculate()">
+                        </div>
+                        <div class="slider-container">
+                            <input type="range" class="slider" id="proceduresSlider" min="10" max="1000" value="100" onchange="syncInput('procedures')">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Average Procedure Revenue
+                            <span class="tooltip">ℹ️
+                                <span class="tooltiptext">Average revenue per surgical procedure</span>
+                            </span>
+                        </label>
+                        <div class="input-wrapper">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="revenue" class="input-with-prefix" value="8000" min="1000" max="50000" onchange="calculate()">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Current Readmission Rate
+                            <span class="tooltip">ℹ️
+                                <span class="tooltiptext">National average is 19.5%. Enter your current rate.</span>
+                            </span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" id="readmissionRate" class="input-with-suffix" value="19.5" min="0" max="50" step="0.5" onchange="calculate()">
+                            <span class="input-suffix">%</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Average Readmission Cost
+                            <span class="tooltip">ℹ️
+                                <span class="tooltiptext">Average cost when a patient is readmitted (default: $15,000)</span>
+                            </span>
+                        </label>
+                        <div class="input-wrapper">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="readmissionCost" class="input-with-prefix" value="15000" min="5000" max="50000" onchange="calculate()">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Service Tier Selection</label>
+                        <select id="serviceTier" style="width: 100%; padding: 0.8rem; border: 2px solid rgba(255, 215, 0, 0.3); background: rgba(255, 255, 255, 0.1); color: white; border-radius: 10px; font-size: 1.1rem;" onchange="calculate()">
+                            <option value="1500">Silver - 24 Hours ($1,500)</option>
+                            <option value="2352" selected>Gold - 48 Hours ($2,352)</option>
+                            <option value="3500">Platinum - 72 Hours ($3,500)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Advanced Settings -->
+                <div class="section">
+                    <h2 class="section-title">Advanced Projections</h2>
+                    
+                    <div class="input-group">
+                        <label>Expected Referral Increase
+                            <span class="tooltip">ℹ️
+                                <span class="tooltiptext">Typical increase in patient referrals due to improved outcomes</span>
+                            </span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" id="referralIncrease" class="input-with-suffix" value="30" min="0" max="100" step="5" onchange="calculate()">
+                            <span class="input-suffix">%</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Malpractice Premium (Annual)</label>
+                        <div class="input-wrapper">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="malpracticePremium" class="input-with-prefix" value="50000" min="10000" max="200000" onchange="calculate()">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Expected Premium Reduction
+                            <span class="tooltip">ℹ️
+                                <span class="tooltiptext">Average reduction in malpractice premiums after 1 year</span>
+                            </span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" id="premiumReduction" class="input-with-suffix" value="30" min="0" max="50" step="5" onchange="calculate()">
+                            <span class="input-suffix">%</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>SENTINEL Adoption Rate
+                            <span class="tooltip">ℹ️
+                                <span class="tooltiptext">Percentage of patients opting for SENTINEL care</span>
+                            </span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" id="adoptionRate" class="input-with-suffix" value="75" min="25" max="100" step="5" onchange="calculate()">
+                            <span class="input-suffix">%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-value" id="preventedReadmissions">0</div>
+                    <div class="result-label">Prevented Readmissions</div>
+                    <div class="result-detail">Per Month</div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-value" id="savedReadmissionCosts">$0</div>
+                    <div class="result-label">Saved Readmission Costs</div>
+                    <div class="result-detail">Monthly Savings</div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-value" id="newPatients">0</div>
+                    <div class="result-label">New Patient Referrals</div>
+                    <div class="result-detail">Per Month</div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-value" id="newPatientRevenue">$0</div>
+                    <div class="result-label">Additional Revenue</div>
+                    <div class="result-detail">From New Patients</div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-value" id="malpracticeSavings">$0</div>
+                    <div class="result-label">Insurance Savings</div>
+                    <div class="result-detail">Annual Premium Reduction</div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-value" id="patientSatisfaction">94%</div>
+                    <div class="result-label">Patient Satisfaction</div>
+                    <div class="result-detail">Expected Score</div>
+                </div>
+
+                <div class="result-card highlight-card">
+                    <div class="result-value" id="totalROI">$0</div>
+                    <div class="result-label">Total Monthly Value Created</div>
+                    <div class="result-detail">Investment: <span id="investment">$0</span> | Net Gain: <span id="netGain">$0</span> | ROI: <span id="roiPercent">0%</span></div>
+                </div>
+            </div>
+
+            <!-- ROI Breakdown -->
+            <div class="roi-breakdown">
+                <h3 class="breakdown-title">Annual Financial Impact</h3>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Prevented Readmissions Value</span>
+                    <span class="breakdown-value" id="annualReadmissionSavings">$0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">New Patient Revenue</span>
+                    <span class="breakdown-value" id="annualNewRevenue">$0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Malpractice Premium Savings</span>
+                    <span class="breakdown-value" id="annualInsuranceSavings">$0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Risk Mitigation Value</span>
+                    <span class="breakdown-value" id="riskMitigation">$348,000</span>
+                </div>
+                <div class="breakdown-item" style="border-top: 2px solid #ffd700; margin-top: 1rem; padding-top: 1rem;">
+                    <span class="breakdown-label" style="font-size: 1.2rem; font-weight: 600;">Total Annual Value</span>
+                    <span class="breakdown-value" style="font-size: 1.5rem;" id="totalAnnualValue">$0</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Annual Investment</span>
+                    <span class="breakdown-value" id="annualInvestment">$0</span>
+                </div>
+                <div class="breakdown-item" style="background: rgba(40, 167, 69, 0.2); padding: 1rem; border-radius: 10px;">
+                    <span class="breakdown-label" style="font-size: 1.3rem; font-weight: 600;">Net Annual Return</span>
+                    <span class="breakdown-value" style="font-size: 1.8rem;" id="netAnnualReturn">$0</span>
+                </div>
+            </div>
+
+            <!-- Comparison Chart -->
+            <div class="comparison-chart">
+                <h3 class="breakdown-title">5-Year Projection Comparison</h3>
+                <canvas id="projectionChart" width="400" height="200"></canvas>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="scheduleConsultation()">Schedule ROI Consultation</button>
+                <button class="btn btn-secondary" onclick="downloadReport()">Download Full Report</button>
+                <button class="btn btn-secondary" onclick="shareResults()">Share Results</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Initialize calculator on load
+        window.onload = function() {
+            calculate();
+            initChart();
+        };
+
+        function syncInput(inputId) {
+            const slider = document.getElementById(inputId + 'Slider');
+            const input = document.getElementById(inputId);
+            input.value = slider.value;
+            calculate();
+        }
+
+        function calculate() {
+            // Get input values
+            const procedures = parseFloat(document.getElementById('procedures').value) || 100;
+            const avgRevenue = parseFloat(document.getElementById('revenue').value) || 8000;
+            const readmissionRate = (parseFloat(document.getElementById('readmissionRate').value) || 19.5) / 100;
+            const readmissionCost = parseFloat(document.getElementById('readmissionCost').value) || 15000;
+            const serviceTier = parseFloat(document.getElementById('serviceTier').value);
+            const referralIncrease = (parseFloat(document.getElementById('referralIncrease').value) || 30) / 100;
+            const malpracticePremium = parseFloat(document.getElementById('malpracticePremium').value) || 50000;
+            const premiumReduction = (parseFloat(document.getElementById('premiumReduction').value) || 30) / 100;
+            const adoptionRate = (parseFloat(document.getElementById('adoptionRate').value) || 75) / 100;
+
+            // Calculate metrics
+            const eligibleProcedures = procedures * adoptionRate;
+            const preventedReadmissions = Math.round(eligibleProcedures * readmissionRate * 0.87); // 87% reduction
+            const savedReadmissionCosts = preventedReadmissions * readmissionCost;
+            
+            const newPatients = Math.round(procedures * referralIncrease);
+            const newPatientRevenue = newPatients * avgRevenue;
+            
+            const monthlyMalpracticeSavings = (malpracticePremium * premiumReduction) / 12;
+            
+            const monthlyInvestment = eligibleProcedures * serviceTier;
+            const totalMonthlyValue = savedReadmissionCosts + newPatientRevenue + monthlyMalpracticeSavings;
+            const netMonthlyGain = totalMonthlyValue - monthlyInvestment;
+            const roiPercent = ((netMonthlyGain / monthlyInvestment) * 100).toFixed(0);
+
+            // Update display - Monthly
+            document.getElementById('preventedReadmissions').textContent = preventedReadmissions;
+            document.getElementById('savedReadmissionCosts').textContent = '$' + savedReadmissionCosts.toLocaleString();
+            document.getElementById('newPatients').textContent = newPatients;
+            document.getElementById('newPatientRevenue').textContent = '$' + newPatientRevenue.toLocaleString();
+            document.getElementById('malpracticeSavings').textContent = '$' + (malpracticePremium * premiumReduction).toLocaleString();
+            document.getElementById('totalROI').textContent = '$' + totalMonthlyValue.toLocaleString();
+            document.getElementById('investment').textContent = '$' + monthlyInvestment.toLocaleString();
+            document.getElementById('netGain').textContent = '$' + netMonthlyGain.toLocaleString();
+            document.getElementById('roiPercent').textContent = roiPercent + '%';
+
+            // Update display - Annual
+            document.getElementById('annualReadmissionSavings').textContent = '$' + (savedReadmissionCosts * 12).toLocaleString();
+            document.getElementById('annualNewRevenue').textContent = '$' + (newPatientRevenue * 12).toLocaleString();
+            document.getElementById('annualInsuranceSavings').textContent = '$' + (malpracticePremium * premiumReduction).toLocaleString();
+            document.getElementById('totalAnnualValue').textContent = '$' + ((totalMonthlyValue * 12) + 348000).toLocaleString();
+            document.getElementById('annualInvestment').textContent = '$' + (monthlyInvestment * 12).toLocaleString();
+            document.getElementById('netAnnualReturn').textContent = '$' + ((netMonthlyGain * 12) + 348000).toLocaleString();
+
+            // Update chart
+            updateChart(monthlyInvestment, totalMonthlyValue);
+        }
+
+        let projectionChart;
+
+        function initChart() {
+            const ctx = document.getElementById('projectionChart').getContext('2d');
+            projectionChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'],
+                    datasets: [{
+                        label: 'Without SENTINEL',
+                        data: [0, 0, 0, 0, 0],
+                        borderColor: '#dc3545',
+                        backgroundColor: 'rgba(220, 53, 69, 0.1)',
+                        tension: 0.4
+                    }, {
+                        label: 'With SENTINEL',
+                        data: [0, 0, 0, 0, 0],
+                        borderColor: '#ffd700',
+                        backgroundColor: 'rgba(255, 215, 0, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: {
+                                color: 'white'
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: 'white',
+                                callback: function(value) {
+                                    return '$' + (value / 1000000).toFixed(1) + 'M';
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: 'white'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateChart(monthlyInvestment, monthlyValue) {
+            if (!projectionChart) return;
+
+            const withoutSentinel = [];
+            const withSentinel = [];
+            let cumulativeWithout = 0;
+            let cumulativeWith = 0;
+
+            for (let year = 1; year <= 5; year++) {
+                // Without SENTINEL - assume 5% annual growth but 10% increase in readmission costs
+                cumulativeWithout -= (348000 * 0.2 * year); // Risk of malpractice claims
+                withoutSentinel.push(cumulativeWithout);
+
+                // With SENTINEL - compound benefits
+                const annualNet = ((monthlyValue - monthlyInvestment) * 12 + 348000) * Math.pow(1.15, year - 1);
+                cumulativeWith += annualNet;
+                withSentinel.push(cumulativeWith);
+            }
+
+            projectionChart.data.datasets[0].data = withoutSentinel;
+            projectionChart.data.datasets[1].data = withSentinel;
+            projectionChart.update();
+        }
+
+        function scheduleConsultation() {
+            alert('Opening scheduling page...');
+            window.open('https://calendly.com/sentinel-care/roi-assessment', '_blank');
+        }
+
+        function downloadReport() {
+            // In production, this would generate a PDF report
+            alert('Generating your personalized ROI report...');
+            
+            // Create a simple text report
+            const report = `
+SENTINEL ROI REPORT
+===================
+Generated: ${new Date().toLocaleDateString()}
+
+PRACTICE METRICS
+- Monthly Procedures: ${document.getElementById('procedures').value}
+- Average Revenue: $${document.getElementById('revenue').value}
+- Current Readmission Rate: ${document.getElementById('readmissionRate').value}%
+
+PROJECTED RESULTS
+- Prevented Readmissions: ${document.getElementById('preventedReadmissions').textContent}/month
+- Monthly Savings: ${document.getElementById('totalROI').textContent}
+- Annual Net Return: ${document.getElementById('netAnnualReturn').textContent}
+- ROI: ${document.getElementById('roiPercent').textContent}
+
+Contact: dtownsley@sentinel-care.com | (215) 498-7369
+            `;
+            
+            const blob = new Blob([report], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'SENTINEL_ROI_Report.txt';
+            a.click();
+        }
+
+        function shareResults() {
+            const roi = document.getElementById('roiPercent').textContent;
+            const text = `I just calculated my practice's ROI with SENTINEL: ${roi} return on investment! Check it out:`;
+            const url = window.location.href;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'SENTINEL ROI Calculator',
+                    text: text,
+                    url: url
+                });
+            } else {
+                // Fallback to copying to clipboard
+                navigator.clipboard.writeText(text + ' ' + url);
+                alert('Results copied to clipboard!');
+            }
+        }
+    </script>
+</body>
+</html>
