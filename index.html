@@ -361,6 +361,20 @@
     </style>
 </head>
 <body>
+    <!-- Password Protection -->
+    <div id="passwordOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0a1628; z-index: 10000; display: flex; align-items: center; justify-content: center;">
+        <div style="text-align: center; padding: 40px; background: rgba(255, 255, 255, 0.05); border-radius: 20px; border: 2px solid #ffd700;">
+            <h1 style="color: #ffd700; margin-bottom: 30px; font-size: 48px;">SENTINEL</h1>
+            <p style="color: white; margin-bottom: 30px; font-size: 18px;">Enter password to access presentation</p>
+            <input type="password" id="passwordInput" placeholder="Password" style="padding: 15px 30px; font-size: 18px; border: 2px solid #ffd700; background: rgba(255, 255, 255, 0.1); color: white; border-radius: 10px; width: 300px; margin-bottom: 20px;" onkeypress="if(event.key === 'Enter') checkPassword()">
+            <br>
+            <button onclick="checkPassword()" style="padding: 15px 40px; background: linear-gradient(135deg, #ffd700, #ffed4e); color: #0a1628; border: none; border-radius: 50px; font-size: 18px; font-weight: 600; cursor: pointer;">Access Presentation</button>
+            <p id="errorMessage" style="color: #ff4444; margin-top: 20px; display: none;">Incorrect password</p>
+        </div>
+    </div>
+
+    <!-- Main Content (hidden initially) -->
+    <div id="mainContent" style="display: none;">
     <!-- Navigation Dots -->
     <div class="nav-dots">
         <div class="nav-dot active" onclick="scrollToSlide(1)"></div>
@@ -809,6 +823,28 @@
             </div>
         </div>
     </section>
+    </div> <!-- End Main Content -->
+
+    <script>
+        // Password Protection
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            if (password === 'Townsley') {
+                document.getElementById('passwordOverlay').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+                // Initialize charts after revealing content
+                setTimeout(initCharts, 500);
+            } else {
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+            }
+        }
+
+        // Auto-focus password input
+        window.onload = function() {
+            document.getElementById('passwordInput').focus();
+        };
+    </script>
 
     <script>
         // Initialize charts when visible
