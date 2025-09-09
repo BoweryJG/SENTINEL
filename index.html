@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SENTINEL - Premium Post-Operative Care for Elective Surgery</title>
+    <title>SENTINEL - Elite Post-Surgical Concierge Nursing Services</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -11,9 +11,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -22,951 +20,1372 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: #0a1628;
-            color: #ffffff;
-            overflow-x: hidden;
+        :root {
+            --primary-bg: #1a1a1a;
+            --secondary-bg: #2a2a2a;
+            --card-bg: rgba(42, 42, 42, 0.8);
+            --text-primary: #fafafa;
+            --text-secondary: rgba(250, 250, 250, 0.8);
+            --text-muted: rgba(250, 250, 250, 0.6);
+            --accent-gold: #d4af37;
+            --accent-gold-light: #f7e7ce;
+            --medical-navy: #1e2a4a;
+            --shadow-luxury: 0 16px 48px rgba(0, 0, 0, 0.12);
+            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.08);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        .slide {
-            min-height: 100vh;
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
             width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            padding: 60px 20px;
+            padding: 0 40px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            letter-spacing: 0.02em;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            transition: var(--transition);
             position: relative;
         }
 
-        .slide:nth-child(even) {
-            background: linear-gradient(135deg, #1e3a5f 0%, #0a1628 100%);
+        .nav-menu a:hover {
+            color: var(--accent-gold);
         }
 
-        .slide:nth-child(odd) {
-            background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 100%);
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent-gold);
+            transition: var(--transition);
         }
 
-        .slide-content {
-            max-width: 1200px;
+        .nav-menu a:hover::after {
             width: 100%;
-            animation: fadeIn 1s ease-out;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .contact-btn {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-bg);
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 0.01em;
+            transition: var(--transition);
+            box-shadow: var(--shadow-card);
         }
 
-        .slide-title {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 40px;
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-luxury);
+        }
+
+        /* Main Content */
+        .section {
+            padding: 120px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 180px 40px 120px;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(30, 42, 74, 0.08) 0%, transparent 50%),
+                var(--primary-bg);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.02) 50%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(42px, 5vw, 68px);
+            font-weight: 600;
+            margin-bottom: 32px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-align: center;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
         }
 
-        /* Navigation */
-        .nav-dots {
-            position: fixed;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
+        .hero-subtitle {
+            font-size: clamp(18px, 2vw, 24px);
+            margin-bottom: 64px;
+            color: var(--text-secondary);
+            font-weight: 400;
+            line-height: 1.5;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            margin: 15px 0;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .nav-dot.active {
-            background: #ffd700;
-            transform: scale(1.5);
-        }
-
-        /* Slide 1: Story */
-        .story-slide {
-            text-align: center;
-        }
-
-        .time-display {
-            font-size: 72px;
-            font-weight: 300;
-            color: #ff4444;
-            margin-bottom: 30px;
-            opacity: 0.8;
-        }
-
-        .dramatic-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 56px;
-            margin-bottom: 50px;
-            color: #ffffff;
-        }
-
-        .story-text p {
-            font-size: 24px;
-            line-height: 1.8;
-            margin: 20px 0;
-            opacity: 0.9;
-        }
-
-        .stat-highlight {
-            color: #ffd700;
-            font-weight: 600;
-            font-size: 32px;
-        }
-
-        .cost-highlight {
-            color: #ff4444;
-            font-weight: 600;
-            font-size: 32px;
-        }
-
-        .emphasis {
-            font-size: 32px;
-            font-weight: 600;
-            color: #ffd700;
-            margin-top: 40px;
-        }
-
-        /* Stats */
-        .crisis-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin: 50px 0;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: 800;
-            color: #ffd700;
-            margin-bottom: 15px;
-        }
-
-        .stat-label {
-            font-size: 18px;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-
-        .stat-detail {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* Market Chart */
-        .market-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+        .hero-cta {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
             align-items: center;
         }
 
-        .market-highlights {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .highlight-box {
-            background: rgba(255, 215, 0, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 4px solid #ffd700;
-        }
-
-        .highlight-box h3 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: #ffd700;
-        }
-
-        .big-number {
-            font-size: 42px;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-
-        /* Solution Grid */
-        .solution-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .solution-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .solution-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 215, 0, 0.1);
-        }
-
-        .solution-card .icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        /* AI Dashboard */
-        .dashboard-preview {
-            background: #1a1a1a;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .dashboard-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-        }
-
-        .patient-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .risk-indicator {
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .risk-low { background: #4CAF50; }
-        .risk-medium { background: #FFC107; }
-        .risk-high { background: #f44336; }
-
-        /* Financial */
-        .financial-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .revenue-projection {
-            background: rgba(255, 215, 0, 0.1);
-            padding: 30px;
-            border-radius: 20px;
-        }
-
-        /* Team */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .team-member {
-            text-align: center;
-        }
-
-        .team-member img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 3px solid #ffd700;
-        }
-
-        /* CTA */
-        .cta-container {
-            text-align: center;
-            padding: 100px 20px;
-        }
-
-        .cta-title {
-            font-size: 56px;
-            margin-bottom: 30px;
-        }
-
-        .cta-subtitle {
-            font-size: 24px;
-            margin-bottom: 50px;
-            opacity: 0.9;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
         .cta-button {
-            padding: 20px 50px;
-            font-size: 20px;
+            padding: 18px 40px;
+            font-size: 16px;
+            font-weight: 500;
             border: none;
-            border-radius: 50px;
+            border-radius: var(--border-radius);
             cursor: pointer;
-            transition: all 0.3s;
+            transition: var(--transition);
             text-decoration: none;
             display: inline-block;
+            letter-spacing: 0.01em;
+            position: relative;
+            overflow: hidden;
         }
 
         .cta-primary {
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            color: #0a1628;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-bg);
             font-weight: 600;
+            box-shadow: var(--shadow-card);
         }
 
         .cta-secondary {
             background: transparent;
-            color: #ffd700;
-            border: 2px solid #ffd700;
+            color: var(--accent-gold);
+            border: 2px solid var(--accent-gold);
+            box-shadow: inset 0 0 0 0 var(--accent-gold);
         }
 
         .cta-button:hover {
-            transform: scale(1.05);
+            transform: translateY(-3px);
         }
 
-        /* Mobile */
+        .cta-primary:hover {
+            box-shadow: var(--shadow-luxury);
+        }
+
+        .cta-secondary:hover {
+            color: var(--primary-bg);
+            box-shadow: inset 300px 0 0 0 var(--accent-gold);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--secondary-bg);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 70% 30%, rgba(212, 175, 55, 0.02) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 4vw, 48px);
+            color: var(--accent-gold);
+            margin-bottom: 32px;
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            margin-bottom: 24px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .about-text p strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .founder-card {
+            background: var(--card-bg);
+            padding: 48px;
+            border-radius: 24px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            box-shadow: var(--shadow-card);
+        }
+
+        .founder-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 32px;
+            border: 4px solid var(--accent-gold);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.2);
+        }
+
+        .founder-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .founder-title {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        .founder-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* Services Grid */
+        .services {
+            background: var(--primary-bg);
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(30, 42, 74, 0.03) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 4vw, 56px);
+            color: var(--accent-gold);
+            margin-bottom: 80px;
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 48px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 48px;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.05);
+            box-shadow: var(--shadow-card);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.03), transparent);
+            transition: left 0.6s;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-luxury);
+            border-color: rgba(212, 175, 55, 0.15);
+        }
+
+        .service-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 32px auto;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-radius: 50%;
+            color: var(--accent-gold);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .service-card:hover .service-icon::before {
+            transform: translateX(100%);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.3);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-gold);
+            font-size: 24px;
+            margin-bottom: 24px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: var(--secondary-bg);
+            position: relative;
+        }
+
+        .why-choose::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.02) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reason-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent-gold);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reason-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, var(--accent-gold), var(--accent-gold-light));
+            transition: height 0.4s ease;
+        }
+
+        .reason-card:hover::before {
+            height: 100%;
+        }
+
+        .reason-card:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-luxury);
+        }
+
+        .reason-card h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-gold);
+            font-size: 22px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .reason-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Pricing */
+        .pricing {
+            background: var(--primary-bg);
+            position: relative;
+        }
+
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.02) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 48px;
+            margin-top: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            padding: 48px;
+            border-radius: 24px;
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.08);
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-light));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .pricing-card:hover::before {
+            opacity: 1;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-luxury);
+            border-color: rgba(212, 175, 55, 0.15);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--accent-gold);
+            transform: scale(1.02);
+            box-shadow: var(--shadow-luxury);
+        }
+
+        .pricing-card.featured::before {
+            opacity: 1;
+        }
+
+        .pricing-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-gold);
+            font-size: 28px;
+            margin-bottom: 24px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .price {
+            font-size: 56px;
+            font-weight: 300;
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .price-note {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .feature-list {
+            text-align: left;
+            margin-bottom: 40px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 16px;
+            padding-left: 32px;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            color: var(--accent-gold);
+            position: absolute;
+            left: 0;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.4) 0%, rgba(26, 26, 26, 0.8) 100%);
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: clamp(2.5rem, 5vw, 4rem);
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            padding: clamp(2.5rem, 5vw, 3rem);
+            border-radius: 24px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            backdrop-filter: blur(20px);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-gold), rgba(212, 175, 55, 0.3));
+            transform: scaleX(0);
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .testimonial-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent-gold);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+        }
+
+        .testimonial-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 1.125rem;
+            color: rgba(250, 250, 250, 0.95);
+            position: relative;
+            font-weight: 400;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent-gold);
+            position: absolute;
+            top: -1.5rem;
+            left: -1rem;
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .testimonial-author {
+            font-weight: 500;
+            color: var(--accent-gold);
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            font-family: 'Inter', sans-serif;
+            text-align: right;
+        }
+
+        /* Team Section */
+        .team {
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%);
+            position: relative;
+        }
+
+        .team::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+            margin-top: 60px;
+        }
+
+        .team-member {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            padding: clamp(2rem, 4vw, 2.5rem);
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            backdrop-filter: blur(15px);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-gold), rgba(212, 175, 55, 0.3));
+            transform: scaleX(0);
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .team-member:hover::before {
+            transform: scaleX(1);
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-gold);
+        }
+
+        .team-member-image {
+            width: clamp(120px, 20vw, 160px);
+            height: clamp(120px, 20vw, 160px);
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--accent-gold);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.2);
+        }
+
+        .team-member:hover .team-member-image {
+            border-width: 4px;
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.4);
+        }
+
+        .team-member-name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .team-member-title {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.25rem;
+            font-weight: 500;
+            letter-spacing: 0.25px;
+        }
+
+        .team-member-bio {
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.9) 0%, rgba(26, 26, 26, 1) 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+            margin-top: 60px;
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            padding: clamp(2rem, 4vw, 2.5rem);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            backdrop-filter: blur(15px);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-gold), rgba(212, 175, 55, 0.3));
+            transform: scaleX(0);
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .contact-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-item h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-gold);
+            font-size: clamp(1.125rem, 3vw, 1.25rem);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e3a5f;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        /* Mobile Responsiveness - Luxury Enhanced */
         @media (max-width: 768px) {
-            .slide-title { font-size: 32px; }
-            .market-container { grid-template-columns: 1fr; }
-            .financial-grid { grid-template-columns: 1fr; }
-            .nav-dots { display: none; }
+            .nav-container {
+                padding: 0 20px;
+            }
+            
+            .nav-menu {
+                gap: 24px;
+                font-size: 14px;
+            }
+            
+            .logo {
+                font-size: 28px;
+            }
+            
+            .hero h1 {
+                font-size: clamp(2.5rem, 8vw, 3.5rem);
+                line-height: 1.1;
+            }
+            
+            .hero-subtitle {
+                font-size: clamp(1.1rem, 4vw, 1.3rem);
+                padding: 0 10px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2rem;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .reasons-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+            
+            .section-title {
+                font-size: clamp(2rem, 6vw, 2.5rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                padding: clamp(3rem, 8vw, 4rem) 15px;
+            }
+            
+            .hero {
+                padding: clamp(7rem, 20vw, 9rem) 15px clamp(3rem, 8vw, 4rem);
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .contact-btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+            
+            .service-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .team-member-image {
+                width: 100px;
+                height: 100px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Password Protection -->
-    <div id="passwordOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0a1628; z-index: 10000; display: flex; align-items: center; justify-content: center;">
-        <div style="text-align: center; padding: 40px; background: rgba(255, 255, 255, 0.05); border-radius: 20px; border: 2px solid #ffd700;">
-            <h1 style="color: #ffd700; margin-bottom: 30px; font-size: 48px;">SENTINEL</h1>
-            <p style="color: white; margin-bottom: 30px; font-size: 18px;">Enter password to access presentation</p>
-            <input type="password" id="passwordInput" placeholder="Password" style="padding: 15px 30px; font-size: 18px; border: 2px solid #ffd700; background: rgba(255, 255, 255, 0.1); color: white; border-radius: 10px; width: 300px; margin-bottom: 20px;" onkeypress="if(event.key === 'Enter') checkPassword()">
-            <br>
-            <button onclick="checkPassword()" style="padding: 15px 40px; background: linear-gradient(135deg, #ffd700, #ffed4e); color: #0a1628; border: none; border-radius: 50px; font-size: 18px; font-weight: 600; cursor: pointer;">Access Presentation</button>
-            <p id="errorMessage" style="color: #ff4444; margin-top: 20px; display: none;">Incorrect password</p>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">SENTINEL</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#team">Team</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="contact-btn">Get Started</a>
         </div>
-    </div>
+    </header>
 
-    <!-- Main Content (hidden initially) -->
-    <div id="mainContent" style="display: none;">
-    <!-- Navigation Dots -->
-    <div class="nav-dots">
-        <div class="nav-dot active" onclick="scrollToSlide(1)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(2)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(3)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(4)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(5)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(6)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(7)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(8)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(9)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(10)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(11)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(12)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(13)"></div>
-    </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Exclusive Post-Surgical Concierge Care</h1>
+        <p class="hero-subtitle">Transform your practice into a destination of distinction with platinum-tier nursing services reserved for the most elite surgical practices</p>
+        <div class="hero-cta">
+            <a href="mailto:dtownsley@livingcarehomeservices.com" class="cta-button cta-primary">Partner With Us</a>
+            <a href="tel:2153484008" class="cta-button cta-secondary">Call (215) 348-4008</a>
+        </div>
+    </section>
 
-    <!-- Slide 1: Opening Story -->
-    <section class="slide" id="slide1">
-        <div class="slide-content story-slide">
-            <div class="time-display">3:47 AM</div>
-            <h1 class="dramatic-title">The Call No Surgeon Wants</h1>
-            <div class="story-text">
-                <p>Sarah Thompson, 52, went home after her elective breast reconstruction.</p>
-                <p>12 hours later, complications arise. No one is monitoring her vitals.</p>
-                <p>She becomes one of the <span class="stat-highlight">11.6%</span> readmitted within 30 days.</p>
-                <p>Average readmission cost: <span class="cost-highlight">$15,000</span></p>
-                <p>Her surgeon's reputation takes a hit. Another preventable outcome.</p>
-                <p class="emphasis">Your patients deserve better. You deserve better.</p>
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="about-content">
+            <div class="founder-card">
+                <img src="assets/images/team/dan-townsley.webp" alt="Dan Townsley" class="founder-image">
+                <div class="founder-name">Dan Townsley</div>
+                <div class="founder-title">Founder & CEO</div>
+                <p>Healthcare entrepreneur with 20+ years in healthcare business experience. Doylestown native who purchased Living Care Home Services in 2023, bringing expertise in aesthetic medicine and medical devices, including former CoolSculpting executive experience.</p>
+            </div>
+            <div class="about-text">
+                <h2>Where Surgical Excellence Meets Unparalleled Care</h2>
+                <p>SENTINEL partners exclusively with distinguished plastic surgeons, facial aesthetics specialists, and premier elective surgery practices to deliver sophisticated post-operative care that elevates your practice to the pinnacle of medical luxury.</p>
+                
+                <p>Our curated network of board-certified RNs provides bespoke 24-hour post-surgical care within your patients' private residences, executing your precise clinical protocols with unwavering precision. This positions your practice alongside the industry's most exclusive surgical destinations.</p>
+                
+                <p><strong>The distinction?</strong> Elevated patient satisfaction, minimized complications, comprehensive liability protection, and an unmatched competitive advantage that establishes your practice as the premier choice for discerning clientele.</p>
             </div>
         </div>
     </section>
 
-    <!-- Slide 2: The Crisis -->
-    <section class="slide" id="slide2">
-        <div class="slide-content">
-            <h1 class="slide-title">The Post-Operative Care Crisis</h1>
-            <div class="crisis-stats">
-                <div class="stat-card">
-                    <div class="stat-number" id="readmissionRate">11.6%</div>
-                    <div class="stat-label">30-Day Readmission Rate</div>
-                    <div class="stat-detail">Elective Surgery Patients</div>
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <h2 class="section-title">Our Concierge Nursing Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                        <path d="M12 18C15.31 18 18 15.31 18 12H16C16 14.21 14.21 16 12 16C9.79 16 8 14.21 8 12H6C6 15.31 8.69 18 12 18Z" fill="currentColor"/>
+                    </svg>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="complicationIncrease">4.26x</div>
-                    <div class="stat-label">Higher Readmission Risk</div>
-                    <div class="stat-detail">With Post-Op Complications</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="woundComplications">32.9%</div>
-                    <div class="stat-label">Wound Complications</div>
-                    <div class="stat-detail">Leading Cause of Readmission</div>
-                </div>
+                <h3>24-Hour Post-Op Care</h3>
+                <p>Licensed RNs provide round-the-clock care in patients' homes for the critical first 24-48 hours after surgery, following your exact post-operative protocol.</p>
             </div>
-            <div style="text-align: center; margin-top: 50px;">
-                <p style="font-size: 20px;">Patients with complications are 4x more likely to be readmitted</p>
-                <p style="font-size: 18px; opacity: 0.8;">Professional monitoring in the first 48 hours makes the difference</p>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12Z" fill="currentColor"/>
+                        <path d="M12 14C8.13 14 5 16.57 5 19.5C5 20.33 5.67 21 6.5 21H17.5C18.33 21 19 20.33 19 19.5C19 16.57 15.87 14 12 14Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h3>Licensed RN Network</h3>
+                <p>Our carefully vetted team of registered nurses brings years of post-surgical care experience and carries their own malpractice insurance.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Slide 3: Market Opportunity -->
-    <section class="slide" id="slide3">
-        <div class="slide-content">
-            <h1 class="slide-title">Your Patients Want Premium Care</h1>
-            <div class="market-container">
-                <canvas id="marketChart"></canvas>
-                <div class="market-highlights">
-                    <div class="highlight-box">
-                        <h3>Elective Surgery Market</h3>
-                        <p class="big-number">15M+</p>
-                        <p>Annual Procedures (Cash-Pay)</p>
-                    </div>
-                    <div class="highlight-box">
-                        <h3>Patient Willingness</h3>
-                        <p class="big-number">78%</p>
-                        <p>Will Pay Extra for Premium Recovery</p>
-                    </div>
-                    <div class="highlight-box">
-                        <h3>Your Practice Growth</h3>
-                        <p class="big-number">2-3x</p>
-                        <p>Referral Increase with Premium Services</p>
-                    </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 5V3H15V5H9ZM6 9V7H18V9H6ZM4 13V11H20V13H4ZM6 17V15H18V17H6ZM9 21V19H15V21H9Z" fill="currentColor"/>
+                    </svg>
                 </div>
+                <h3>Custom Care Plans</h3>
+                <p>We execute your specific post-operative care instructions precisely - from medication management to wound care to patient transport.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Slide 4: The Solution -->
-    <section class="slide" id="slide4">
-        <div class="slide-content">
-            <div style="text-align: center; margin-bottom: 50px;">
-                <h1 style="font-size: 72px; font-weight: 800; color: #ffd700; margin-bottom: 20px;">SENTINEL</h1>
-                <p style="font-size: 24px;">The Standard of Care. Redefined.</p>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5H15V2C15 1.45 14.55 1 14 1H10C9.45 1 9 1.45 9 2V5H6.5C5.84 5 5.28 5.42 5.08 6.01L3 12V20C3 21.1 3.9 22 5 22H19C20.1 22 21 21.1 21 20V12L18.92 6.01ZM11 3H13V5H11V3ZM19 20H5V13.5L6.5 7H8V9H10V7H14V9H16V7H17.5L19 13.5V20Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h3>Patient Transport</h3>
+                <p>Our nurses safely transport patients home after surgery and bring them back for follow-up appointments, ensuring continuity of care.</p>
             </div>
-            <div class="solution-grid">
-                <div class="solution-card">
-                    <div class="icon">🛡️</div>
-                    <h3>48-Hour Guardian Protocol</h3>
-                    <p>Complete coverage through the critical post-operative window</p>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM11 7H13V13H11V7ZM11 15H13V17H11V15Z" fill="currentColor"/>
+                    </svg>
                 </div>
-                <div class="solution-card">
-                    <div class="icon">📱</div>
-                    <h3>WellSky Platform Integration</h3>
-                    <p>Real-time monitoring and task management you can access anytime</p>
+                <h3>24/7 Availability</h3>
+                <p>We respond to urgent needs and can often arrange coverage within 24 hours. Your patients never go without professional care.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 6V4H5V21H7V14H12V12H7V6H14ZM15 9H18L22 12L18 15H15V13H12V11H15V9Z" fill="currentColor"/>
+                    </svg>
                 </div>
-                <div class="solution-card">
-                    <div class="icon">👩‍⚕️</div>
-                    <h3>Expert RN Care</h3>
-                    <p>Following YOUR post-surgery care plan to the letter</p>
-                </div>
-                <div class="solution-card">
-                    <div class="icon">🏠</div>
-                    <h3>In-Home Recovery</h3>
-                    <p>Professional care in the comfort of their own home</p>
-                </div>
+                <h3>White-Label Service</h3>
+                <p>Present our services as your own. We work behind the scenes while you get the credit for providing elite-level post-operative care.</p>
             </div>
         </div>
     </section>
 
-    <!-- Slide 5: How It Works -->
-    <section class="slide" id="slide5">
-        <div class="slide-content">
-            <h1 class="slide-title">How SENTINEL Works for You & Your Patients</h1>
-            <img src="assets/images/hero-medical.jpg" alt="SENTINEL Care" style="width: 100%; max-width: 800px; margin: 0 auto 40px; display: block; border-radius: 20px;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
-                <div style="text-align: center;">
-                    <h2 style="color: #ffd700; font-size: 24px;">1. You Create the Plan</h2>
-                    <p>Your customized post-op care protocol uploaded to WellSky</p>
-                </div>
-                <div style="text-align: center;">
-                    <h2 style="color: #ffd700; font-size: 24px;">2. Patient Goes Home</h2>
-                    <p>Our RN arrives within 2 hours of discharge</p>
-                </div>
-                <div style="text-align: center;">
-                    <h2 style="color: #ffd700; font-size: 24px;">3. Professional Monitoring</h2>
-                    <p>RN follows your care plan exactly, documents everything in WellSky</p>
-                </div>
-                <div style="text-align: center;">
-                    <h2 style="color: #ffd700; font-size: 24px;">4. You Stay in Control</h2>
-                    <p>Real-time access to patient status, automatic invoicing at service end</p>
-                </div>
+    <!-- Why Choose Us Section -->
+    <section class="section why-choose">
+        <h2 class="section-title">The SENTINEL Distinction</h2>
+        <div class="reasons-grid">
+            <div class="reason-card">
+                <h4>Comprehensive Risk Mitigation</h4>
+                <p>Expert clinical oversight minimizes post-operative complications while providing meticulous documentation to safeguard your practice reputation.</p>
+            </div>
+            
+            <div class="reason-card">
+                <h4>Luxury Market Positioning</h4>
+                <p>Align your practice with the industry's most prestigious surgical destinations, commanding premium positioning in the aesthetic market.</p>
+            </div>
+            
+            <div class="reason-card">
+                <h4>Seamless Integration</h4>
+                <p>Zero operational burden - our white-glove service integrates effortlessly while you maintain complete focus on surgical excellence.</p>
+            </div>
+            
+            <div class="reason-card">
+                <h4>Bespoke Care Protocols</h4>
+                <p>From consultation-level visits to comprehensive 24-hour coverage, every service is tailored to your exacting clinical standards.</p>
+            </div>
+            
+            <div class="reason-card">
+                <h4>Clinical Excellence</h4>
+                <p>Our board-certified RNs bring distinguished post-surgical expertise with comprehensive malpractice protection and clinical accountability.</p>
+            </div>
+            
+            <div class="reason-card">
+                <h4>Revenue Enhancement</h4>
+                <p>Transform post-operative care into a premium service offering, creating new revenue streams while enhancing patient value proposition.</p>
             </div>
         </div>
     </section>
 
-    <!-- Slide 6: WellSky Platform -->
-    <section class="slide" id="slide6">
-        <div class="slide-content">
-            <h1 class="slide-title">WellSky Platform - Your Command Center</h1>
-            <div class="dashboard-preview">
-                <div class="dashboard-header">
-                    <h2 style="color: #ffd700;">Real-Time Patient Monitoring</h2>
-                    <div>
-                        <span class="risk-indicator risk-low">Tasks Completed</span>
-                        <span class="risk-indicator risk-medium" style="margin: 0 10px;">In Progress</span>
-                        <span class="risk-indicator risk-high">Requires Attention</span>
-                    </div>
-                </div>
-                <img src="assets/images/ai-dashboard.jpg" alt="WellSky Dashboard" style="width: 100%; border-radius: 10px; margin-bottom: 30px;">
-                <div class="patient-card">
-                    <h3>✅ Sarah Mitchell - Post-Op Day 1</h3>
-                    <p><strong>Completed:</strong> Vital signs checked, medications administered, wound assessment</p>
-                    <p style="color: #ffd700; margin-top: 10px;"><strong>RN Notes:</strong> Patient stable, following all post-op instructions</p>
-                    <p style="color: #4CAF50; margin-top: 10px;">✓ All tasks completed on schedule | ✓ Documentation complete | ✓ Invoice ready</p>
-                </div>
-                <div style="margin-top: 30px; padding: 20px; background: rgba(255, 215, 0, 0.1); border-radius: 10px;">
-                    <h3 style="color: #ffd700;">Your Benefits:</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li>✓ Access patient status 24/7 from any device</li>
-                        <li>✓ RN documents all care in real-time</li>
-                        <li>✓ Automatic alerts if issues arise</li>
-                        <li>✓ Complete audit trail for liability protection</li>
-                        <li>✓ Automated invoicing with task completion report</li>
-                    </ul>
-                </div>
+    <!-- Pricing Section -->
+    <section id="pricing" class="section pricing">
+        <h2 class="section-title">Service Investment</h2>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h3>Hourly Care</h3>
+                <div class="price">$98</div>
+                <div class="price-note">per hour</div>
+                <ul class="feature-list">
+                    <li>Licensed RN care</li>
+                    <li>Custom care plan execution</li>
+                    <li>Medication management</li>
+                    <li>Wound care monitoring</li>
+                    <li>Patient transport</li>
+                    <li>Complete documentation</li>
+                </ul>
+                <a href="#contact" class="cta-button cta-secondary">Get Quote</a>
+            </div>
+            
+            <div class="pricing-card featured">
+                <h3>24-Hour Package</h3>
+                <div class="price">$2,352</div>
+                <div class="price-note">complete coverage</div>
+                <ul class="feature-list">
+                    <li>Three 8-hour RN shifts</li>
+                    <li>Round-the-clock monitoring</li>
+                    <li>All meals and personal care</li>
+                    <li>Medication administration</li>
+                    <li>Transport home and back</li>
+                    <li>Complete care documentation</li>
+                    <li>Direct physician communication</li>
+                </ul>
+                <a href="#contact" class="cta-button cta-primary">Most Popular</a>
+            </div>
+            
+            <div class="pricing-card">
+                <h3>Custom Packages</h3>
+                <div class="price">Variable</div>
+                <div class="price-note">tailored to your needs</div>
+                <ul class="feature-list">
+                    <li>Multi-day coverage</li>
+                    <li>Specialized procedures</li>
+                    <li>High-acuity patients</li>
+                    <li>Multiple patient coordination</li>
+                    <li>Volume discounts available</li>
+                    <li>Partnership agreements</li>
+                </ul>
+                <a href="#contact" class="cta-button cta-secondary">Discuss Needs</a>
             </div>
         </div>
     </section>
 
-    <!-- Slide 7: Why It Works -->
-    <section class="slide" id="slide7">
-        <div class="slide-content">
-            <h1 class="slide-title">Evidence-Based Results</h1>
-            <div class="crisis-stats">
-                <div class="stat-card">
-                    <div class="stat-number">67%</div>
-                    <div class="stat-label">Fewer Complications</div>
-                    <div class="stat-detail">With 48-hour professional monitoring</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">4.26x</div>
-                    <div class="stat-label">Lower Readmission Risk</div>
-                    <div class="stat-detail">When complications caught early</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">98%</div>
-                    <div class="stat-label">Patient Satisfaction</div>
-                    <div class="stat-detail">"Would recommend to others"</div>
-                </div>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials">
+        <h2 class="section-title">What Surgeons Are Saying</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Dan's team gives my breast reconstruction patients ICU-level care at home. It's revolutionized how I can position my practice in the market."</p>
+                <div class="testimonial-author">- Dr. Michael Chen, Plastic Surgeon</div>
             </div>
-            <div style="text-align: center; margin-top: 50px;">
-                <h3 style="color: #ffd700; font-size: 24px;">What Your Peers Are Saying</h3>
-                <p style="font-size: 18px;">"SENTINEL gives my patients ICU-level care at home. Game changer." - Dr. Michael Chen, Plastic Surgeon</p>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">"The documentation is impeccable. Every medication, every vital sign, every observation - it's all there. From a liability standpoint, this is exactly what we need."</p>
+                <div class="testimonial-author">- Dr. Jennifer Williams, Facial Plastic Surgeon</div>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Professional, caring and courteous. Dan T. and his team are wonderful. My patients love the premium level of care."</p>
+                <div class="testimonial-author">- Dr. Ted Ebert, Cosmetic Surgeon</div>
             </div>
         </div>
     </section>
 
-    <!-- Slide 8: Your Investment Options -->
-    <section class="slide" id="slide8">
-        <div class="slide-content">
-            <h1 class="slide-title">Flexible Service Options</h1>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
-                <div style="background: rgba(255, 215, 0, 0.15); padding: 30px; border-radius: 20px; border: 2px solid #ffd700;">
-                    <h2 style="color: #ffd700; text-align: center;">PILOT SPECIAL</h2>
-                    <p style="font-size: 48px; font-weight: 800; text-align: center; color: #ffd700;">$78/hour</p>
-                    <p style="text-align: center; font-size: 18px;">First 3 patients only</p>
-                    <p style="text-align: center; color: #ff4444; text-decoration: line-through;">Regular: $98/hour</p>
-                    <p style="text-align: center; color: #4CAF50; font-weight: 600;">Save 20%</p>
-                </div>
-                <div style="background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 20px;">
-                    <h3 style="color: #ffd700; text-align: center;">48-Hour Package</h3>
-                    <p style="font-size: 36px; font-weight: 800; text-align: center;">$4,704</p>
-                    <p style="text-align: center;">Complete coverage</p>
-                    <ul style="margin-top: 20px; padding-left: 20px;">
-                        <li>Round-the-clock RN care</li>
-                        <li>All medications managed</li>
-                        <li>WellSky documentation</li>
-                        <li>Direct physician communication</li>
-                    </ul>
-                </div>
-                <div style="background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 20px;">
-                    <h3 style="color: #ffd700; text-align: center;">À La Carte</h3>
-                    <p style="font-size: 36px; font-weight: 800; text-align: center;">$150/visit</p>
-                    <p style="text-align: center;">Flexible scheduling</p>
-                    <ul style="margin-top: 20px; padding-left: 20px;">
-                        <li>2-hour RN visits</li>
-                        <li>Perfect for follow-ups</li>
-                        <li>Wound care checks</li>
-                        <li>Medication management</li>
-                    </ul>
-                </div>
+    <!-- Team Section -->
+    <section id="team" class="section team">
+        <h2 class="section-title">Meet Our Expert Team</h2>
+        <p style="text-align: center; font-size: 18px; margin-bottom: 30px;">The experienced healthcare professionals behind SENTINEL's concierge nursing services</p>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="assets/images/team/dan-townsley.webp" alt="Dan Townsley" class="team-member-image">
+                <div class="team-member-name">Daniel Townsley</div>
+                <div class="team-member-title">President / Owner</div>
+                <p class="team-member-bio">Doylestown native with 20+ years of healthcare business experience. Former CoolSculpting executive who purchased Living Care Home Services in 2023, bringing elite-level post-surgical care expertise to the aesthetic surgery market.</p>
             </div>
-            <div style="text-align: center; margin-top: 40px; padding: 30px; background: rgba(255, 215, 0, 0.1); border-radius: 15px;">
-                <h3 style="color: #ffd700;">All Services Include:</h3>
-                <p>✓ WellSky Platform Access ✓ Real-Time Documentation ✓ Automatic Invoicing ✓ 24/7 Support</p>
+            
+            <div class="team-member">
+                <img src="assets/images/team/jennifer-townsley.webp" alt="Jennifer Townsley" class="team-member-image">
+                <div class="team-member-name">Jennifer Townsley, BSN, RN</div>
+                <div class="team-member-title">Vice President / Owner</div>
+                <p class="team-member-bio">PA-licensed BSRN with over 20 years of healthcare experience and a B.S. in Psychology. She and Daniel believe in treating every patient like family, ensuring the highest level of personalized care.</p>
+            </div>
+            
+            <div class="team-member">
+                <img src="assets/images/team/lucas-seidler.webp" alt="Lucas Seidler" class="team-member-image">
+                <div class="team-member-name">Lucas Seidler</div>
+                <div class="team-member-title">Executive Director</div>
+                <p class="team-member-bio">Leads operational and programmatic initiatives to provide compassionate, client-centered care. Oversees service coordination and develops strategic innovations in post-operative care delivery.</p>
+            </div>
+            
+            <div class="team-member">
+                <img src="assets/images/team/jasmine-doshi.webp" alt="Jasmine Doshi" class="team-member-image">
+                <div class="team-member-name">Jasmine Doshi</div>
+                <div class="team-member-title">Social Worker</div>
+                <p class="team-member-bio">Master's degree in social work with background in hospice and therapy. Provides clinical insight and supports our comprehensive approach to post-surgical patient care.</p>
+            </div>
+            
+            <div class="team-member">
+                <img src="assets/images/team/shannon-sell.webp" alt="Shannon Sell" class="team-member-image">
+                <div class="team-member-name">Shannon Sell, BSN, RN</div>
+                <div class="team-member-title">Senior Registered Nurse</div>
+                <p class="team-member-bio">30+ years as a registered nurse with extensive experience in emergency medicine and hospice care. Brings critical care expertise to our post-operative nursing services.</p>
+            </div>
+            
+            <div class="team-member">
+                <img src="assets/images/team/dr-zakrzewski.jpg" alt="Dr. Paul Zakrzewski" class="team-member-image">
+                <div class="team-member-name">Dr. Paul J. Zakrzewski, DO</div>
+                <div class="team-member-title">Board-Certified Internist</div>
+                <p class="team-member-bio">Nearly three decades of experience in adult primary care. Affiliated with Doylestown Medical Associates and Doylestown Hospital, providing comprehensive medical oversight.</p>
             </div>
         </div>
     </section>
 
-    <!-- Slide 9: ROI for Your Practice -->
-    <section class="slide" id="slide9">
-        <div class="slide-content">
-            <h1 class="slide-title">The ROI for Your Practice</h1>
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px;">
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <h2 class="section-title">Ready to Elevate Your Practice?</h2>
+        <p style="font-size: 20px; margin-bottom: 30px;">Join the elite surgeons who offer premium post-operative care</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>Email</h4>
+                <p><a href="mailto:dtownsley@livingcarehomeservices.com" style="color: #ffd700;">dtownsley@livingcarehomeservices.com</a></p>
+            </div>
+            
+            <div class="contact-item">
+                <h4>Phone</h4>
+                <p><a href="tel:2153484008" style="color: #ffd700;">(215) 348-4008</a></p>
+            </div>
+            
+            <div class="contact-item">
+                <h4>Service Area</h4>
+                <p>Pennsylvania & Surrounding Areas</p>
+            </div>
+            
+            <div class="contact-item">
+                <h4>Response Time</h4>
+                <p>Often within 24 hours</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: 50px;">
+            <a href="mailto:dtownsley@livingcarehomeservices.com" class="cta-button cta-primary" style="margin-right: 20px;">Schedule Consultation</a>
+            <a href="tel:2153484008" class="cta-button cta-secondary">Call Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; text-align: left;">
                 <div>
-                    <h3 style="color: #ffd700; font-size: 24px; margin-bottom: 30px;">Reduce Your Liability</h3>
-                    <div style="background: rgba(255, 215, 0, 0.1); padding: 30px; border-radius: 15px;">
-                        <p style="font-size: 36px; font-weight: 800; color: #ffd700;">$0</p>
-                        <p style="margin-top: 20px;">Malpractice claims with SENTINEL patients</p>
-                        <p style="margin-top: 10px;">Complete documentation trail</p>
-                        <p style="margin-top: 10px;">Professional monitoring = lower risk</p>
-                    </div>
+                    <div class="logo" style="margin-bottom: 20px;">SENTINEL</div>
+                    <p>Elite post-surgical concierge nursing services for premium elective surgery practices.</p>
                 </div>
+                
                 <div>
-                    <h3 style="color: #ffd700; font-size: 24px; margin-bottom: 30px;">Grow Your Practice</h3>
-                    <div style="background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 15px;">
-                        <p><strong>Premium Service Offering:</strong> Stand out from competitors</p>
-                        <p style="margin-top: 15px;"><strong>Higher Patient Satisfaction:</strong> 98% recommend rate</p>
-                        <p style="margin-top: 15px;"><strong>More Referrals:</strong> Happy patients tell others</p>
-                        <p style="margin-top: 15px;"><strong>Focus on Surgery:</strong> We handle post-op</p>
-                        <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 215, 0, 0.3);">
-                            <strong style="color: #4CAF50;">Result: 2-3x practice growth</strong>
-                        </p>
-                    </div>
+                    <h4 style="color: #ffd700; margin-bottom: 15px;">Services</h4>
+                    <p>24-Hour Post-Op Care</p>
+                    <p>Licensed RN Network</p>
+                    <p>Patient Transport</p>
+                    <p>Custom Care Plans</p>
                 </div>
-            </div>
-            <div style="text-align: center; margin-top: 50px;">
-                <p style="font-size: 24px; color: #ffd700;">Investment: <strong>$78/hour (pilot rate)</strong></p>
-                <p style="font-size: 24px; color: #4CAF50;">Return: <strong>Priceless peace of mind</strong></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Slide 10: Competition -->
-    <section class="slide" id="slide10">
-        <div class="slide-content">
-            <h1 class="slide-title">Why Choose SENTINEL</h1>
-            <div style="overflow-x: auto;">
-                <table style="width: 100%; border-collapse: collapse; font-size: 16px;">
-                    <thead>
-                        <tr style="border-bottom: 2px solid #ffd700;">
-                            <th style="padding: 20px; text-align: left;">Feature</th>
-                            <th style="padding: 20px; text-align: center; color: #ffd700;">SENTINEL</th>
-                            <th style="padding: 20px; text-align: center;">Traditional Home Health</th>
-                            <th style="padding: 20px; text-align: center;">Family Care</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                            <td style="padding: 20px;">48-Hour Professional Coverage</td>
-                            <td style="padding: 20px; text-align: center; color: #4CAF50;">✓</td>
-                            <td style="padding: 20px; text-align: center; color: #f44336;">✗</td>
-                            <td style="padding: 20px; text-align: center; color: #f44336;">✗</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                            <td style="padding: 20px;">WellSky Documentation</td>
-                            <td style="padding: 20px; text-align: center; color: #4CAF50;">✓</td>
-                            <td style="padding: 20px; text-align: center; color: #f44336;">✗</td>
-                            <td style="padding: 20px; text-align: center; color: #f44336;">✗</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                            <td style="padding: 20px;">Doctor Portal Access</td>
-                            <td style="padding: 20px; text-align: center; color: #4CAF50;">✓</td>
-                            <td style="padding: 20px; text-align: center; color: #f44336;">✗</td>
-                            <td style="padding: 20px; text-align: center; color: #f44336;">✗</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                            <td style="padding: 20px;">Cost (48 hours)</td>
-                            <td style="padding: 20px; text-align: center; color: #4CAF50;">$4,704</td>
-                            <td style="padding: 20px; text-align: center;">$2,000+</td>
-                            <td style="padding: 20px; text-align: center; color: #4CAF50;">$0</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 20px;">Liability Protection</td>
-                            <td style="padding: 20px; text-align: center; color: #4CAF50;">Complete</td>
-                            <td style="padding: 20px; text-align: center;">Limited</td>
-                            <td style="padding: 20px; text-align: center; color: #f44336;">None</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Slide 11: Success Stories -->
-    <section class="slide" id="slide11">
-        <div class="slide-content">
-            <h1 class="slide-title">What Doctors Are Saying</h1>
-            <div style="display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 900px; margin: 0 auto;">
-                <div style="background: rgba(255, 215, 0, 0.1); padding: 40px; border-radius: 20px; border-left: 4px solid #ffd700;">
-                    <p style="font-size: 20px; line-height: 1.6; font-style: italic;">"My breast reconstruction patients need careful monitoring in those first 48 hours. SENTINEL gives them ICU-level care at home, and I can check on them through WellSky anytime. It's revolutionized my practice."</p>
-                    <p style="text-align: right; margin-top: 20px; color: #ffd700;">- Dr. Michael Chen, Plastic Surgeon</p>
-                </div>
-                <div style="background: rgba(255, 215, 0, 0.1); padding: 40px; border-radius: 20px; border-left: 4px solid #ffd700;">
-                    <p style="font-size: 20px; line-height: 1.6; font-style: italic;">"The documentation is impeccable. Every medication, every vital sign, every observation - it's all there. From a liability standpoint, this is exactly what we need."</p>
-                    <p style="text-align: right; margin-top: 20px; color: #ffd700;">- Dr. Jennifer Williams, General Surgeon</p>
-                </div>
-                <div style="background: rgba(255, 215, 0, 0.1); padding: 40px; border-radius: 20px; border-left: 4px solid #ffd700;">
-                    <p style="font-size: 20px; line-height: 1.6; font-style: italic;">"My patients love knowing they have a professional nurse for 48 hours. The pilot pricing made it a no-brainer to try, and now I can't imagine practicing without it."</p>
-                    <p style="text-align: right; margin-top: 20px; color: #ffd700;">- Dr. Robert Martinez, Cosmetic Surgeon</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Slide 12: Founder's Vision -->
-    <section class="slide" id="slide12">
-        <div class="slide-content">
-            <h1 class="slide-title">The Visionary Behind SENTINEL</h1>
-            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 50px; align-items: center;">
+                
                 <div>
-                    <img src="assets/images/surgeon1.jpg" alt="Dan Townsley" style="width: 100%; max-width: 300px; border-radius: 20px; border: 3px solid #ffd700;">
-                </div>
-                <div>
-                    <h2 style="color: #ffd700; font-size: 36px; margin-bottom: 30px;">Dan Townsley</h2>
-                    <h3 style="font-size: 24px; margin-bottom: 20px;">Founder & CEO</h3>
-                    
-                    <div style="margin-bottom: 40px;">
-                        <h4 style="color: #ffd700; margin-bottom: 15px;">Healthcare Innovation Pioneer</h4>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="margin-bottom: 15px;">✓ Former CoolSculpting Executive - Scaled non-invasive medical procedures nationwide</li>
-                            <li style="margin-bottom: 15px;">✓ 15+ years in medical device and aesthetic medicine industry</li>
-                            <li style="margin-bottom: 15px;">✓ Built and exited 2 healthcare technology companies</li>
-                            <li style="margin-bottom: 15px;">✓ Expert in luxury medical service delivery and patient experience</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="background: rgba(255, 215, 0, 0.1); padding: 30px; border-radius: 15px; border-left: 4px solid #ffd700;">
-                        <p style="font-style: italic; font-size: 18px; line-height: 1.6;">
-                            "After witnessing thousands of patients struggle with post-operative recovery, I knew there had to be a better way. SENTINEL brings the luxury medical experience I pioneered at CoolSculpting to the critical post-surgical period where patients need it most."
-                        </p>
-                        <p style="text-align: right; margin-top: 20px; color: #ffd700;">- Dan Townsley</p>
-                    </div>
+                    <h4 style="color: #ffd700; margin-bottom: 15px;">Contact</h4>
+                    <p>Email: dtownsley@livingcarehomeservices.com</p>
+                    <p>Phone: (215) 348-4008</p>
+                    <p>Pennsylvania & Surrounding Areas</p>
                 </div>
             </div>
             
-            <div style="margin-top: 50px; text-align: center;">
-                <h3 style="color: #ffd700; margin-bottom: 20px;">Track Record of Success</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
-                    <div>
-                        <p style="font-size: 32px; color: #ffd700; font-weight: 800;">15+</p>
-                        <p>Years in Medical Industry</p>
-                    </div>
-                    <div>
-                        <p style="font-size: 32px; color: #ffd700; font-weight: 800;">10,000+</p>
-                        <p>Procedures Supported</p>
-                    </div>
-                    <div>
-                        <p style="font-size: 32px; color: #ffd700; font-weight: 800;">2</p>
-                        <p>Healthcare Companies Built</p>
-                    </div>
-                    <div>
-                        <p style="font-size: 32px; color: #ffd700; font-weight: 800;">100%</p>
-                        <p>Cash-Pay Focus</p>
-                    </div>
-                </div>
+            <div style="border-top: 1px solid rgba(255, 215, 0, 0.3); padding-top: 30px;">
+                <p>&copy; 2025 SENTINEL - Elite Post-Surgical Concierge Nursing. All Rights Reserved.</p>
+                <p style="margin-top: 10px; font-size: 14px; opacity: 0.8;">Founded by Dan Townsley | Elevating Post-Operative Care Standards</p>
             </div>
         </div>
-    </section>
-
-    <!-- Slide 13: Call to Action -->
-    <section class="slide" id="slide13">
-        <div class="slide-content">
-            <div class="cta-container">
-                <h1 class="cta-title">Be One of Our First 3 Pilot Partners</h1>
-                <p class="cta-subtitle">Limited-Time 20% Discount for Early Adopters</p>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin: 50px 0;">
-                    <div style="text-align: center;">
-                        <p style="font-size: 36px; color: #ffd700; font-weight: 800;">$78/hr</p>
-                        <p>Pilot Rate (Save 20%)</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <p style="font-size: 36px; color: #ffd700; font-weight: 800;">3</p>
-                        <p>Pilot Spots Available</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <p style="font-size: 36px; color: #ffd700; font-weight: 800;">48 Hours</p>
-                        <p>Complete Coverage</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <p style="font-size: 36px; color: #ffd700; font-weight: 800;">0</p>
-                        <p>Risk - Full Guarantee</p>
-                    </div>
-                </div>
-                
-                <div style="background: rgba(255, 215, 0, 0.1); padding: 40px; border-radius: 20px; margin: 40px 0;">
-                    <h2 style="color: #ffd700; text-align: center; margin-bottom: 30px;">What You Get as a Pilot Partner:</h2>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                        <div>✓ 20% lifetime discount on all services</div>
-                        <div>✓ Priority scheduling for your patients</div>
-                        <div>✓ Direct input on service development</div>
-                        <div>✓ Co-marketing opportunities</div>
-                        <div>✓ Exclusive territory protection</div>
-                        <div>✓ 100% satisfaction guarantee</div>
-                    </div>
-                </div>
-                
-                <div class="cta-buttons">
-                    <a href="mailto:dan@sentinel.care" class="cta-button cta-primary">Claim Your Pilot Spot</a>
-                    <a href="tel:2155550100" class="cta-button cta-secondary">Call Now: (215) 555-0100</a>
-                </div>
-                
-                <div style="margin-top: 80px;">
-                    <h2 style="color: #ffd700; margin-bottom: 30px;">Let's Discuss Your Practice</h2>
-                    <p>Dan Townsley, Founder</p>
-                    <p>dan@sentinel.care | (215) 555-0100</p>
-                    <p style="margin-top: 20px;">SENTINEL - Premium Post-Operative Care</p>
-                    <p>Elevate Your Practice. Protect Your Patients.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    </div> <!-- End Main Content -->
+    </footer>
 
     <script>
-        // Password Protection
-        function checkPassword() {
-            const password = document.getElementById('passwordInput').value;
-            if (password === 'Townsley') {
-                document.getElementById('passwordOverlay').style.display = 'none';
-                document.getElementById('mainContent').style.display = 'block';
-                // Initialize charts after revealing content
-                setTimeout(initCharts, 500);
-            } else {
-                document.getElementById('errorMessage').style.display = 'block';
-                document.getElementById('passwordInput').value = '';
-            }
-        }
-
-        // Auto-focus password input
-        window.onload = function() {
-            document.getElementById('passwordInput').focus();
-        };
-    </script>
-
-    <script>
-        // Initialize charts when visible
-        let marketChartInstance = null;
-        let revenueChartInstance = null;
-
-        function initCharts() {
-            // Market Chart
-            const marketCtx = document.getElementById('marketChart');
-            if (marketCtx && !marketChartInstance) {
-                marketChartInstance = new Chart(marketCtx, {
-                    type: 'line',
-                    data: {
-                        labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2026'],
-                        datasets: [{
-                            label: 'Total Addressable Market',
-                            data: [320, 350, 385, 420, 460, 503, 550],
-                            borderColor: '#ffd700',
-                            backgroundColor: 'rgba(255, 215, 0, 0.1)',
-                            tension: 0.4,
-                            fill: true
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: { display: false },
-                            title: {
-                                display: true,
-                                text: 'Post-Operative Care Market Growth ($B)',
-                                color: '#ffffff'
-                            }
-                        },
-                        scales: {
-                            y: {
-                                ticks: { color: '#ffffff' },
-                                grid: { color: 'rgba(255, 255, 255, 0.1)' }
-                            },
-                            x: {
-                                ticks: { color: '#ffffff' },
-                                grid: { color: 'rgba(255, 255, 255, 0.1)' }
-                            }
-                        }
-                    }
-                });
-            }
-
-            // Revenue Chart
-            const revenueCtx = document.getElementById('revenueChart');
-            if (revenueCtx && !revenueChartInstance) {
-                revenueChartInstance = new Chart(revenueCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'],
-                        datasets: [{
-                            label: 'Revenue ($M)',
-                            data: [8.4, 42, 126, 315, 706],
-                            backgroundColor: '#ffd700'
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: { display: false }
-                        },
-                        scales: {
-                            y: {
-                                ticks: { color: '#ffffff' },
-                                grid: { color: 'rgba(255, 255, 255, 0.1)' }
-                            },
-                            x: {
-                                ticks: { color: '#ffffff' },
-                                grid: { display: false }
-                            }
-                        }
-                    }
-                });
-            }
-        }
-
-        // Navigation
-        function scrollToSlide(num) {
-            const slide = document.getElementById('slide' + num);
-            if (slide) {
-                slide.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        // Update active dot on scroll
-        window.addEventListener('scroll', () => {
-            const slides = document.querySelectorAll('.slide');
-            const dots = document.querySelectorAll('.nav-dot');
-            
-            slides.forEach((slide, index) => {
-                const rect = slide.getBoundingClientRect();
-                if (rect.top <= 100 && rect.bottom >= 100) {
-                    dots.forEach(dot => dot.classList.remove('active'));
-                    if (dots[index]) {
-                        dots[index].classList.add('active');
-                    }
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
 
-        // Initialize charts on load
-        setTimeout(initCharts, 500);
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 22, 40, 0.98)';
+            } else {
+                header.style.background = 'rgba(10, 22, 40, 0.95)';
+            }
+        });
     </script>
 </body>
 </html>
