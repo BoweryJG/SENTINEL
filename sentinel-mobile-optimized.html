@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="SENTINEL provides discreet, exceptional post-operative recovery care in the privacy of your home.">
+
+    <!-- iOS Specific -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=yes">
+
+    <title>SENTINEL | Private Recovery Care</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --navy: #1a2332;
+            --cream: #f7f3ed;
+            --champagne: #d4af37;
+            --gray: #8b8680;
+            --light-gray: #f5f5f0;
+            --text-dark: #2c3e50;
+
+            /* Mobile-first sizing */
+            --base-font: clamp(16px, 4vw, 18px);
+            --h1-size: clamp(2rem, 8vw, 4.5rem);
+            --h2-size: clamp(1.75rem, 6vw, 3rem);
+            --h3-size: clamp(1.25rem, 4vw, 1.8rem);
+            --section-padding: clamp(60px, 10vw, 120px);
+            --container-padding: clamp(20px, 5vw, 60px);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--cream);
+            font-size: var(--base-font);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* Enhanced Touch Targets for Mobile */
+        a, button {
+            min-height: 44px;
+            min-width: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Mobile-First Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(247, 243, 237, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(139, 134, 128, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px var(--container-padding);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 5vw, 1.8rem);
+            color: var(--navy);
+            text-decoration: none;
+            letter-spacing: 0.15em;
+            font-weight: 400;
+            min-height: auto;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--navy);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 10px;
+            margin-right: -10px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--navy);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: clamp(20px, 3vw, 45px);
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: clamp(0.9rem, 2vw, 0.95rem);
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+            font-weight: 400;
+            padding: 10px;
+            min-height: auto;
+        }
+
+        .consultation-btn {
+            background: transparent;
+            color: var(--champagne);
+            border: 1px solid var(--champagne);
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: clamp(0.85rem, 2vw, 0.9rem);
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        /* Hero Section - Mobile Optimized */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 0;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(26, 35, 50, 0.3), rgba(26, 35, 50, 0.5)),
+                        url('assets/images/sentinel-piano-lesson-golden-hour.webp') center/cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--cream);
+            padding: 0 var(--container-padding);
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: var(--h1-size);
+            font-weight: 400;
+            letter-spacing: clamp(0.1em, 2vw, 0.2em);
+            margin-bottom: clamp(15px, 3vw, 20px);
+            animation: fadeInUp 1.5s ease-out 0.5s both;
+        }
+
+        .hero-content .tagline {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            animation: fadeInUp 1.5s ease-out 0.8s both;
+            padding: 0 20px;
+        }
+
+        /* Recovery Section - Mobile First */
+        .recovery-meaning {
+            background: white;
+            padding: var(--section-padding) 0;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto clamp(40px, 8vw, 80px);
+            padding: 0 var(--container-padding);
+        }
+
+        .section-intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: var(--h2-size);
+            color: var(--navy);
+            margin-bottom: clamp(15px, 3vw, 20px);
+            line-height: 1.2;
+        }
+
+        .section-intro .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .recovery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(20px, 4vw, 40px);
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        .recovery-item {
+            position: relative;
+            height: clamp(350px, 50vw, 450px);
+            overflow: hidden;
+            background: var(--light-gray);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        @media (hover: hover) {
+            .recovery-item:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        .recovery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .recovery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(26, 35, 50, 0.95) 0%, rgba(26, 35, 50, 0.7) 50%, transparent 100%);
+            padding: clamp(30px, 5vw, 50px) clamp(25px, 4vw, 40px);
+            color: white;
+        }
+
+        .recovery-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: var(--champagne);
+            margin-bottom: 10px;
+        }
+
+        .recovery-overlay p {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            background: var(--light-gray);
+            padding: var(--section-padding) var(--container-padding);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(30px, 5vw, 60px);
+            margin-top: clamp(40px, 6vw, 60px);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .philosophy-item {
+            text-align: center;
+            padding: clamp(20px, 3vw, 30px);
+        }
+
+        .philosophy-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: var(--h3-size);
+            color: var(--navy);
+            margin-bottom: clamp(15px, 3vw, 20px);
+        }
+
+        .philosophy-item p {
+            font-size: clamp(0.95rem, 2vw, 1rem);
+            line-height: 1.7;
+        }
+
+        /* Gallery Section - Touch Optimized */
+        .family-gallery {
+            background: white;
+            padding: var(--section-padding) 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .gallery-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(20px, 3vw, 30px);
+            margin-top: clamp(40px, 6vw, 60px);
+        }
+
+        .gallery-item {
+            position: relative;
+            height: clamp(250px, 40vw, 350px);
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(26, 35, 50, 0.9), transparent);
+            padding: clamp(20px, 4vw, 30px);
+            color: white;
+        }
+
+        .gallery-caption h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: var(--champagne);
+            margin-bottom: 5px;
+        }
+
+        .gallery-caption p {
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+            text-align: center;
+            padding: var(--section-padding) var(--container-padding);
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: clamp(40px, 6vw, 60px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: var(--h2-size);
+            color: var(--navy);
+            margin-bottom: clamp(20px, 4vw, 30px);
+            line-height: 1.2;
+        }
+
+        .contact-phone {
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            color: var(--champagne);
+            margin: clamp(20px, 4vw, 30px) 0;
+            letter-spacing: 0.05em;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-phone:hover {
+            color: var(--navy);
+        }
+
+        /* Mobile Menu Styles */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--cream);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 40px 20px;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu a {
+                width: 100%;
+                padding: 15px 20px;
+                font-size: 1.1rem;
+                border-bottom: 1px solid rgba(139, 134, 128, 0.1);
+            }
+
+            .consultation-btn {
+                margin-top: 20px;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            /* Adjust grid layouts for mobile */
+            .recovery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+
+            .philosophy-item {
+                text-align: center;
+                border-bottom: 1px solid rgba(139, 134, 128, 0.1);
+                padding-bottom: 30px;
+            }
+
+            .philosophy-item:last-child {
+                border-bottom: none;
+            }
+
+            /* Stack life after section on mobile */
+            .life-after-content {
+                grid-template-columns: 1fr;
+            }
+
+            .life-after-text {
+                padding: var(--section-padding) var(--container-padding);
+            }
+
+            .life-after-image {
+                height: 300px;
+            }
+        }
+
+        /* Tablet Specific */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .recovery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Accessibility Improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .hero-overlay {
+                background: rgba(0, 0, 0, 0.7);
+            }
+        }
+
+        /* Loading States */
+        img {
+            background: var(--light-gray);
+        }
+
+        /* Smooth animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer - Mobile Optimized */
+        footer {
+            background: var(--navy);
+            color: var(--cream);
+            padding: clamp(40px, 8vw, 60px) var(--container-padding);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: clamp(20px, 3vw, 40px);
+            margin-bottom: clamp(30px, 5vw, 40px);
+        }
+
+        .footer-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: clamp(0.85rem, 2vw, 0.9rem);
+            padding: 10px;
+            min-height: auto;
+        }
+
+        /* Print Styles */
+        @media print {
+            nav, .menu-toggle {
+                display: none;
+            }
+
+            body {
+                font-size: 12pt;
+            }
+
+            .hero {
+                height: auto;
+                min-height: auto;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav role="navigation">
+        <div class="nav-container">
+            <a href="#" class="logo" aria-label="SENTINEL Home">SENTINEL</a>
+
+            <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-menu" role="menu">
+                <a href="#philosophy" role="menuitem">Philosophy</a>
+                <a href="#services" role="menuitem">Services</a>
+                <a href="#moments" role="menuitem">Family</a>
+                <a href="tel:215-498-7369" class="consultation-btn" role="menuitem">Call Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-image" role="img" aria-label="Grandmother teaching piano to granddaughter"></div>
+        <div class="hero-content">
+            <h1>SENTINEL</h1>
+            <p class="tagline">Where Recovery Brings Families Together</p>
+        </div>
+    </section>
+
+    <!-- What Recovery Means Section -->
+    <section class="recovery-meaning" aria-labelledby="recovery-heading">
+        <div class="section-intro">
+            <h2 id="recovery-heading">What Recovery Really Means</h2>
+            <p class="subtitle">It's not about medical milestones. It's about returning to the moments that define your life.</p>
+        </div>
+
+        <div class="recovery-grid">
+            <article class="recovery-item">
+                <img src="assets/images/sentinel-cookie-conspiracy-kitchen.webp"
+                     alt="Grandfather and grandson sharing cookies"
+                     loading="lazy">
+                <div class="recovery-overlay">
+                    <h3>Precious Moments</h3>
+                    <p>Being there for afternoon cookie raids</p>
+                </div>
+            </article>
+
+            <article class="recovery-item">
+                <img src="assets/images/sentinel-garden-legacy-roses.webp"
+                     alt="Teaching gardening to grandchildren"
+                     loading="lazy">
+                <div class="recovery-overlay">
+                    <h3>Lasting Legacy</h3>
+                    <p>Teaching traditions that connect generations</p>
+                </div>
+            </article>
+
+            <article class="recovery-item">
+                <img src="assets/images/sentinel-chess-masters-library.webp"
+                     alt="Playing chess by the fireplace"
+                     loading="lazy">
+                <div class="recovery-overlay">
+                    <h3>Meaningful Connection</h3>
+                    <p>Quiet evenings of wisdom shared</p>
+                </div>
+            </article>
+
+            <article class="recovery-item">
+                <img src="assets/images/sentinel-art-studio-celebration.webp"
+                     alt="Creating art together"
+                     loading="lazy">
+                <div class="recovery-overlay">
+                    <h3>Shared Joy</h3>
+                    <p>Creating memories together</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="philosophy" aria-labelledby="philosophy-heading">
+        <h2 id="philosophy-heading" class="section-intro">Our Philosophy of Care</h2>
+
+        <div class="philosophy-grid">
+            <div class="philosophy-item">
+                <h3>Family First</h3>
+                <p>Your grandchildren are waiting. We ensure your recovery is swift and safe.</p>
+            </div>
+            <div class="philosophy-item">
+                <h3>Dignity Preserved</h3>
+                <p>Professional care that respects your independence.</p>
+            </div>
+            <div class="philosophy-item">
+                <h3>Life Restored</h3>
+                <p>Getting you back to the moments that matter most.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="moments" class="family-gallery" aria-labelledby="gallery-heading">
+        <div class="gallery-container">
+            <h2 id="gallery-heading" class="section-intro">The Moments That Await</h2>
+
+            <div class="gallery-grid">
+                <article class="gallery-item">
+                    <img src="assets/images/sentinel-teatime-tales-sunroom.webp"
+                         alt="Tea time with grandchildren"
+                         loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Afternoon Traditions</h4>
+                        <p>Creating rituals they'll remember</p>
+                    </div>
+                </article>
+
+                <article class="gallery-item">
+                    <img src="assets/images/sentinel-storytime-under-stars.webp"
+                         alt="Evening stories outdoors"
+                         loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Bedtime Stories</h4>
+                        <p>Being there for magical moments</p>
+                    </div>
+                </article>
+
+                <article class="gallery-item">
+                    <img src="assets/images/sentinel-sunday-brunch-farmhouse.webp"
+                         alt="Family brunch gathering"
+                         loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Sunday Gatherings</h4>
+                        <p>At the heart of family celebrations</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
+        <div class="contact-content">
+            <h2 id="contact-heading">Begin Your Journey Home</h2>
+            <p>Your family is waiting. Let us help you return to them.</p>
+            <a href="tel:215-498-7369" class="contact-phone">(215) 498-7369</a>
+            <p style="color: var(--gray); font-style: italic; margin-top: 20px;">
+                All inquiries handled with discretion
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">HIPAA Notice</a>
+            <a href="#">Terms of Service</a>
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--gray); margin-top: 30px;">
+            © 2025 SENTINEL Recovery Care, LLC<br>
+            Licensed and Insured in Pennsylvania
+        </p>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuToggle?.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const isOpen = navMenu.classList.contains('active');
+            menuToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close menu when clicking links
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Smooth scroll with offset for fixed nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const bodyRect = document.body.getBoundingClientRect().top;
+                    const elementRect = target.getBoundingClientRect().top;
+                    const elementPosition = elementRect - bodyRect;
+                    const offsetPosition = elementPosition - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Lazy Loading Images
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.src;
+            });
+        }
+    </script>
+</body>
+</html>
