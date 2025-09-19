@@ -1,0 +1,24 @@
+{
+  "name": "sentinel",
+  "version": "1.0.0",
+  "description": "## The $17.4 Billion Solution to Surgery's Hidden Crisis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoweryJG/SENTINEL.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BoweryJG/SENTINEL/issues"
+  },
+  "homepage": "https://github.com/BoweryJG/SENTINEL#readme",
+  "dependencies": {
+    "playwright": "^1.55.0",
+    "puppeteer": "^24.22.0"
+  }
+}

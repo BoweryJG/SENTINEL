@@ -1,0 +1,67 @@
+#assistant-widget {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1100;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+#assistant-widget .assistant-toggle {
+  background: linear-gradient(135deg, #d4af37, #f5e6b3);
+  color: #0f172a;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 999px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  cursor: pointer;
+}
+
+#assistant-widget.assistant-open .assistant-toggle { display: none; }
+
+#assistant-widget .assistant-panel {
+  width: min(360px, calc(100vw - 32px));
+  height: 520px;
+  background: #ffffff;
+  border: 1px solid rgba(15,23,42,0.08);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  display: none;
+  overflow: hidden;
+}
+
+#assistant-widget.assistant-open .assistant-panel { display: flex; flex-direction: column; }
+
+.assistant-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(15,23,42,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.assistant-title { font-weight: 600; color: #0f172a; }
+.assistant-close { background: transparent; border: none; font-size: 20px; cursor: pointer; color: #334155; }
+
+.assistant-body { display: flex; flex: 1; flex-direction: column; }
+.assistant-messages { flex: 1; padding: 12px; overflow-y: auto; background: #f8fafc; }
+
+.assistant-msg { padding: 10px 12px; margin: 8px 0; border-radius: 12px; max-width: 85%; line-height: 1.4; font-size: 14px; }
+.assistant-msg.user { background: #e2e8f0; color: #0f172a; margin-left: auto; border-top-right-radius: 4px; }
+.assistant-msg.assistant { background: #fff; border: 1px solid rgba(15,23,42,0.08); color: #0f172a; margin-right: auto; border-top-left-radius: 4px; }
+
+.assistant-input { display: flex; gap: 8px; padding: 10px; border-top: 1px solid rgba(15,23,42,0.08); }
+.assistant-input input { flex: 1; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(15,23,42,0.15); font-size: 14px; }
+.assistant-input button { padding: 10px 14px; border-radius: 10px; border: none; background: #0f172a; color: #fff; cursor: pointer; }
+
+.assistant-next { padding: 12px; background: #fff; border-top: 1px dashed rgba(15,23,42,0.08); }
+.assistant-next .assistant-dynamic-form { display: grid; gap: 10px; }
+.assistant-next label { display: grid; gap: 6px; color: #0f172a; font-size: 14px; }
+.assistant-next input { padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(15,23,42,0.15); }
+.assistant-next button[type="submit"] { padding: 10px 12px; border-radius: 8px; border: none; background: #0f172a; color: #fff; cursor: pointer; }
+
+.assistant-options { display: grid; gap: 8px; margin-top: 8px; }
+.assistant-options button { padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(15,23,42,0.15); background: #fff; color: #0f172a; cursor: pointer; }
+
+@media (max-width: 480px) {
+  #assistant-widget { right: 12px; bottom: 12px; }
+}
+

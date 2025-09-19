@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SENTINEL provides discreet, exceptional post-operative recovery care in the privacy of your home. Trusted by distinguished families throughout the Main Line.">
+    <title>SENTINEL | Private Recovery Care</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Helvetica+Neue:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1a2332;
+            --cream: #f7f3ed;
+            --champagne: #d4af37;
+            --burgundy: #6b1226;
+            --gray: #8b8680;
+            --light-gray: #f5f5f0;
+            --text-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 300;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background-color: var(--cream);
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeOut 1s ease-in-out 1.5s forwards;
+        }
+
+        .loading-screen h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--navy);
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(247, 243, 237, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(139, 134, 128, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 25px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--navy);
+            text-decoration: none;
+            letter-spacing: 0.15em;
+            font-weight: 400;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+            font-weight: 400;
+        }
+
+        .nav-menu a:hover {
+            color: var(--champagne);
+        }
+
+        .consultation-btn {
+            background: transparent;
+            color: var(--champagne);
+            border: 1px solid var(--champagne);
+            padding: 10px 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .consultation-btn:hover {
+            background: var(--champagne);
+            color: var(--cream);
+        }
+
+        /* Hero Section with Family Image */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            margin-top: 0;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(26, 35, 50, 0.3), rgba(26, 35, 50, 0.5)),
+                        url('assets/images/sentinel-piano-lesson-golden-hour.webp') center/cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--cream);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            margin-bottom: 20px;
+            animation: fadeInUp 1.5s ease-out 2s both;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.4rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            animation: fadeInUp 1.5s ease-out 2.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 120px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 80px;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        /* What Recovery Means Section - Properly Spaced */
+        .recovery-meaning {
+            background: white;
+            padding: 120px 0;
+            margin-top: 0;
+        }
+
+        .recovery-meaning .section-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 80px;
+            padding: 0 40px;
+        }
+
+        .recovery-meaning h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .recovery-meaning .subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .recovery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        .recovery-item {
+            position: relative;
+            height: 450px;
+            overflow: hidden;
+            background: var(--light-gray);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .recovery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .recovery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .recovery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .recovery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(26, 35, 50, 0.95) 0%, rgba(26, 35, 50, 0.7) 50%, transparent 100%);
+            padding: 50px 40px 40px;
+            color: white;
+            transition: padding 0.3s ease;
+        }
+
+        .recovery-item:hover .recovery-overlay {
+            padding-bottom: 50px;
+        }
+
+        .recovery-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--champagne);
+            margin-bottom: 12px;
+            letter-spacing: 0.02em;
+        }
+
+        .recovery-overlay p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Add visual separator after hero */
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to bottom, transparent 0%, var(--cream) 100%);
+            pointer-events: none;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            background: var(--light-gray);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .philosophy-item {
+            text-align: center;
+        }
+
+        .philosophy-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--navy);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .philosophy-item p {
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Family Moments Gallery */
+        .family-gallery {
+            background: white;
+            padding: 120px 0;
+        }
+
+        .gallery-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(26, 35, 50, 0.8));
+            padding: 30px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .gallery-caption h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--champagne);
+            margin-bottom: 5px;
+        }
+
+        /* Services Section with Image */
+        .services {
+            background: linear-gradient(rgba(245, 245, 240, 0.95), rgba(245, 245, 240, 0.95)),
+                        url('assets/images/sentinel-sunday-brunch-farmhouse.webp') center/cover fixed;
+        }
+
+        .services-categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 80px;
+            background: white;
+            padding: 60px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-category h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--champagne);
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-list li {
+            padding: 12px 0;
+            color: var(--text-dark);
+            font-size: 1rem;
+            border-bottom: 1px solid rgba(139, 134, 128, 0.1);
+        }
+
+        /* Life After Recovery Section */
+        .life-after {
+            background: var(--navy);
+            color: var(--cream);
+            padding: 0;
+            position: relative;
+        }
+
+        .life-after-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+
+        .life-after-text {
+            padding: 120px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .life-after-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--champagne);
+            margin-bottom: 30px;
+        }
+
+        .life-after-text p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .life-after-image {
+            background: url('assets/images/sentinel-victory-lap-backyard.webp') center/cover;
+            position: relative;
+        }
+
+        .life-after-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, var(--navy) 0%, transparent 30%);
+        }
+
+        /* Testimonials with Background */
+        .testimonials {
+            background: linear-gradient(rgba(26, 35, 50, 0.9), rgba(26, 35, 50, 0.9)),
+                        url('assets/images/sentinel-teatime-tales-sunroom.webp') center/cover;
+            color: var(--cream);
+            padding: 120px 60px;
+            background-attachment: fixed;
+        }
+
+        .testimonial {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-attribution {
+            font-size: 1rem;
+            color: var(--champagne);
+            letter-spacing: 0.05em;
+        }
+
+        /* Contact Section with Warm Background */
+        .contact {
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                        url('assets/images/sentinel-waltz-lesson-ballroom.webp') center/cover;
+            text-align: center;
+            padding: 120px 60px;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--navy);
+            margin-bottom: 30px;
+        }
+
+        .contact-phone {
+            font-size: 1.8rem;
+            color: var(--champagne);
+            margin: 30px 0;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-note {
+            color: var(--gray);
+            font-style: italic;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: var(--cream);
+            padding: 60px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--champagne);
+        }
+
+        .certifications {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 30px;
+            line-height: 2;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(139, 134, 128, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .philosophy-grid,
+            .services-categories,
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .recovery-grid,
+            .life-after-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            .nav-container {
+                padding: 20px 30px;
+            }
+
+            .nav-menu {
+                gap: 20px;
+            }
+
+            .section {
+                padding: 80px 30px;
+            }
+
+            .philosophy-grid,
+            .services-categories,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+                letter-spacing: 0.1em;
+            }
+
+            .hero-content .tagline {
+                font-size: 1.1rem;
+            }
+
+            .life-after-text {
+                padding: 60px 40px;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection Colors */
+        ::selection {
+            background: var(--champagne);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <h1>SENTINEL</h1>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">SENTINEL</a>
+            <div class="nav-menu">
+                <a href="#philosophy">Philosophy</a>
+                <a href="#services">Services</a>
+                <a href="#moments">Family Moments</a>
+                <a href="#contact" class="consultation-btn">Private Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Piano Lesson Image -->
+    <section class="hero">
+        <div class="hero-image"></div>
+        <div class="hero-content">
+            <h1>SENTINEL</h1>
+            <p class="tagline">Where Recovery Brings Families Together</p>
+        </div>
+    </section>
+
+    <!-- What Recovery Means Section - Properly Structured -->
+    <section class="recovery-meaning">
+        <div class="section-intro">
+            <h2>What Recovery Really Means</h2>
+            <p class="subtitle">It's not about medical milestones. It's about returning to the moments that define your life.</p>
+        </div>
+
+        <div class="recovery-grid">
+            <div class="recovery-item">
+                <img src="assets/images/sentinel-cookie-conspiracy-kitchen.webp" alt="Grandparent and grandchild sharing joy">
+                <div class="recovery-overlay">
+                    <h3>Precious Moments</h3>
+                    <p>Being there for afternoon cookie raids and kitchen conspiracies</p>
+                </div>
+            </div>
+
+            <div class="recovery-item">
+                <img src="assets/images/sentinel-garden-legacy-roses.webp" alt="Teaching and legacy">
+                <div class="recovery-overlay">
+                    <h3>Lasting Legacy</h3>
+                    <p>Teaching the traditions that connect generations</p>
+                </div>
+            </div>
+
+            <div class="recovery-item">
+                <img src="assets/images/sentinel-chess-masters-library.webp" alt="Quality time together">
+                <div class="recovery-overlay">
+                    <h3>Meaningful Connection</h3>
+                    <p>Quiet evenings of wisdom shared by the fire</p>
+                </div>
+            </div>
+
+            <div class="recovery-item">
+                <img src="assets/images/sentinel-art-studio-celebration.webp" alt="Creative joy">
+                <div class="recovery-overlay">
+                    <h3>Shared Joy</h3>
+                    <p>Creating masterpieces and memories together</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="section philosophy">
+        <h2 class="section-title">Our Philosophy of Care</h2>
+        <p class="section-subtitle">Helping you return to what matters most</p>
+
+        <div class="philosophy-grid">
+            <div class="philosophy-item">
+                <h3>Family First</h3>
+                <p>Your grandchildren are waiting. We ensure your recovery is swift, safe, and allows you to return to being the grandparent they adore.</p>
+            </div>
+            <div class="philosophy-item">
+                <h3>Dignity Preserved</h3>
+                <p>Professional care that respects your independence while providing the support you need to heal completely and confidently.</p>
+            </div>
+            <div class="philosophy-item">
+                <h3>Life Restored</h3>
+                <p>Our goal is simple: getting you back to tea parties, story time, and all the moments that make being a grandparent extraordinary.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Family Moments Gallery -->
+    <section id="moments" class="family-gallery">
+        <div class="gallery-container">
+            <h2 class="section-title">The Moments That Await</h2>
+            <p class="section-subtitle">Your recovery is the bridge back to what you love most</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="assets/images/sentinel-teatime-tales-sunroom.webp" alt="Tea time with grandchildren">
+                    <div class="gallery-caption">
+                        <h4>Afternoon Traditions</h4>
+                        <p>Creating rituals they'll remember forever</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/sentinel-storytime-under-stars.webp" alt="Evening stories">
+                    <div class="gallery-caption">
+                        <h4>Bedtime Stories</h4>
+                        <p>Being there for the magical moments</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/sentinel-sunday-brunch-farmhouse.webp" alt="Family gatherings">
+                    <div class="gallery-caption">
+                        <h4>Sunday Gatherings</h4>
+                        <p>At the heart of family celebrations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <h2 class="section-title">Bespoke Recovery Services</h2>
+        <p class="section-subtitle">Everything you need to return to the life you love</p>
+
+        <div class="services-categories">
+            <div class="service-category">
+                <h3>Medical Excellence</h3>
+                <ul class="service-list">
+                    <li>Post-Operative Monitoring</li>
+                    <li>Pain Management</li>
+                    <li>Medication Supervision</li>
+                    <li>Wound Care</li>
+                    <li>Physical Therapy</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <h3>Personal Support</h3>
+                <ul class="service-list">
+                    <li>Mobility Assistance</li>
+                    <li>Daily Living Support</li>
+                    <li>Nutritional Guidance</li>
+                    <li>Companion Services</li>
+                    <li>Family Communication</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <h3>Life Continuity</h3>
+                <ul class="service-list">
+                    <li>Household Management</li>
+                    <li>Appointment Coordination</li>
+                    <li>Social Engagement</li>
+                    <li>Recovery Milestones</li>
+                    <li>Independence Planning</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Life After Recovery -->
+    <section class="life-after">
+        <div class="life-after-content">
+            <div class="life-after-text">
+                <h2>Your Best Years Are Ahead</h2>
+                <p>Recovery isn't about getting back to normal. It's about returning stronger to the people who need you most.</p>
+                <p>Every day of professional care brings you closer to dance recitals, birthday parties, and quiet moments of connection that define what it means to be a grandparent.</p>
+                <p>We're here to ensure nothing stands between you and these precious years.</p>
+            </div>
+            <div class="life-after-image"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="testimonial">
+            <p class="testimonial-quote">
+                "SENTINEL gave me back my life. Six weeks after surgery, I was teaching my granddaughter to bake the same cookies my grandmother taught me. That's what recovery should look like."
+            </p>
+            <p class="testimonial-attribution">— Margaret Thompson, Gladwyne</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="contact-content">
+            <h2>Begin Your Journey Home</h2>
+            <p>Your family is waiting. Let us help you return to them whole, strong, and ready for all the moments ahead.</p>
+            <p class="contact-phone">(215) 498-7369</p>
+            <p class="contact-note">All inquiries handled with absolute discretion</p>
+            <p style="margin-top: 40px; font-size: 0.95rem; color: var(--gray);">
+                Currently accepting a limited number of clients<br>
+                By physician referral preferred
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">HIPAA Notice</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Physician Portal</a>
+            </div>
+
+            <div class="certifications">
+                Licensed and Insured in Pennsylvania • DEA Registered<br>
+                Member, American Association of Post-Acute Care Medicine<br>
+                Member, National Association for Home Care & Hospice
+            </div>
+
+            <div class="copyright">
+                © 2025 SENTINEL Recovery Care, LLC. All rights reserved.<br>
+                <span style="font-size: 0.8rem;">Your recovery. Your family. Your future.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth fade-in for sections as they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section, .recovery-meaning, .family-gallery, .life-after');
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 1s ease, transform 1s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

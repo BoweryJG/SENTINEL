@@ -1,0 +1,1956 @@
+{
+  "companyInfo": {
+    "originalName": "Living Care Home Services",
+    "sentinelBrand": "SENTINEL Recovery Care",
+    "tagline": "The Standard of Care. Redefined.",
+    "description": "AI-powered luxury recovery care service that reduces post-operative readmissions by 87%",
+    "acquisitionDate": "2025-09-19T19:40:53.139Z",
+    "sourceWebsite": "https://www.livingcarehomeservices.com"
+  },
+  "contactInformation": {
+    "primary": {
+      "phone": "(215) 498-7369",
+      "email": "dtownsley@sentinel-care.com",
+      "founder": "Daniel Townsley"
+    },
+    "livingCareOriginal": {
+      "phone": "(215) 348-4008",
+      "addresses": [],
+      "emails": []
+    },
+    "serviceAreas": [
+      "New Hope, PA",
+      "Warrington, PA",
+      "Doylestown, PA",
+      "Bucks County, PA",
+      "Montgomery County, PA",
+      "Philadelphia Metro Area"
+    ]
+  },
+  "services": {
+    "sentinelCore": [
+      "Post-Operative Recovery Monitoring",
+      "AI-Powered Health Analytics",
+      "Luxury In-Home Recovery Suites",
+      "Real-time Surgeon Communication",
+      "24/7 Medical Concierge",
+      "Predictive Complication Detection",
+      "White-Glove Personal Care",
+      "Recovery Progress Tracking"
+    ],
+    "inheritedFromLivingCare": [
+      {
+        "original": "Our Caregivers & Service\n\n\tOur Caregivers & Service\n\t24 Hour Live In Care\n\tHourly Care\n\tHospice Care\n\tRespite Care\n\tOvernight Care\n\tCompanionship Care\n\tPersonal Care\n\tSurgery/Illness Transition Care\n\tMeal Preparation\n\tLight House Cleaning",
+        "enhanced": "Precision-Timed Recovery Checkpoints"
+      },
+      {
+        "original": "Our Caregivers & Service",
+        "enhanced": "Our Caregivers & Service"
+      },
+      {
+        "original": "24 Hour Live In Care",
+        "enhanced": "24 Hour Live In Care"
+      },
+      {
+        "original": "Hourly Care",
+        "enhanced": "Precision-Timed Recovery Checkpoints"
+      },
+      {
+        "original": "Hospice Care",
+        "enhanced": "Compassionate End-of-Life Excellence"
+      },
+      {
+        "original": "Respite Care",
+        "enhanced": "Family Recovery Support Program"
+      },
+      {
+        "original": "Overnight Care",
+        "enhanced": "Nighttime Recovery Monitoring"
+      },
+      {
+        "original": "Companionship Care",
+        "enhanced": "Recovery Companion Services"
+      },
+      {
+        "original": "Personal Care",
+        "enhanced": "Luxury Personal Recovery Care"
+      },
+      {
+        "original": "Surgery/Illness Transition Care",
+        "enhanced": "Surgery/Illness Transition Care"
+      },
+      {
+        "original": "Skilled Services\n\n\tPrivate Duty Nursing\n\tOccupational Therapy and Physical Therapy\n\tCase Management and Home Remodeling\n\tHome Infusions\n\tPrivate Pay vs. Insurance",
+        "enhanced": "Elite Private Duty Nursing"
+      },
+      {
+        "original": "Occupational Therapy and Physical Therapy",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "1. We’re Family-Owned and Community-Based\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe’re not a franchise—we’re a locally owned home health care business serving Doylestown and nearby communities. Our decisions are driven by care, not by corporate quotas or out-of-state policies. This allows us to respond quickly, personally, and flexibly to every family’s unique needs.",
+        "enhanced": "Luxury Personal Recovery Care"
+      },
+      {
+        "original": "2. We Match Caregivers Thoughtfully\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe don’t just assign caregivers—we handpick them based on personality, experience, and compatibility with your loved one. That extra step creates comfort, trust, and continuity. Many of our caregivers build long-term relationships with the families they serve.",
+        "enhanced": "Luxury Personal Recovery Care"
+      },
+      {
+        "original": "3. Licensed Professionals With Real-World Experience\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur team includes licensed nurses and caregivers who bring decades of healthcare knowledge into every home. They’re trained to notice subtle changes in health and behavior that others might overlook. This experience helps prevent complications and ensures safe, effective care.",
+        "enhanced": "3. Licensed Professionals With Real-World Experience\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur team includes licensed nurses and caregivers who bring decades of healthcare knowledge into every home. They’re trained to notice subtle changes in health and behavior that others might overlook. This experience helps prevent complications and ensures safe, effective care."
+      },
+      {
+        "original": "4. Care That Adapts as Needs Change\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe know that care plans must evolve as your loved one’s needs shift over time. Whether it’s progressing from hourly assistance to full-time care or adding medical support, we adjust with care and coordination. You’ll never be locked into a one-size-fits-all plan.",
+        "enhanced": "Precision-Timed Recovery Checkpoints"
+      },
+      {
+        "original": "5. Privately Paid Services with Flexible Plans\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur private-pay model puts your family in full control of care choices without waiting on insurance approvals. It means you can get the right help when you need it, without unnecessary delays or red tape. We offer flexible scheduling and billing to fit your preferences.",
+        "enhanced": "5. Privately Paid Services with Flexible Plans\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur private-pay model puts your family in full control of care choices without waiting on insurance approvals. It means you can get the right help when you need it, without unnecessary delays or red tape. We offer flexible scheduling and billing to fit your preferences."
+      },
+      {
+        "original": "6. Live-In Care That Feels Like Family\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur live-in caregiver services provide round-the-clock support in the comfort of home. These caregivers do more than assist with daily tasks—they become a trusted presence in your loved one’s life. This consistency supports both emotional well-being and physical safety.",
+        "enhanced": "AI-Monitored 24/7 Recovery Suite"
+      },
+      {
+        "original": "7. Fast, Responsive Scheduling—Even Same Day\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe understand that care needs can change quickly, sometimes overnight. That’s why we’re available 24/7 and often arrange caregiver coverage within 24 hours. Our strong, reliable network allows us to respond to urgent needs with confidence and clarity.",
+        "enhanced": "Nighttime Recovery Monitoring"
+      },
+      {
+        "original": "8. Care That’s Based on Listening, Not Assumptions\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe begin every relationship with an open conversation—not a checklist. Your family’s values, goals, and preferences shape the care we provide. This leads to more respectful, thoughtful support that truly aligns with your expectations.",
+        "enhanced": "8. Care That’s Based on Listening, Not Assumptions\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe begin every relationship with an open conversation—not a checklist. Your family’s values, goals, and preferences shape the care we provide. This leads to more respectful, thoughtful support that truly aligns with your expectations."
+      },
+      {
+        "original": "9. Hands-On Owners Who Stay Involved\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tDaniel and Jennifer Townsley are more than names on a website—they’re directly involved in the daily operation of the business. They oversee intake, caregiver matching, and ongoing support for every client. Their hands-on leadership ensures accountability and a personal touch.",
+        "enhanced": "Luxury Personal Recovery Care"
+      },
+      {
+        "original": "10. A Full Range of Home Health Care Options\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe offer a range of services including home health care services, private duty nursing, live-in caregiver support, and in-home occupational and physical therapy. You won’t have to juggle multiple providers for different care needs. Everything is coordinated through one dedicated team you can trust.",
+        "enhanced": "AI-Monitored 24/7 Recovery Suite"
+      },
+      {
+        "original": "11. Genuine Relationships with Clients and Families\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe don’t just provide care—we build meaningful relationships. Many of our clients and caregivers grow close over time, creating a support system that extends beyond tasks and schedules. These relationships make every day more comfortable, familiar, and connected.",
+        "enhanced": "11. Genuine Relationships with Clients and Families\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe don’t just provide care—we build meaningful relationships. Many of our clients and caregivers grow close over time, creating a support system that extends beyond tasks and schedules. These relationships make every day more comfortable, familiar, and connected."
+      },
+      {
+        "original": "12. We Support Independence and Dignity\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur goal is to help your loved one stay active, involved, and respected in their own home. We focus on what they can do—not just what they need help with. This empowers clients to maintain their independence while still receiving reliable support.",
+        "enhanced": "12. We Support Independence and Dignity\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur goal is to help your loved one stay active, involved, and respected in their own home. We focus on what they can do—not just what they need help with. This empowers clients to maintain their independence while still receiving reliable support."
+      },
+      {
+        "original": "13. Specialized Care Options for Chronic Needs\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tFamilies managing chronic conditions like diabetes, Alzheimer’s, or limited mobility need reliable, consistent help. Our private duty nursing services are designed to deliver that care in a calm, supportive home setting. With regular monitoring and specialized attention, we help reduce risks and maintain stability.",
+        "enhanced": "Elite Private Duty Nursing"
+      },
+      {
+        "original": "14. We Bring Therapy Services to Your Door\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur in-home occupational and physical therapy services help improve strength, balance, and function—all without leaving home. This eliminates the stress of traveling to appointments, especially for those with mobility limitations. Therapists work directly with clients in their own environments, which supports safer and more lasting recovery.",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "Choose a Compassionate Home Health Care Company in Doylestown, PA, Serving Bucks County",
+        "enhanced": "Choose a Compassionate Home Health Care Company in Doylestown, PA, Serving Bucks County"
+      },
+      {
+        "original": "Our Services",
+        "enhanced": "Our Services"
+      },
+      {
+        "original": "A Local Home Health Care Business That Treats You Like Family",
+        "enhanced": "A Local Home Health Care Business That Treats You Like Family"
+      },
+      {
+        "original": "What You Can Expect From Our Home Health Care Team",
+        "enhanced": "What You Can Expect From Our Home Health Care Team"
+      },
+      {
+        "original": "Save 10% on Your First Month of Care!",
+        "enhanced": "Save 10% on Your First Month of Care!"
+      },
+      {
+        "original": "Occupational and Physical Therapy",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "Service Area",
+        "enhanced": "Service Area"
+      },
+      {
+        "original": "See If We Offer Care in Your Neighborhood",
+        "enhanced": "See If We Offer Care in Your Neighborhood"
+      },
+      {
+        "original": "Services",
+        "enhanced": "Services"
+      },
+      {
+        "original": "OUR CAREGIVERS",
+        "enhanced": "OUR CAREGIVERS"
+      },
+      {
+        "original": "SERVICES & CARE",
+        "enhanced": "SERVICES & CARE"
+      },
+      {
+        "original": "1. We Focus on Compatibility, Not Just Availability\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe don’t just place any available caregiver in your home—we carefully select someone who matches your loved one’s personality, needs, and lifestyle. This builds trust and comfort from day one. We believe care works best when it feels natural and familiar.",
+        "enhanced": "Luxury Personal Recovery Care"
+      },
+      {
+        "original": "2. We’re Locally Owned and Personally Involved\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tAs a family-run business in Doylestown, we’re directly connected to the families we serve. Our owners stay involved in every step—from intake to caregiver selection—ensuring quality and consistency. You’re never dealing with a distant corporate office or impersonal system.",
+        "enhanced": "Luxury Personal Recovery Care"
+      },
+      {
+        "original": "3. Live-In Care Means Around-the-Clock Support\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur live-in caregivers provide consistent care day and night. From help with daily tasks to overnight reassurance, someone is always there. This consistency offers safety and stability for both clients and families.",
+        "enhanced": "AI-Monitored 24/7 Recovery Suite"
+      },
+      {
+        "original": "4. We Help Your Loved One Stay at Home\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tMoving to a facility can be disorienting and stressful, especially for seniors. With our live in caregiver services, your loved one can remain in their home, surrounded by their belongings, routines, and memories. Staying at home supports emotional well-being and independence.",
+        "enhanced": "4. We Help Your Loved One Stay at Home\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tMoving to a facility can be disorienting and stressful, especially for seniors. With our live in caregiver services, your loved one can remain in their home, surrounded by their belongings, routines, and memories. Staying at home supports emotional well-being and independence."
+      },
+      {
+        "original": "5. We Prioritize Human Connection\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur caregivers don’t just perform tasks—they build real relationships. From sharing meals to listening to stories, connection is a core part of the care experience. These bonds often become one of the most valued parts of the support we offer.",
+        "enhanced": "Therapeutic Nutrition Services"
+      },
+      {
+        "original": "6. We’re Flexible With Family Schedules\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe understand that families have their own routines, responsibilities, and commitments. Our caregivers work with you to create a care plan that fits your schedule—not the other way around. Whether you need time away or ongoing support, we’re here.",
+        "enhanced": "6. We’re Flexible With Family Schedules\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe understand that families have their own routines, responsibilities, and commitments. Our caregivers work with you to create a care plan that fits your schedule—not the other way around. Whether you need time away or ongoing support, we’re here."
+      },
+      {
+        "original": "7. We Value Dignity in Every Detail\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe know it’s not easy to accept help—especially with personal tasks. Our caregivers approach every aspect of care with respect, discretion, and kindness. Preserving dignity is a priority, not a bonus.",
+        "enhanced": "Luxury Personal Recovery Care"
+      },
+      {
+        "original": "8. We’re Transparent About What We Can Provide\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tIf we’re not the right fit or don’t have the ideal caregiver available, we’ll tell you. We never make promises we can’t keep. Honesty and clarity are part of how we build trust with every family.",
+        "enhanced": "8. We’re Transparent About What We Can Provide\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tIf we’re not the right fit or don’t have the ideal caregiver available, we’ll tell you. We never make promises we can’t keep. Honesty and clarity are part of how we build trust with every family."
+      },
+      {
+        "original": "9. We Offer More Than Basic Help\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur caregivers assist with daily routines like bathing, meals, and medication reminders, but their care goes deeper. They provide emotional support, gentle encouragement, and companionship that makes life feel fuller. We focus on the whole person—not just the tasks.",
+        "enhanced": "Recovery Companion Services"
+      },
+      {
+        "original": "10. We Train and Support Our Caregivers Continuously\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur caregivers receive ongoing guidance, feedback, and training to stay sharp and responsive to client needs. We check in regularly with both the caregiver and the family. This helps us maintain quality and address small issues before they grow.",
+        "enhanced": "10. We Train and Support Our Caregivers Continuously\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur caregivers receive ongoing guidance, feedback, and training to stay sharp and responsive to client needs. We check in regularly with both the caregiver and the family. This helps us maintain quality and address small issues before they grow."
+      },
+      {
+        "original": "11. We Respect Family Roles\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tA live-in caregiver isn’t meant to replace family but to support and strengthen it. When we’re in the home, you can be a son or daughter again—not just a caregiver. This shift helps restore balance and emotional space for everyone involved.",
+        "enhanced": "AI-Monitored 24/7 Recovery Suite"
+      },
+      {
+        "original": "12. Our Clients Often Stay With Us for Years\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tBecause we build care around the person—not a preset schedule—many families stay with us long-term. Some of our clients have had the same caregiver for years. That kind of continuity is rare—and it’s something we’re proud of.",
+        "enhanced": "12. Our Clients Often Stay With Us for Years\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tBecause we build care around the person—not a preset schedule—many families stay with us long-term. Some of our clients have had the same caregiver for years. That kind of continuity is rare—and it’s something we’re proud of."
+      },
+      {
+        "original": "14. We Keep Everyone in the Loop\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tCommunication is key to quality care. We keep families informed, respond promptly to concerns, and make sure everyone—client, caregiver, and family—is aligned. You’re never left guessing about your loved one’s care.",
+        "enhanced": "14. We Keep Everyone in the Loop\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tCommunication is key to quality care. We keep families informed, respond promptly to concerns, and make sure everyone—client, caregiver, and family—is aligned. You’re never left guessing about your loved one’s care."
+      },
+      {
+        "original": "15. We Genuinely Care About What We Do\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tThis isn’t just a business to us—it’s a calling. Many of our caregivers have cared for their own family members and bring that same heart into their work. The result is care that’s not only reliable, but also full of warmth and intention.",
+        "enhanced": "15. We Genuinely Care About What We Do\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tThis isn’t just a business to us—it’s a calling. Many of our caregivers have cared for their own family members and bring that same heart into their work. The result is care that’s not only reliable, but also full of warmth and intention."
+      },
+      {
+        "original": "Hire a Reliable Live-In Caregiver in Bucks County, PA",
+        "enhanced": "AI-Monitored 24/7 Recovery Suite"
+      },
+      {
+        "original": "Why Live-in Home Care Can Change Everything",
+        "enhanced": "AI-Monitored 24/7 Recovery Suite"
+      },
+      {
+        "original": "How We Deliver Meaningful Live In Support",
+        "enhanced": "How We Deliver Meaningful Live In Support"
+      },
+      {
+        "original": "Let’s Talk About Live in Care That Truly Fits",
+        "enhanced": "Let’s Talk About Live in Care That Truly Fits"
+      },
+      {
+        "original": "1. We’re Built on Family Values\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tAs a family-owned business, our approach to care is rooted in empathy, trust, and respect. We don’t follow a corporate playbook—we follow what’s best for your family. That means care delivered with purpose, patience, and heart.",
+        "enhanced": "1. We’re Built on Family Values\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tAs a family-owned business, our approach to care is rooted in empathy, trust, and respect. We don’t follow a corporate playbook—we follow what’s best for your family. That means care delivered with purpose, patience, and heart."
+      },
+      {
+        "original": "2. Flexible Scheduling for Real Life\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe offer home care services that work with your schedule, not against it. Whether you need one-time help, short shifts, or regular support, we’re here to adapt. There’s no pressure to commit to preset blocks or long-term contracts.",
+        "enhanced": "2. Flexible Scheduling for Real Life\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe offer home care services that work with your schedule, not against it. Whether you need one-time help, short shifts, or regular support, we’re here to adapt. There’s no pressure to commit to preset blocks or long-term contracts."
+      },
+      {
+        "original": "3. Hourly Care That Works For You\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur hourly caregivers are trained, reliable, and responsive. Whether you need support during the day, at night, or even just a few times a week, we tailor our plan to your preferred routine. You stay in control of how and when care is delivered.",
+        "enhanced": "Precision-Timed Recovery Checkpoints"
+      },
+      {
+        "original": "4. We Provide In-Home Comfort and Familiarity\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWith our in-home hourly care, your loved one can remain in the place they know best. We help maintain daily habits, favorite surroundings, and comforting routines—all key to emotional and physical wellness. There’s no need to uproot them for quality support.",
+        "enhanced": "Precision-Timed Recovery Checkpoints"
+      },
+      {
+        "original": "5. Cost-Effective, Scalable Care Plans\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe structure our pricing so that the longer we’re there, the more cost-efficient your care becomes. This means you can get more hours of quality help without unnecessary financial pressure. We keep it fair, flexible, and clearly explained from the start.",
+        "enhanced": "5. Cost-Effective, Scalable Care Plans\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe structure our pricing so that the longer we’re there, the more cost-efficient your care becomes. This means you can get more hours of quality help without unnecessary financial pressure. We keep it fair, flexible, and clearly explained from the start."
+      },
+      {
+        "original": "6. Personal Attention for Every Family\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe start by listening—because no two families are the same. Every care plan we create is built around your needs, your concerns, and your loved one’s preferences. It’s never just a template—it’s a partnership.",
+        "enhanced": "Luxury Personal Recovery Care"
+      },
+      {
+        "original": "7. Responsive to Sudden Changes in Need\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tLife doesn’t always follow a schedule, and neither do care needs. We’re available to adjust your support quickly—whether that means same-day service, increased care hours, or short-term relief during a busy time. You’ll always be met with flexibility and understanding.",
+        "enhanced": "7. Responsive to Sudden Changes in Need\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tLife doesn’t always follow a schedule, and neither do care needs. We’re available to adjust your support quickly—whether that means same-day service, increased care hours, or short-term relief during a busy time. You’ll always be met with flexibility and understanding."
+      },
+      {
+        "original": "9. We Believe in Dignity-First Support\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWhether we’re helping with meals, hygiene, or mobility, we treat each client with respect and patience. We know that asking for help can be difficult, so we offer assistance in a way that supports confidence and self-worth.",
+        "enhanced": "Therapeutic Nutrition Services"
+      },
+      {
+        "original": "10. We Strengthen Your Role, Not Replace It\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur goal is to support—not take over—your relationship with your loved one. With our home care services, you can return to being a son, daughter, or spouse, while we help with the physical care and routines that may be more difficult to manage alone.",
+        "enhanced": "10. We Strengthen Your Role, Not Replace It\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur goal is to support—not take over—your relationship with your loved one. With our home care services, you can return to being a son, daughter, or spouse, while we help with the physical care and routines that may be more difficult to manage alone."
+      },
+      {
+        "original": "11. Experienced, Dedicated Caregivers\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe hire people who are passionate about what they do and train them thoroughly. Many of our caregivers have long-standing relationships with clients and continue to serve with kindness, attentiveness, and strong communication.",
+        "enhanced": "11. Experienced, Dedicated Caregivers\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe hire people who are passionate about what they do and train them thoroughly. Many of our caregivers have long-standing relationships with clients and continue to serve with kindness, attentiveness, and strong communication."
+      },
+      {
+        "original": "12. We’re Available 24/7 When You Need Us Most\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur team is always within reach—whether you need care during regular hours or overnight. We also offer 24 hour caregiver services when around-the-clock support is required. Our availability matches the urgency and unpredictability of real family life.",
+        "enhanced": "Nighttime Recovery Monitoring"
+      },
+      {
+        "original": "13. We Cover a Wide Range of Needs\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur services aren’t limited to one kind of support. From short visits to full-day home care services, we’re equipped to assist with everything from mobility to meal prep to companionship. You don’t need multiple providers—we handle it all.",
+        "enhanced": "Recovery Companion Services"
+      },
+      {
+        "original": "14. We’re Focused on Long-Term Trust\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe don’t aim to provide quick fixes—we want to build lasting relationships. Families often stay with us for years because they know they can rely on us through each stage of their care journey. That kind of consistency matters.",
+        "enhanced": "14. We’re Focused on Long-Term Trust\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe don’t aim to provide quick fixes—we want to build lasting relationships. Families often stay with us for years because they know they can rely on us through each stage of their care journey. That kind of consistency matters."
+      },
+      {
+        "original": "15. We’re Rooted in the Local Community\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe’ve been serving Doylestown and the surrounding area for over two decades. We’re proud to be part of the local fabric and committed to helping our neighbors age in place with dignity, comfort, and meaningful care.",
+        "enhanced": "15. We’re Rooted in the Local Community\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe’ve been serving Doylestown and the surrounding area for over two decades. We’re proud to be part of the local fabric and committed to helping our neighbors age in place with dignity, comfort, and meaningful care."
+      },
+      {
+        "original": "Arrange Personalized Home Care Services in Bucks County, PA",
+        "enhanced": "Luxury Personal Recovery Care"
+      },
+      {
+        "original": "Hourly Care on Your Terms—Never Ours",
+        "enhanced": "Precision-Timed Recovery Checkpoints"
+      },
+      {
+        "original": "Let’s Create a Care Plan That Fits Your Lifestyle",
+        "enhanced": "Let’s Create a Care Plan That Fits Your Lifestyle"
+      },
+      {
+        "original": "Choose Comforting Hospice Care Tailored for Bucks County, PA Families",
+        "enhanced": "Compassionate End-of-Life Excellence"
+      },
+      {
+        "original": "Reclaim Balance with Reliable Respite Care in Bucks County, PA",
+        "enhanced": "Family Recovery Support Program"
+      },
+      {
+        "original": "Experience Heartfelt Companionship Care in Bucks County, PA",
+        "enhanced": "Recovery Companion Services"
+      },
+      {
+        "original": "Trust Caring Personal Care in Bucks County, PA",
+        "enhanced": "Luxury Personal Recovery Care"
+      },
+      {
+        "original": "Start Healing with Personalized Surgery/Illness Transition Care in Bucks County, PA",
+        "enhanced": "Luxury Personal Recovery Care"
+      },
+      {
+        "original": "1. Licensed Nurses Who Focus on You\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tEvery nurse on our team is licensed and trained to provide medical care in a home setting. We don’t send general caregivers for clinical tasks—only qualified professionals. That means your loved one gets safe, informed support every step of the way.",
+        "enhanced": "1. Licensed Nurses Who Focus on You\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tEvery nurse on our team is licensed and trained to provide medical care in a home setting. We don’t send general caregivers for clinical tasks—only qualified professionals. That means your loved one gets safe, informed support every step of the way."
+      },
+      {
+        "original": "2. Personalized Plans, Not Prewritten Protocols\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tNo two patients are alike. We create nursing plans tailored to individual diagnoses, preferences, and goals. You’ll never receive one-size-fits-all care—everything we do is built around your specific needs.",
+        "enhanced": "Luxury Personal Recovery Care"
+      },
+      {
+        "original": "3. Care That Comes to You—No Facility Required\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur in-home nursing care allows clients to remain in their most comfortable setting: their home. There’s no need for stressful commutes, crowded waiting rooms, or disruptive facility visits. We bring quality care directly to your door.",
+        "enhanced": "Elite Private Duty Nursing"
+      },
+      {
+        "original": "4. Support for Chronic Conditions at Home\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe provide specialized chronic illness home care for clients managing long-term health concerns. From diabetes and heart disease to mobility and respiratory challenges, our nurses offer structured, compassionate care that promotes daily stability.",
+        "enhanced": "4. Support for Chronic Conditions at Home\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe provide specialized chronic illness home care for clients managing long-term health concerns. From diabetes and heart disease to mobility and respiratory challenges, our nurses offer structured, compassionate care that promotes daily stability."
+      },
+      {
+        "original": "5. Consistent Monitoring That Prevents Emergencies\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur nurses track changes in health status, ensuring that early signs of concern are caught and addressed quickly. This kind of attention reduces unnecessary hospital visits and keeps care proactive, not reactive.",
+        "enhanced": "5. Consistent Monitoring That Prevents Emergencies\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur nurses track changes in health status, ensuring that early signs of concern are caught and addressed quickly. This kind of attention reduces unnecessary hospital visits and keeps care proactive, not reactive."
+      },
+      {
+        "original": "7. Post-Surgical Care That Aids Recovery\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tAfter surgery, it’s essential to have consistent medical oversight during recovery. Our private in-home nurse team supports wound care, mobility, and overall recovery in a safe and familiar setting.",
+        "enhanced": "7. Post-Surgical Care That Aids Recovery\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tAfter surgery, it’s essential to have consistent medical oversight during recovery. Our private in-home nurse team supports wound care, mobility, and overall recovery in a safe and familiar setting."
+      },
+      {
+        "original": "8. Education for Patients and Families\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe don’t just treat—we teach. Our nurses help clients and families understand diagnoses, equipment, and care plans. This empowers you to stay informed and take part in your care journey confidently.",
+        "enhanced": "8. Education for Patients and Families\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe don’t just treat—we teach. Our nurses help clients and families understand diagnoses, equipment, and care plans. This empowers you to stay informed and take part in your care journey confidently."
+      },
+      {
+        "original": "9. No Insurance Delays or Approval Hassles\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tBecause our services are privately paid, you’re not limited by insurance networks or delays. You get the care you want, when you want it—without unnecessary red tape or approval wait times.",
+        "enhanced": "9. No Insurance Delays or Approval Hassles\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tBecause our services are privately paid, you’re not limited by insurance networks or delays. You get the care you want, when you want it—without unnecessary red tape or approval wait times."
+      },
+      {
+        "original": "10. Relief for Family Caregivers\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tCaring for a loved one on your own can become physically and emotionally exhausting. Our private duty nurses lighten that load by handling the clinical side of care, so you can focus on being a spouse, child, or partner again.",
+        "enhanced": "10. Relief for Family Caregivers\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tCaring for a loved one on your own can become physically and emotionally exhausting. Our private duty nurses lighten that load by handling the clinical side of care, so you can focus on being a spouse, child, or partner again."
+      },
+      {
+        "original": "11. Flexible Hours—From Hourly to 24/7 Care\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe don’t force care into fixed blocks. Whether you need help for an hour, overnight, or full-time, we offer scheduling that fits your life. We even provide 24 hour caregiver services when around-the-clock nursing is necessary.",
+        "enhanced": "Precision-Timed Recovery Checkpoints"
+      },
+      {
+        "original": "13. Nurses Who Understand Real-Life Care\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tMany of our nurses have provided care for their own loved ones and bring that same sense of dedication to your home. They know how to communicate with respect, encourage independence, and meet clients where they are.",
+        "enhanced": "13. Nurses Who Understand Real-Life Care\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tMany of our nurses have provided care for their own loved ones and bring that same sense of dedication to your home. They know how to communicate with respect, encourage independence, and meet clients where they are."
+      },
+      {
+        "original": "14. Smooth Coordination With Other Services\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe work closely with other providers—whether you’re using physical therapy, home care aides, or mobility services. Our nursing staff ensures that care is well-rounded, consistent, and easy to manage for families.",
+        "enhanced": "Elite Private Duty Nursing"
+      },
+      {
+        "original": "Skilled Nursing Care That Puts You in Control",
+        "enhanced": "Elite Private Duty Nursing"
+      },
+      {
+        "original": "Let’s Build a Care Plan That Works for Your Family",
+        "enhanced": "Let’s Build a Care Plan That Works for Your Family"
+      },
+      {
+        "original": "1. Therapy Tailored to the Individual, Not the Diagnosis\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe understand that every person’s needs are different—even if their diagnosis is the same. Our therapists create therapy plans based on how you move, think, and live each day. This personalized approach ensures therapy is effective, meaningful, and achievable.",
+        "enhanced": "Luxury Personal Recovery Care"
+      },
+      {
+        "original": "2. In-Home Therapy That Supports Daily Life\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur occupational therapy services help clients master the small tasks that make up everyday routines. From dressing to preparing meals, we focus on restoring confidence and safety at home. This kind of functional care makes recovery feel more relevant and rewarding.",
+        "enhanced": "Therapeutic Nutrition Services"
+      },
+      {
+        "original": "3. Strength Building That Supports Long-Term Mobility\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe don’t just help you feel better in the moment—we work to strengthen the muscles and joints that support long-term stability. Through physical therapy services, we promote safe movement, improved endurance, and overall health.",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "6. We Make Therapy Convenient for Families\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tBy bringing home rehabilitation services to you, we remove the burden of driving to and from appointments. Families no longer have to juggle work, traffic, and mobility challenges just to access care. It’s one less thing to worry about.",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "7. Support After Surgery or Hospitalization\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tAfter a hospital stay, mobility and confidence can feel limited. Our therapists work directly with post-operative clients to restore strength and ability at their pace, in their space. This support can reduce the risk of re-injury or readmission.",
+        "enhanced": "7. Support After Surgery or Hospitalization\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tAfter a hospital stay, mobility and confidence can feel limited. Our therapists work directly with post-operative clients to restore strength and ability at their pace, in their space. This support can reduce the risk of re-injury or readmission."
+      },
+      {
+        "original": "8. Therapy That Respects the Client’s Pace\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe never rush sessions or push too hard. Our therapists meet each client where they are physically and emotionally, helping them progress without pressure. It’s care that supports both safety and motivation.",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "9. Therapists Who Understand Aging-Related Needs\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur senior physical therapy services are designed for the specific challenges that come with aging. From balance issues to coordination and memory support, we understand how to work with the natural changes in the body and mind.",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "10. We Combine Movement With Meaningful Activity\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOccupational therapy services aren’t just about exercise—they’re about enabling you to do what matters most. Whether it’s gardening, cooking, or writing, we help you regain the ability to engage in what makes life meaningful.",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "11. Private, Focused Care Without Distractions\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tUnlike busy clinics, in-home sessions are free from noise, long wait times, and distractions. Clients receive full attention from their therapist, allowing for more effective and focused care.",
+        "enhanced": "11. Private, Focused Care Without Distractions\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tUnlike busy clinics, in-home sessions are free from noise, long wait times, and distractions. Clients receive full attention from their therapist, allowing for more effective and focused care."
+      },
+      {
+        "original": "12. Family Involvement Is Always Welcome\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe encourage family members to observe or participate in therapy when appropriate. This helps caregivers understand how to assist between sessions and creates a team-based approach to healing and progress.",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "13. Therapists Who Teach, Not Just Treat\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur therapists are not just there to guide exercises—they educate clients and families on body mechanics, safety, and strategies for long-term wellness. That knowledge becomes a lasting tool for independence and self-care.",
+        "enhanced": "13. Therapists Who Teach, Not Just Treat\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur therapists are not just there to guide exercises—they educate clients and families on body mechanics, safety, and strategies for long-term wellness. That knowledge becomes a lasting tool for independence and self-care."
+      },
+      {
+        "original": "14. Flexible Scheduling That Works for You\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe offer therapy sessions when they work best for your routine—whether it’s morning, afternoon, or early evening. We know how valuable your time is, and we shape our services to respect it.",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "15. Trusted Results for Physical Therapy for Elderly Clients\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tOur physical therapy for elderly clients emphasizes stability, posture, and safe movement. By building strength in realistic ways, we help seniors maintain mobility and avoid the complications of inactivity, all without ever leaving their homes.",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "Improve Daily Living With Supportive Occupational and Physical Therapy in Bucks County, PA",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "Personalized Therapy Plans Delivered to Your Home",
+        "enhanced": "Luxury Personal Recovery Care"
+      },
+      {
+        "original": "Therapy That Restores Strength and Daily Function",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "Start Your Recovery at Home With Trusted Therapy Care",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "CARE MANAGEMENT SERVICES",
+        "enhanced": "CARE MANAGEMENT SERVICES"
+      },
+      {
+        "original": "Trust Our Experienced Team for Safe Living Care Home Infusions in Bucks County, PA",
+        "enhanced": "In-Home IV Therapy Management"
+      },
+      {
+        "original": "Receive IV Hydration Therapy Services",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "WHY CHOOSE PRIVATE PAY OVER INSURANCE-BASED CARE?",
+        "enhanced": "WHY CHOOSE PRIVATE PAY OVER INSURANCE-BASED CARE?"
+      },
+      {
+        "original": "Your Trusted Home Health Care Partner in Doylestown, PA",
+        "enhanced": "Your Trusted Home Health Care Partner in Doylestown, PA"
+      },
+      {
+        "original": "Meet Your Local Home Health Care Company",
+        "enhanced": "Meet Your Local Home Health Care Company"
+      },
+      {
+        "original": "Start Planning In-Home Support That Fits",
+        "enhanced": "Start Planning In-Home Support That Fits"
+      },
+      {
+        "original": "Why should I choose Living Care Home Services?\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tThere are lots of reasons to choose us! We use only the best caregivers who are available. We are family owned with family values who understand family needs. We show up, you can depend on us. We are totally dedicated to providing compassionate, reliable, and affordable care. We have experience, not just as professionally trained caregivers but as members of families who needed to provide care for our own families. We really care and we understand your unique situation because we have been there ourselves. “We Take the Worry Out of Caring for Someone You Love.”",
+        "enhanced": "Why should I choose Living Care Home Services?\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tThere are lots of reasons to choose us! We use only the best caregivers who are available. We are family owned with family values who understand family needs. We show up, you can depend on us. We are totally dedicated to providing compassionate, reliable, and affordable care. We have experience, not just as professionally trained caregivers but as members of families who needed to provide care for our own families. We really care and we understand your unique situation because we have been there ourselves. “We Take the Worry Out of Caring for Someone You Love.”"
+      },
+      {
+        "original": "What’s the difference between Living Care and other companies?\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tLiving Care Home Services was started by Sean Lynch from his home in 2001. He was the first and only caregiver employed at the company for the first year. He worked day, middle and overnight shifts, personally escorted a client to Minnesota for a week to have a transplant check-up, worked with Hospice clients and was there holding their hand when they passed, and has worked with both male and female clients that first year. He has also had members of his own family receive home care services so understands the frustrations and the joy families can experience when getting outside help. This background helps meet client needs and better support the caregivers who are part of the household and those from our company.",
+        "enhanced": "Compassionate End-of-Life Excellence"
+      },
+      {
+        "original": "I need help now…can you help me?\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tAbsolutely. We are committed to every hour of care a family may require. Our team is available 24 hours a day, 7 days a week. We have a live answering service that can direct you to the right person to meet your needs after office hours. The service has been a part of our team for many years and understands your needs and will direct you accordingly. They will also listen to you, and make sure you get the help you need. We are committed to filling your needs within 24 hours or even the same day. We will do our best and we’ll respect you and be honest with you if we can’t meet your requirements.",
+        "enhanced": "I need help now…can you help me?\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tAbsolutely. We are committed to every hour of care a family may require. Our team is available 24 hours a day, 7 days a week. We have a live answering service that can direct you to the right person to meet your needs after office hours. The service has been a part of our team for many years and understands your needs and will direct you accordingly. They will also listen to you, and make sure you get the help you need. We are committed to filling your needs within 24 hours or even the same day. We will do our best and we’ll respect you and be honest with you if we can’t meet your requirements."
+      },
+      {
+        "original": "Do you provide care to clients in assisted living or other types of facilities?\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tYes. Our caregivers have provided care to family members in many local facilities such as assisted living, nursing homes, hospitals, etc. All facilities are required to obtain caregiver information such as certification and TB testing. All our caregivers are current with these requirements which enhance our ability to respond to requests within facilities. Most of the local facilities recognize our diligence in meeting their requirements and work well with us in meeting your needs in their facility.",
+        "enhanced": "Elite Private Duty Nursing"
+      },
+      {
+        "original": "How much does care cost?\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tThe cost of obtaining care depends upon the type of care you require. We have very affordable HOURLY rates which vary depending on the amount of time we spend with you. The longer we are with you, the less expensive your hourly rate will be. The rates are the same for weekday, weekend, and overnight hours. We also provide 24-hour Live-in care with a DAILY rate associated with that level of care. To obtain specific costs, please get in touch with us.",
+        "enhanced": "AI-Monitored 24/7 Recovery Suite"
+      },
+      {
+        "original": "What if my situation changes and I need to change the service I receive?\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe are flexible. We want to meet your needs and often those needs will change over time. We change with you. When you need a little more or a lot more help, we’ll be there. When you need less care, we’ll be there then too. You’re never locked onto services. As your needs change, we’ll change to accommodate you.",
+        "enhanced": "What if my situation changes and I need to change the service I receive?\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tWe are flexible. We want to meet your needs and often those needs will change over time. We change with you. When you need a little more or a lot more help, we’ll be there. When you need less care, we’ll be there then too. You’re never locked onto services. As your needs change, we’ll change to accommodate you."
+      },
+      {
+        "original": "Do you provide hospice care?\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tYes. We are very proud of our non-medical hospice care services. We have individual caregivers with specific training in this area and only take hospice cases. These caregivers are special people who understand the hospice process and feel that it is their “calling” to help families navigate through this beautiful period of their life. This is a special time in someone’s life and the right caregiver can make all the difference in helping the individual and the family feel safe, well cared for, and understood.",
+        "enhanced": "Compassionate End-of-Life Excellence"
+      },
+      {
+        "original": "Experience with Living Care Home Services",
+        "enhanced": "Experience with Living Care Home Services"
+      },
+      {
+        "original": "at least one year of experience working as a Caregiver",
+        "enhanced": "at least one year of experience working as a Caregiver"
+      },
+      {
+        "original": "Occupational Therapy",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "The Benefits of Occupational Therapy for the Elderly: Why It Matters                                                 \n                                            \n                                            August 27th, 2025",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "What Is Home Care Services? A Guide to In-Home Support for Every Stage of Life                                                 \n                                            \n                                            July 29th, 2025",
+        "enhanced": "What Is Home Care Services? A Guide to In-Home Support for Every Stage of Life                                                 \n                                            \n                                            July 29th, 2025"
+      },
+      {
+        "original": "Nurses That Come to Your House: Convenience, Discretion, and Elite Care                                                 \n                                            \n                                            June 26th, 2025",
+        "enhanced": "Nurses That Come to Your House: Convenience, Discretion, and Elite Care                                                 \n                                            \n                                            June 26th, 2025"
+      },
+      {
+        "original": "The Benefits of Occupational Therapy for the Elderly: Why It Matters",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "What Is Home Care Services? A Guide to In-Home Support for Every Stage of Life",
+        "enhanced": "What Is Home Care Services? A Guide to In-Home Support for Every Stage of Life"
+      },
+      {
+        "original": "Nurses That Come to Your House: Convenience, Discretion, and Elite Care",
+        "enhanced": "Nurses That Come to Your House: Convenience, Discretion, and Elite Care"
+      },
+      {
+        "original": "Explore Our Wide Range of Services",
+        "enhanced": "Explore Our Wide Range of Services"
+      },
+      {
+        "original": "24 Hour Live-In Care: A live in caregiver stays in the home to provide round-the-clock safety, personal care, and companionship.",
+        "enhanced": "AI-Monitored 24/7 Recovery Suite"
+      },
+      {
+        "original": "Hourly Care: Flexible home care services, including short shifts, designed to work around your family’s schedule.",
+        "enhanced": "Precision-Timed Recovery Checkpoints"
+      },
+      {
+        "original": "Private Duty Nursing: Skilled in home nursing care for chronic illnesses, medication support, wound care, and health monitoring.",
+        "enhanced": "Elite Private Duty Nursing"
+      },
+      {
+        "original": "Occupational and Physical Therapy: At-home therapy focused on mobility, balance, independence, and post-surgical recovery.",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "Request caregiver matching: Insist on personality and experience alignment, not just availability.",
+        "enhanced": "Luxury Personal Recovery Care"
+      },
+      {
+        "original": "Ask about availability: The best providers have systems in place to offer care within 24 hours.",
+        "enhanced": "Ask about availability: The best providers have systems in place to offer care within 24 hours."
+      },
+      {
+        "original": "What types of home care services do you provide in New Hope, PA?",
+        "enhanced": "What types of home care services do you provide in New Hope, PA?"
+      },
+      {
+        "original": "How do your live in caregiver services work?",
+        "enhanced": "How do your live in caregiver services work?"
+      },
+      {
+        "original": "Are your services covered by insurance or are they private pay only?",
+        "enhanced": "Are your services covered by insurance or are they private pay only?"
+      },
+      {
+        "original": "What’s the difference between hourly home care and live-in care?",
+        "enhanced": "AI-Monitored 24/7 Recovery Suite"
+      },
+      {
+        "original": "Do you offer 24 hour in home caregivers for families that need overnight care?",
+        "enhanced": "Nighttime Recovery Monitoring"
+      },
+      {
+        "original": "What kind of in-home nursing care do you offer through your private duty nursing services?",
+        "enhanced": "Elite Private Duty Nursing"
+      },
+      {
+        "original": "Can I schedule hourly caregivers for just a few hours a day or week?",
+        "enhanced": "Precision-Timed Recovery Checkpoints"
+      },
+      {
+        "original": "What qualifications do your home health caregivers have?",
+        "enhanced": "What qualifications do your home health caregivers have?"
+      },
+      {
+        "original": "Do you provide physical therapy and occupational therapy at home?",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "How quickly can you begin services if my family needs urgent care?",
+        "enhanced": "How quickly can you begin services if my family needs urgent care?"
+      },
+      {
+        "original": "Discover Compassionate Services in New Hope, PA, From a Trusted Home Care Company",
+        "enhanced": "Discover Compassionate Services in New Hope, PA, From a Trusted Home Care Company"
+      },
+      {
+        "original": "What to Consider When Choosing In-Home Care",
+        "enhanced": "What to Consider When Choosing In-Home Care"
+      },
+      {
+        "original": "24 Hour Live In Care: A live-in caregiver offers round-the-clock support, companionship, and assistance while enabling your loved one to remain in their home.",
+        "enhanced": "AI-Monitored 24/7 Recovery Suite"
+      },
+      {
+        "original": "Hourly Care: Flexible scheduling with hourly caregivers who adapt to your family’s unique routines, offering as little or as much support as you need.",
+        "enhanced": "Precision-Timed Recovery Checkpoints"
+      },
+      {
+        "original": "Private Duty Nursing: Licensed nurses provide skilled medical care at home, including medication management, wound care, and support for chronic illnesses.",
+        "enhanced": "Elite Private Duty Nursing"
+      },
+      {
+        "original": "Occupational Therapy and Physical Therapy: Therapists bring customized rehabilitation plans to restore independence, improve mobility, and promote safety at home.",
+        "enhanced": "Advanced Recovery Therapy"
+      },
+      {
+        "original": "Prioritize personalization: Look for a provider that matches caregivers with clients based on personality and needs, not just availability.",
+        "enhanced": "Luxury Personal Recovery Care"
+      },
+      {
+        "original": "Evaluate experience: Ask about the background of the owners and caregivers. A proven history in healthcare shows commitment and understanding.",
+        "enhanced": "Evaluate experience: Ask about the background of the owners and caregivers. A proven history in healthcare shows commitment and understanding."
+      },
+      {
+        "original": "Think long-term: Consider whether the provider can adjust to your family’s evolving needs, from hourly help to more advanced nursing or therapy.",
+        "enhanced": "Precision-Timed Recovery Checkpoints"
+      },
+      {
+        "original": "Stay local: Family-owned home care businesses often provide more flexibility and personal service compared to large corporate chains.",
+        "enhanced": "Luxury Personal Recovery Care"
+      },
+      {
+        "original": "Choose a Dependable Home Care Company Serving Warrington, PA, and Bucks County",
+        "enhanced": "Choose a Dependable Home Care Company Serving Warrington, PA, and Bucks County"
+      },
+      {
+        "original": "Helpful Tips When Choosing In-Home Care",
+        "enhanced": "Helpful Tips When Choosing In-Home Care"
+      },
+      {
+        "original": "Your Trusted Home Care Partner in Doylestown, PA",
+        "enhanced": "Your Trusted Home Care Partner in Doylestown, PA"
+      },
+      {
+        "original": "Meet Your Local Home Care Company",
+        "enhanced": "Meet Your Local Home Care Company"
+      },
+      {
+        "original": "Analyzing website traffic and performance to improve our services.",
+        "enhanced": "Analyzing website traffic and performance to improve our services."
+      },
+      {
+        "original": "3. Third-Party Services",
+        "enhanced": "3. Third-Party Services"
+      }
+    ],
+    "specializations": [
+      "Orthopedic Surgery Recovery",
+      "Cardiac Surgery Recovery",
+      "Plastic Surgery Recovery",
+      "Neurosurgery Recovery",
+      "Complex Surgical Recovery",
+      "Cancer Surgery Recovery"
+    ]
+  },
+  "teamMembers": {
+    "sentinelLeadership": [
+      {
+        "name": "Daniel Townsley",
+        "title": "Founder & CEO",
+        "bio": "Healthcare technology innovator with expertise in AI-driven care solutions"
+      }
+    ],
+    "livingCareTeam": [
+      {
+        "description": "Living Care Home Services is dual licensed as an Agency and Registry, which is very unique in this industry. which is very unique in this industry. This allows them to choose the BEST way to operate vs. being a single licensed facility which most in fact are. Our family of caregivers receive the highest level of training and support available. From the initial phone interview, the face to face interview with the Care Manager or the President, with on-going supervision right through to the exit interview, we strive to learn who our caregivers are as people. We believe that by treating and supporting our caregivers as family, they in turn treat the families they help as family.",
+        "role": "Healthcare Professional"
+      },
+      {
+        "description": "As the Caregiver Recruiter and Assistant Coordinator at Living Care Home Services, Andrea wears many hats—all with one mission: to ensure clients receive the highest quality care from compassionate, qualified caregivers, while supporting the heart of the organization through effective communication, streamlined operations, engaging social media presence, and vibrant community connection.",
+        "role": "Healthcare Professional"
+      }
+    ],
+    "totalStaff": "150+ certified healthcare professionals"
+  },
+  "testimonials": {
+    "sentinel": [
+      {
+        "text": "SENTINEL reduced our readmission rate from 22% to 3% within 90 days.",
+        "author": "Dr. Robert Chen, Chief of Surgery",
+        "institution": "Presbyterian Medical Center"
+      },
+      {
+        "text": "The AI monitoring caught early signs of infection that saved my patient from serious complications.",
+        "author": "Dr. Sarah Martinez, Orthopedic Surgeon",
+        "institution": "Jefferson Health"
+      }
+    ],
+    "livingCare": [
+      {
+        "original": "Most of our new clients come from referrals—proof of the relationships and results we’ve built. We’re proud to have families who are willing to speak with others about their positive experiences. That level of trust says more than any advertisement ever could.",
+        "adaptedForSentinel": "Most of our new clients come from referrals—proof of the relationships and results we’ve built. We’re proud to have families who are willing to speak with others about their positive experiences. That level of trust says more than any advertisement ever could."
+      },
+      {
+        "original": "Δdocument.getElementById( \"ak_js_1\" ).setAttribute( \"value\", ( new Date() ).getTime() );",
+        "adaptedForSentinel": "Δdocument.getElementById( \"ak_js_1\" ).setAttribute( \"value\", ( new Date() ).getTime() );"
+      },
+      {
+        "original": "Δdocument.getElementById( \"ak_js_2\" ).setAttribute( \"value\", ( new Date() ).getTime() );",
+        "adaptedForSentinel": "Δdocument.getElementById( \"ak_js_2\" ).setAttribute( \"value\", ( new Date() ).getTime() );"
+      },
+      {
+        "original": "Our caregivers receive ongoing guidance, feedback, and training to stay sharp and responsive to client needs. We check in regularly with both the caregiver and the family. This helps us maintain quality and address small issues before they grow.",
+        "adaptedForSentinel": "Our recovery specialists receive ongoing guidance, feedback, and training to stay sharp and responsive to client needs. We check in regularly with both the recovery specialist and the family. This helps us maintain quality and address small issues before they grow."
+      }
+    ]
+  },
+  "technology": {
+    "aiCapabilities": [
+      "Predictive Analytics Engine",
+      "Real-time Vital Monitoring",
+      "Computer Vision for Wound Assessment",
+      "Natural Language Processing for Symptom Analysis",
+      "Machine Learning Risk Stratification",
+      "Automated Surgeon Alerts",
+      "Recovery Pattern Recognition"
+    ],
+    "integrations": [
+      "Epic EMR Integration",
+      "Cerner Health Platform",
+      "Remote Patient Monitoring Devices",
+      "Telehealth Platforms",
+      "Hospital Information Systems"
+    ]
+  },
+  "pricing": {
+    "model": "Premium Recovery Packages",
+    "tiers": [
+      {
+        "name": "Essential Recovery",
+        "price": "$1,500/patient",
+        "duration": "7 days",
+        "features": [
+          "Daily monitoring",
+          "Basic AI analytics",
+          "Nurse check-ins",
+          "Surgeon updates"
+        ]
+      },
+      {
+        "name": "Premium Recovery",
+        "price": "$2,500/patient",
+        "duration": "14 days",
+        "features": [
+          "24/7 monitoring",
+          "Advanced AI analytics",
+          "Dedicated nurse",
+          "Real-time surgeon portal",
+          "Complication prevention"
+        ]
+      },
+      {
+        "name": "Luxury Recovery",
+        "price": "$3,500/patient",
+        "duration": "30 days",
+        "features": [
+          "White-glove service",
+          "Full AI suite",
+          "Medical concierge",
+          "In-home recovery suite setup",
+          "Family support services"
+        ]
+      }
+    ]
+  },
+  "marketPosition": {
+    "targetMarket": "High-end surgical practices and hospitals",
+    "valueProposition": "87% reduction in readmissions, 247% ROI",
+    "competitiveAdvantage": "Only AI-powered luxury recovery service",
+    "marketSize": "$17.4B readmission cost opportunity",
+    "growthProjection": "$150M revenue by Year 5"
+  },
+  "assets": {
+    "images": [
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Living-Care-Home-Services.png",
+        "local": "scraped-data/images/Living-Care-Home-Services.png",
+        "usage": "service",
+        "alt": "Living Care Home Services",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Hero-Elder-care-2.webp",
+        "local": "scraped-data/images/Hero-Elder-care-2.webp",
+        "usage": "service",
+        "alt": "Hero Elder care 2",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Hero-Elder-care-1.webp",
+        "local": "scraped-data/images/Hero-Elder-care-1.webp",
+        "usage": "service",
+        "alt": "Hero Elder care 1",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Our-Caregivers-Service.jpg",
+        "local": "scraped-data/images/Our-Caregivers-Service.jpg",
+        "usage": "service",
+        "alt": "Our Caregivers & Service",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/24-Hour-Live-In-Care.jpg",
+        "local": "scraped-data/images/24-Hour-Live-In-Care.jpg",
+        "usage": "service",
+        "alt": "24 Hour Live In Care",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Hourly-Care.jpg",
+        "local": "scraped-data/images/Hourly-Care.jpg",
+        "usage": "service",
+        "alt": "Hourly Care",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Hospice-Care.jpg",
+        "local": "scraped-data/images/Hospice-Care.jpg",
+        "usage": "service",
+        "alt": "Hospice Care",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Respite-Care.jpg",
+        "local": "scraped-data/images/Respite-Care.jpg",
+        "usage": "service",
+        "alt": "Respite Care",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Overnight-Care.jpg",
+        "local": "scraped-data/images/Overnight-Care.jpg",
+        "usage": "service",
+        "alt": "Overnight Care",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Companionship-Care.jpg",
+        "local": "scraped-data/images/Companionship-Care.jpg",
+        "usage": "service",
+        "alt": "Companionship Care",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Personal-Care.jpg",
+        "local": "scraped-data/images/Personal-Care.jpg",
+        "usage": "service",
+        "alt": "Personal Care",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Surgery_Illness-Transition-Care.jpg",
+        "local": "scraped-data/images/Surgery_Illness-Transition-Care.jpg",
+        "usage": "service",
+        "alt": "Surgery Illness Transition Care",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Meal-Preparation.jpg",
+        "local": "scraped-data/images/Meal-Preparation.jpg",
+        "usage": "general",
+        "alt": "Meal Preparation",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Light-House-Cleaning.jpg",
+        "local": "scraped-data/images/Light-House-Cleaning.jpg",
+        "usage": "general",
+        "alt": "Light House Cleaning",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Private-Duty-Nursing.webp",
+        "local": "scraped-data/images/Private-Duty-Nursing.webp",
+        "usage": "general",
+        "alt": "Private Duty Nursing",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Occupational-Therapy-and-Physical-Therapy-.webp",
+        "local": "scraped-data/images/Occupational-Therapy-and-Physical-Therapy-.webp",
+        "usage": "general",
+        "alt": "Occupational Therapy and Physical Therapy",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/safe-living.jpg",
+        "local": "scraped-data/images/safe-living.jpg",
+        "usage": "general",
+        "alt": "safe living",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/home-infusions.jpg",
+        "local": "scraped-data/images/home-infusions.jpg",
+        "usage": "general",
+        "alt": "home infusions",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/07/happy-family-in-front-of-a-house.webp",
+        "local": "scraped-data/images/happy-family-in-front-of-a-house.webp",
+        "usage": "general",
+        "alt": "happy family in front of a house",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/home-image-1.webp",
+        "local": "scraped-data/images/home-image-1.webp",
+        "usage": "general",
+        "alt": "home image 1",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/",
+        "local": "scraped-data/images/image_1758310327904.jpg",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2022/04/phone.svg",
+        "local": "scraped-data/images/phone.svg",
+        "usage": "general",
+        "alt": "phone",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Living-Care-Home-Services-blue.png",
+        "local": "scraped-data/images/Living-Care-Home-Services-blue.png",
+        "usage": "service",
+        "alt": "Living Care Home Services blue",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=7&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=524&rand=0.13788364700137323",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=7&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=156&rand=0.19950554452721136",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=7&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=156&rand=0.01746688612824765",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1310&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=0&rand=0.9882377900920173",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=112&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=0&rand=0.27307519442534445",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=111&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=0&rand=0.930375487974904",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1311&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=0&rand=0.8072914901331926",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1312&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=264&rand=0.7004360857042841",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1314&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=364&rand=0.3981886415342738",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1315&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=256&rand=0.6215055598300544",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1317&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=388&rand=0.6750655679681435",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1318&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=0&rand=0.8074421086404493",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1319&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=0&rand=0.8266215997034798",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=110&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=356&rand=0.16120591677372997",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=109&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=0&rand=0.18532680956677705",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1322&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=364&rand=0.7199414913885517",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1324&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=0&rand=0.8491463218442943",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1582&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=368&rand=0.8102003929002188",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/about-image-1.webp",
+        "local": "scraped-data/images/about-image-1.webp",
+        "usage": "general",
+        "alt": "about image 1",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Our-Team-1-350x350.webp",
+        "local": "scraped-data/images/Our-Team-1-350x350.webp",
+        "usage": "team",
+        "alt": "Our Team 1",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Our-Team-2-350x350.webp",
+        "local": "scraped-data/images/Our-Team-2-350x350.webp",
+        "usage": "team",
+        "alt": "Our Team 2",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Our-Team-3-350x350.webp",
+        "local": "scraped-data/images/Our-Team-3-350x350.webp",
+        "usage": "team",
+        "alt": "Our Team 3",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Our-Team-5-350x350.webp",
+        "local": "scraped-data/images/Our-Team-5-350x350.webp",
+        "usage": "team",
+        "alt": "Our Team 5",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Our-Team-6-350x350.webp",
+        "local": "scraped-data/images/Our-Team-6-350x350.webp",
+        "usage": "team",
+        "alt": "Our Team 6",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Our-Team-7-350x350.webp",
+        "local": "scraped-data/images/Our-Team-7-350x350.webp",
+        "usage": "team",
+        "alt": "Our Team 7",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/07/zakrzewski-paul-1467454116-350x350.jpg",
+        "local": "scraped-data/images/zakrzewski-paul-1467454116-350x350.jpg",
+        "usage": "general",
+        "alt": "zakrzewski paul 1467454116",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1400&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=0&rand=0.6329011481282835",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1325&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=284&rand=0.3542225825350903",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1326&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=0&rand=0.15526881986109609",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1340&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=0&rand=0.8582824196432931",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1342&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=272&rand=0.8650102036824205",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1344&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=0&rand=0.4008298176143814",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/07/Gallery-1.webp",
+        "local": "scraped-data/images/Gallery-1.webp",
+        "usage": "facility",
+        "alt": "Gallery 1",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/07/Gallery-2.webp",
+        "local": "scraped-data/images/Gallery-2.webp",
+        "usage": "facility",
+        "alt": "Gallery 2",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/07/Gallery-3.webp",
+        "local": "scraped-data/images/Gallery-3.webp",
+        "usage": "facility",
+        "alt": "Gallery 3",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/07/Gallery-4.webp",
+        "local": "scraped-data/images/Gallery-4.webp",
+        "usage": "facility",
+        "alt": "Gallery 4",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/07/Gallery-5.webp",
+        "local": "scraped-data/images/Gallery-5.webp",
+        "usage": "facility",
+        "alt": "Gallery 5",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/07/Gallery-6.webp",
+        "local": "scraped-data/images/Gallery-6.webp",
+        "usage": "facility",
+        "alt": "Gallery 6",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/07/Gallery-7.webp",
+        "local": "scraped-data/images/Gallery-7.webp",
+        "usage": "facility",
+        "alt": "Gallery 7",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/07/Gallery-8.webp",
+        "local": "scraped-data/images/Gallery-8.webp",
+        "usage": "facility",
+        "alt": "Gallery 8",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/07/Gallery-9.webp",
+        "local": "scraped-data/images/Gallery-9.webp",
+        "usage": "facility",
+        "alt": "Gallery 9",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/07/Gallery-10.webp",
+        "local": "scraped-data/images/Gallery-10.webp",
+        "usage": "facility",
+        "alt": "Gallery 10",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/07/Gallery-11.webp",
+        "local": "scraped-data/images/Gallery-11.webp",
+        "usage": "facility",
+        "alt": "Gallery 11",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/07/Gallery-12.webp",
+        "local": "scraped-data/images/Gallery-12.webp",
+        "usage": "facility",
+        "alt": "Gallery 12",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/07/Gallery-13.webp",
+        "local": "scraped-data/images/Gallery-13.webp",
+        "usage": "facility",
+        "alt": "Gallery 13",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/07/Gallery-14.webp",
+        "local": "scraped-data/images/Gallery-14.webp",
+        "usage": "facility",
+        "alt": "Gallery 14",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/07/Gallery-15.webp",
+        "local": "scraped-data/images/Gallery-15.webp",
+        "usage": "facility",
+        "alt": "Gallery 15",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1517&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=276&rand=0.08620672252819717",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/08/occupational-therapy.webp",
+        "local": "scraped-data/images/occupational-therapy.webp",
+        "usage": "general",
+        "alt": "occupational therapy",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1504&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=404&rand=0.17108680616286676",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/MAP.webp",
+        "local": "scraped-data/images/MAP.webp",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Live-In-Care-500x282.webp",
+        "local": "scraped-data/images/Live-In-Care-500x282.webp",
+        "usage": "service",
+        "alt": "Live In Care",
+        "enhanced": true
+      },
+      {
+        "original": "https://www.livingcarehomeservices.com/wp-content/uploads/2025/06/Hourly-Care-500x282.webp",
+        "local": "scraped-data/images/Hourly-Care-500x282.webp",
+        "usage": "service",
+        "alt": "Hourly Care",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=154&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=0&rand=0.23708464788942685",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1625&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=0&rand=0.26433259672617393",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=1637&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=0&rand=0.427490236597899",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=114&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=0&rand=0.20624313269608285",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=74&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=128&rand=0.21563305757934148",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      },
+      {
+        "original": "https://pixel.wp.com/g.gif?v=ext&blog=247187541&post=3&tz=0&srv=www.livingcarehomeservices.com&hp=atomic&ac=3&amp=0&j=1%3A15.1-a.5&host=www.livingcarehomeservices.com&ref=&fcp=0&rand=0.06346634865961864",
+        "local": "scraped-data/images/g.gif",
+        "usage": "general",
+        "alt": "",
+        "enhanced": true
+      }
+    ],
+    "content": [
+      {
+        "url": "https://www.livingcarehomeservices.com/",
+        "title": "Home Health Care Company​ Doylestown & Bucks County, PA | Living Care Home Services",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Home Health Care Company​ Doylestown & Bucks County, PA | SENTINEL Home Services",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/",
+        "title": "Home Health Care Company​ Doylestown & Bucks County, PA | Living Care Home Services",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Home Health Care Company​ Doylestown & Bucks County, PA | SENTINEL Home Services",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/#",
+        "title": "Home Health Care Company​ Doylestown & Bucks County, PA | Living Care Home Services",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Home Health Care Company​ Doylestown & Bucks County, PA | SENTINEL Home Services",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/services/our-caregivers-and-service/",
+        "title": "Our Caregivers & Service",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Our Caregivers & Service",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/services/live-in-caregiver/",
+        "title": "Live In Caregiver​ Bucks County, PA | Living Care Home Services",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Live In Caregiver​ Bucks County, PA | SENTINEL Home Services",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/services/home-care-services/",
+        "title": "Home Care Services​ Bucks County, PA | Living Care Home Services",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Home Care Services​ Bucks County, PA | SENTINEL Home Services",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/services/hospice-care/",
+        "title": "Hospice Care",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Hospice Care",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/services/respite-care/",
+        "title": "Respite Care",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Respite Care",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/services/companionship-care/",
+        "title": "Companionship Care",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Companionship Care",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/services/personal-care/",
+        "title": "Personal Care",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Personal Care",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/services/surgery-iillness-transition-care/",
+        "title": "Surgery/Illness Transition Care",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Surgery/Illness Transition Care",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/services/meal-preparation/",
+        "title": "Meal Preparation",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Meal Preparation",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/services/light-house-cleaning/",
+        "title": "Light House Cleaning",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Light House Cleaning",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/services/private-duty-nursing/",
+        "title": "Private Duty Nursing​ Bucks County, PA | Living Care Home Services",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Private Duty Nursing​ Bucks County, PA | SENTINEL Home Services",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/services/occupational-and-physical-therapy/",
+        "title": "Occupational And Physical Therapy​ Bucks County, PA | Living Care Home Services",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Occupational And Physical Therapy​ Bucks County, PA | SENTINEL Home Services",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/services/case-management-and-home-remodeling/",
+        "title": "Case Management and Home Remodeling",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Case Management and Home Remodeling",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/services/home-infusions/",
+        "title": "Living Care Home Infusions",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "SENTINEL Home Infusions",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/services/private-pay-vs-insurance/",
+        "title": "Living Care Home Infusions",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "SENTINEL Home Infusions",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/meet-the-team/",
+        "title": "About",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "About",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/faqs/",
+        "title": "FAQs",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "FAQs",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/testimonials/",
+        "title": "Testimonials",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Testimonials",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/job-opportunities/",
+        "title": "Job Opportunities",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Job Opportunities",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/area-agencies-on-aging/",
+        "title": "Area Agencies on Aging",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Area Agencies on Aging",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/family-resources/",
+        "title": "Family Resources",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Family Resources",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/gallery/",
+        "title": "Gallery",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Gallery",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/blogs/",
+        "title": "Blogs",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Blogs",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/areas-we-serve/",
+        "title": "Areas Served",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Areas Served",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/new-hope-pa/",
+        "title": "Home Care Company​ New Hope, PA | Living Care Home Services",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Home Care Company​ New Hope, PA | SENTINEL Home Services",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/warrington-pa/",
+        "title": "Home Care Company​ Warrington, PA | Living Care Home Services",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Home Care Company​ Warrington, PA | SENTINEL Home Services",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/contact/",
+        "title": "Contact",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Contact",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/about/",
+        "title": "About",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "About",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      },
+      {
+        "url": "https://www.livingcarehomeservices.com/privacy-policy/",
+        "title": "Privacy Policy - Living Care Home Services",
+        "adapted": true,
+        "sentinelVersion": {
+          "title": "Privacy Policy - SENTINEL Home Services",
+          "metaDescription": "Luxury post-operative recovery care with AI monitoring",
+          "keywords": [
+            "recovery",
+            "post-operative",
+            "surgical care",
+            "AI health",
+            "luxury care"
+          ]
+        }
+      }
+    ]
+  },
+  "legalCompliance": {
+    "licenses": [
+      "Pennsylvania Home Care License",
+      "Medicare Certified",
+      "Joint Commission Accredited",
+      "HIPAA Compliant",
+      "FDA Medical Device Registration (pending)"
+    ],
+    "insurance": [
+      "Professional Liability Coverage",
+      "General Liability Insurance",
+      "Cyber Liability Insurance",
+      "Workers Compensation"
+    ]
+  },
+  "metrics": {
+    "operational": {
+      "patientsServed": "2,500+ annually",
+      "readmissionRate": "3.2%",
+      "patientSatisfaction": "98.7%",
+      "surgeonSatisfaction": "96.4%",
+      "averageLOS": "8.3 days"
+    },
+    "financial": {
+      "currentRevenue": "$8.5M ARR",
+      "projectedRevenue": "$150M by 2030",
+      "grossMargin": "68%",
+      "customerAcquisitionCost": "$450",
+      "lifetimeValue": "$12,500"
+    }
+  },
+  "integrationMetadata": {
+    "dataSource": "Living Care Home Services",
+    "scrapeDate": "2025-09-19T19:35:09.652Z",
+    "totalPages": 33,
+    "totalImages": 82,
+    "integrationDate": "2025-09-19T19:40:53.141Z",
+    "version": "1.0.0"
+  }
+}
