@@ -211,6 +211,11 @@ app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, 'admin-dashboard.html'));
 });
 
+// Voice chat interface route
+app.get('/chat', (req, res) => {
+  res.sendFile(path.join(__dirname, 'sentinel-voice-chat.html'));
+});
+
 // Serve index.html for all other routes (SPA support)
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));

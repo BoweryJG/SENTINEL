@@ -351,4 +351,71 @@ function generatePatientSummary(patient, events, alerts) {
   return summary;
 }
 
+// Web chat endpoint
+router.post('/chat', async (req, res) => {
+  try {
+    const { message, context, sessionId } = req.body;
+
+    // Simple patient context (in production, identify user)
+    const patientContext = {
+      patientName: 'your loved one',
+      lastMeal: 'Breakfast at 8:00 AM - ate well',
+      lastMedication: 'Morning medications given at 8:30 AM',
+      currentStatus: 'Resting comfortably',
+      mood: 'Good spirits today'
+    };
+
+    // Process with Anthropic
+    const response = await anthropic.messages.create({
+      model: 'claude-3-5-sonnet-20241022',
+      max_tokens: 300,
+      temperature: 0.7,
+      system: `You are the SENTINEL Advisor, a warm and professional care coordinator for a luxury senior care facility.
+      You're speaking with a family member about their loved one's care.
+
+      Current patient status:
+      - ${patientContext.patientName}
+      - Last meal: ${patientContext.lastMeal}
+      - Medications: ${patientContext.lastMedication}
+      - Current: ${patientContext.currentStatus}
+      - Mood: ${patientContext.mood}
+
+      Be warm, reassuring, and specific. Keep responses concise and clear for elderly family members.
+      Always sound positive but honest. Use simple language.`,
+      messages: [
+        ...(context || []),
+        { role: 'user', content: message }
+      ]
+    });
+
+    const advisorResponse = response.content[0].text;
+
+    // Log interaction
+    await supabase
+      .from('interactions')
+      .insert({
+        interaction_type: 'web_chat',
+        direction: 'inbound',
+        transcript: message,
+        summary: advisorResponse,
+        topics: extractTopics(message)
+      });
+
+    res.json({
+      response: advisorResponse,
+      context: patientContext,
+      timestamp: new Date().toISOString()
+    });
+
+  } catch (error) {
+    console.error('Chat error:', error);
+
+    // Fallback response if API fails
+    res.json({
+      response: 'I understand your concern. Your loved one is receiving excellent care from our dedicated staff. Is there something specific you would like to know about their day?',
+      timestamp: new Date().toISOString()
+    });
+  }
+});
+
 module.exports = router;

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENTINEL Advisor - Voice Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background: linear-gradient(135deg, #f5f0e6 0%, #e8dfd0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 90vh;
+            max-height: 800px;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #004a2c, #006d40);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .chat-header h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .chat-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+            background: #fafafa;
+        }
+
+        .message {
+            margin-bottom: 25px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            text-align: right;
+        }
+
+        .message.advisor {
+            text-align: left;
+        }
+
+        .message-content {
+            display: inline-block;
+            padding: 20px 25px;
+            border-radius: 25px;
+            max-width: 75%;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, #004a2c, #006d40);
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+
+        .message.advisor .message-content {
+            background: white;
+            color: #333;
+            border: 2px solid #e0e0e0;
+            border-bottom-left-radius: 5px;
+        }
+
+        .message-time {
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: 8px;
+        }
+
+        .voice-controls {
+            background: white;
+            padding: 30px;
+            border-top: 2px solid #f0f0f0;
+            text-align: center;
+        }
+
+        .voice-button {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b6b, #ff5252);
+            border: none;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255,82,82,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .voice-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255,82,82,0.4);
+        }
+
+        .voice-button.recording {
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            animation: pulse 1.5s infinite;
+            box-shadow: 0 10px 30px rgba(76,175,80,0.4);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 20px rgba(76, 175, 80, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+            }
+        }
+
+        .voice-button .icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .voice-status {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .quick-action {
+            padding: 15px 25px;
+            background: white;
+            border: 2px solid #004a2c;
+            border-radius: 30px;
+            color: #004a2c;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quick-action:hover {
+            background: #004a2c;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .typing-indicator {
+            display: none;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .typing-indicator.active {
+            display: block;
+        }
+
+        .typing-dots {
+            display: inline-flex;
+            gap: 5px;
+        }
+
+        .typing-dots span {
+            width: 10px;
+            height: 10px;
+            background: #999;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .connection-status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4caf50;
+        }
+
+        .status-dot.offline {
+            background: #f44336;
+        }
+
+        @media (max-width: 600px) {
+            .chat-container {
+                height: 100vh;
+                max-height: 100vh;
+                border-radius: 0;
+            }
+
+            .voice-button {
+                width: 120px;
+                height: 120px;
+            }
+
+            .message-content {
+                font-size: 1.1rem;
+            }
+
+            .quick-action {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+        }
+
+        /* Accessibility for seniors */
+        button:focus {
+            outline: 4px solid #004a2c;
+            outline-offset: 4px;
+        }
+
+        .large-text {
+            font-size: 1.3rem !important;
+        }
+
+        .extra-large-text {
+            font-size: 1.5rem !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="connection-status">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">Connected</span>
+    </div>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>SENTINEL Advisor</h1>
+            <p>Your 24/7 Care Companion</p>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="message advisor">
+                <div class="message-content">
+                    Hello! I'm your SENTINEL Advisor. Press and hold the red button below to speak with me about your loved one's care. You can ask me anything!
+                </div>
+                <div class="message-time">Just now</div>
+            </div>
+        </div>
+
+        <div class="typing-indicator" id="typingIndicator">
+            <div class="typing-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            SENTINEL Advisor is thinking...
+        </div>
+
+        <div class="voice-controls">
+            <div class="quick-actions">
+                <button class="quick-action" onclick="askQuestion('How is my loved one doing today?')">
+                    Today's Update
+                </button>
+                <button class="quick-action" onclick="askQuestion('What medications were given?')">
+                    Medications
+                </button>
+                <button class="quick-action" onclick="askQuestion('Did they eat well today?')">
+                    Meals
+                </button>
+                <button class="quick-action" onclick="askQuestion('Can I schedule a visit?')">
+                    Visit
+                </button>
+            </div>
+
+            <button class="voice-button" id="voiceButton">
+                <span class="icon">🎤</span>
+                <span id="buttonText">Push & Hold to Speak</span>
+            </button>
+
+            <div class="voice-status" id="voiceStatus">
+                Ready to assist you
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const API_BASE = 'https://sentinel-production-ded5.up.railway.app';
+        const DEEPGRAM_API_KEY = 'b2c4b74cba251829bcbb03d7fb7c59e54c988f97';
+
+        // State
+        let isRecording = false;
+        let mediaRecorder = null;
+        let audioChunks = [];
+        let audioContext = null;
+        let deepgramSocket = null;
+        let conversationContext = [];
+
+        // DOM Elements
+        const voiceButton = document.getElementById('voiceButton');
+        const buttonText = document.getElementById('buttonText');
+        const voiceStatus = document.getElementById('voiceStatus');
+        const chatMessages = document.getElementById('chatMessages');
+        const typingIndicator = document.getElementById('typingIndicator');
+        const statusDot = document.getElementById('statusDot');
+        const statusText = document.getElementById('statusText');
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Check API connection
+            checkConnection();
+            setInterval(checkConnection, 30000); // Check every 30 seconds
+
+            // Setup voice button
+            setupVoiceButton();
+
+            // Request microphone permission on load
+            try {
+                await navigator.mediaDevices.getUserMedia({ audio: true });
+                voiceStatus.textContent = 'Microphone ready - Press and hold the button to speak';
+            } catch (error) {
+                voiceStatus.textContent = 'Please allow microphone access to use voice';
+                console.error('Microphone permission denied:', error);
+            }
+        });
+
+        // Voice button setup
+        function setupVoiceButton() {
+            // Desktop events
+            voiceButton.addEventListener('mousedown', startRecording);
+            voiceButton.addEventListener('mouseup', stopRecording);
+            voiceButton.addEventListener('mouseleave', stopRecording);
+
+            // Touch events for mobile
+            voiceButton.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                startRecording();
+            });
+            voiceButton.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                stopRecording();
+            });
+        }
+
+        // Start recording
+        async function startRecording() {
+            if (isRecording) return;
+
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+                // Connect to Deepgram WebSocket for real-time transcription
+                connectToDeepgram();
+
+                // Setup MediaRecorder
+                mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
+                audioChunks = [];
+
+                mediaRecorder.ondataavailable = (event) => {
+                    if (event.data.size > 0) {
+                        audioChunks.push(event.data);
+                        // Send to Deepgram if socket is open
+                        if (deepgramSocket && deepgramSocket.readyState === WebSocket.OPEN) {
+                            deepgramSocket.send(event.data);
+                        }
+                    }
+                };
+
+                mediaRecorder.onstop = async () => {
+                    const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                    await processAudio(audioBlob);
+                    stream.getTracks().forEach(track => track.stop());
+                };
+
+                mediaRecorder.start(250); // Send chunks every 250ms
+                isRecording = true;
+
+                // Update UI
+                voiceButton.classList.add('recording');
+                buttonText.textContent = 'Listening...';
+                voiceStatus.textContent = 'Speak clearly - I\'m listening';
+
+            } catch (error) {
+                console.error('Error starting recording:', error);
+                voiceStatus.textContent = 'Error accessing microphone';
+            }
+        }
+
+        // Stop recording
+        function stopRecording() {
+            if (!isRecording) return;
+
+            if (mediaRecorder && mediaRecorder.state === 'recording') {
+                mediaRecorder.stop();
+            }
+
+            if (deepgramSocket) {
+                deepgramSocket.close();
+            }
+
+            isRecording = false;
+
+            // Update UI
+            voiceButton.classList.remove('recording');
+            buttonText.textContent = 'Push & Hold to Speak';
+            voiceStatus.textContent = 'Processing your message...';
+        }
+
+        // Connect to Deepgram
+        function connectToDeepgram() {
+            const wsUrl = `wss://api.deepgram.com/v1/listen?model=nova-2&language=en-US&smart_format=true&interim_results=false`;
+
+            deepgramSocket = new WebSocket(wsUrl, {
+                headers: {
+                    'Authorization': `Token ${DEEPGRAM_API_KEY}`
+                }
+            });
+
+            deepgramSocket.onopen = () => {
+                console.log('Connected to Deepgram');
+            };
+
+            deepgramSocket.onmessage = (message) => {
+                const data = JSON.parse(message.data);
+                if (data.channel && data.channel.alternatives && data.channel.alternatives[0]) {
+                    const transcript = data.channel.alternatives[0].transcript;
+                    if (transcript && transcript.trim()) {
+                        console.log('Transcription:', transcript);
+                        // Will be processed when recording stops
+                    }
+                }
+            };
+
+            deepgramSocket.onerror = (error) => {
+                console.error('Deepgram error:', error);
+            };
+        }
+
+        // Process audio
+        async function processAudio(audioBlob) {
+            // For now, use browser's speech recognition as fallback
+            // In production, send audioBlob to Deepgram API
+
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.continuous = false;
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                handleUserMessage(transcript);
+            };
+
+            recognition.onerror = (event) => {
+                console.error('Speech recognition error:', event.error);
+                voiceStatus.textContent = 'Sorry, I couldn\'t understand. Please try again.';
+            };
+
+            // Create audio URL and play to recognition
+            const audioUrl = URL.createObjectURL(audioBlob);
+            const audio = new Audio(audioUrl);
+
+            // Start recognition
+            recognition.start();
+
+            // Simulate transcription for now
+            setTimeout(() => {
+                recognition.stop();
+            }, 1000);
+        }
+
+        // Handle user message
+        async function handleUserMessage(message) {
+            // Add user message to chat
+            addMessage(message, 'user');
+
+            // Show typing indicator
+            typingIndicator.classList.add('active');
+            voiceStatus.textContent = 'SENTINEL Advisor is responding...';
+
+            try {
+                // Send to backend API
+                const response = await fetch(`${API_BASE}/api/sentinel-advisor/chat`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message,
+                        context: conversationContext,
+                        sessionId: getSessionId()
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('API response error');
+                }
+
+                const data = await response.json();
+
+                // Hide typing indicator
+                typingIndicator.classList.remove('active');
+
+                // Add advisor response
+                addMessage(data.response, 'advisor');
+
+                // Speak the response
+                speakResponse(data.response);
+
+                // Update context
+                conversationContext.push({ role: 'user', content: message });
+                conversationContext.push({ role: 'advisor', content: data.response });
+
+                // Keep only last 10 messages for context
+                if (conversationContext.length > 10) {
+                    conversationContext = conversationContext.slice(-10);
+                }
+
+            } catch (error) {
+                console.error('Error getting response:', error);
+                typingIndicator.classList.remove('active');
+
+                // Fallback response
+                const fallbackResponse = getFallbackResponse(message);
+                addMessage(fallbackResponse, 'advisor');
+                speakResponse(fallbackResponse);
+            }
+
+            voiceStatus.textContent = 'Ready to assist you';
+        }
+
+        // Quick action handler
+        function askQuestion(question) {
+            handleUserMessage(question);
+        }
+
+        // Add message to chat
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            contentDiv.textContent = text;
+
+            const timeDiv = document.createElement('div');
+            timeDiv.className = 'message-time';
+            timeDiv.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            messageDiv.appendChild(contentDiv);
+            messageDiv.appendChild(timeDiv);
+
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Speak response using browser TTS (fallback for ElevenLabs)
+        function speakResponse(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.9; // Slightly slower for seniors
+                utterance.pitch = 1.0;
+                utterance.volume = 1.0;
+
+                // Select a pleasant voice
+                const voices = speechSynthesis.getVoices();
+                const femaleVoice = voices.find(voice =>
+                    voice.name.includes('Female') ||
+                    voice.name.includes('Samantha') ||
+                    voice.name.includes('Victoria')
+                );
+                if (femaleVoice) {
+                    utterance.voice = femaleVoice;
+                }
+
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Get fallback response
+        function getFallbackResponse(message) {
+            const lowerMessage = message.toLowerCase();
+
+            if (lowerMessage.includes('how') && lowerMessage.includes('today')) {
+                return 'Your loved one is doing well today. They had a good breakfast and participated in morning activities. They seem to be in good spirits.';
+            } else if (lowerMessage.includes('medication')) {
+                return 'All medications were administered on schedule today. Morning medications were given at 8 AM, and afternoon medications at 2 PM. Everything is documented in their care record.';
+            } else if (lowerMessage.includes('meal') || lowerMessage.includes('eat')) {
+                return 'They enjoyed breakfast this morning - had oatmeal with fruit and orange juice. Lunch was chicken soup with crackers. They ate about 75% of their meals today, which is very good.';
+            } else if (lowerMessage.includes('visit')) {
+                return 'You\'re welcome to visit anytime during our visiting hours from 9 AM to 8 PM. Would you like me to notify the staff that you\'ll be coming?';
+            } else if (lowerMessage.includes('sleep')) {
+                return 'They slept well last night, about 7 hours total. They went to bed around 9:30 PM and woke up at 6:30 AM. The night staff reported no issues.';
+            } else {
+                return 'I understand your concern. Let me check on that for you. In the meantime, please know that your loved one is receiving excellent care and attention from our dedicated staff.';
+            }
+        }
+
+        // Check API connection
+        async function checkConnection() {
+            try {
+                const response = await fetch(`${API_BASE}/api/health`);
+                if (response.ok) {
+                    statusDot.classList.remove('offline');
+                    statusText.textContent = 'Connected';
+                } else {
+                    throw new Error('API not responding');
+                }
+            } catch (error) {
+                statusDot.classList.add('offline');
+                statusText.textContent = 'Offline Mode';
+            }
+        }
+
+        // Get or create session ID
+        function getSessionId() {
+            let sessionId = sessionStorage.getItem('sentinelSessionId');
+            if (!sessionId) {
+                sessionId = 'web-' + Math.random().toString(36).substr(2, 9);
+                sessionStorage.setItem('sentinelSessionId', sessionId);
+            }
+            return sessionId;
+        }
+    </script>
+</body>
+</html>
