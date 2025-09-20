@@ -1,0 +1,13 @@
+# Redirect rules for SENTINEL subdomains
+
+# Living Care agency portal (for Dan)
+https://livingcare.repspheres.com/ /living-care-portal.html 200!
+https://livingcare.repspheres.com/* /living-care-portal.html 200!
+
+# Living Care consumer site (for patients/families)
+https://livingcareservices.repspheres.com/ /living-care-consumer.html 200!
+https://livingcareservices.repspheres.com/* /living-care-consumer.html 200!
+
+# Main SENTINEL site remains at root
+https://sentinel.repspheres.com/* /index.html 200
+https://sentinel-care.netlify.app/* /index.html 200
