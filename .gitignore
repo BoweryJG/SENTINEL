@@ -20,3 +20,5 @@ Thumbs.db
 dist/
 build/
 out/
+.env
+*.sh

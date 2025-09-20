@@ -1,0 +1,2 @@
+-- This file will contain INSERT statements for all businesses
+-- We'll generate it programmatically from the ALKZ data

@@ -47,6 +47,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname)));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
+// Import SENTINEL Advisor routes
+const sentinelAdvisor = require('./routes/sentinel-advisor');
+const advisorAdmin = require('./routes/advisor-admin');
+
+// Mount SENTINEL Advisor routes
+app.use('/api/sentinel-advisor', sentinelAdvisor);
+app.use('/api/advisor-admin', advisorAdmin);
+
 // API Routes
 app.post('/api/consultation', contactLimiter, async (req, res) => {
   try {
@@ -193,6 +201,11 @@ app.get('/api/services', (req, res) => {
       }
     ]
   });
+});
+
+// Admin dashboard route
+app.get('/admin', (req, res) => {
+  res.sendFile(path.join(__dirname, 'admin-dashboard.html'));
 });
 
 // Serve index.html for all other routes (SPA support)
