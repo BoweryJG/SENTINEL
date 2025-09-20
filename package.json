@@ -23,6 +23,7 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.3",
     "@supabase/supabase-js": "^2.57.4",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
