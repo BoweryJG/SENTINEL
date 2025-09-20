@@ -35,6 +35,7 @@
     "nodemailer": "^6.9.4",
     "playwright": "^1.55.0",
     "puppeteer": "^24.22.0",
+    "stripe": "^14.25.0",
     "twilio": "^4.18.0"
   },
   "devDependencies": {
