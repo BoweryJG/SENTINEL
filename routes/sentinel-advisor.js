@@ -65,7 +65,7 @@ router.post('/voice', twilioWebhook, async (req, res) => {
       // Unknown caller
       twiml.say({
         voice: 'Polly.Joanna'
-      }, 'Welcome to SENTINEL Recovery Care. This is your 24-hour Advisor. May I have your name and the patient you're calling about?');
+      }, 'Welcome to SENTINEL Recovery Care. This is your 24-hour Advisor. May I have your name and the patient you are calling about?');
     }
 
     // Gather speech input
