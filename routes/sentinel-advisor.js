@@ -3,6 +3,7 @@ const router = express.Router();
 const twilio = require('twilio');
 const { createClient } = require('@supabase/supabase-js');
 const Anthropic = require('@anthropic-ai/sdk');
+const AdvisorIntelligence = require('../services/advisor-intelligence');
 
 // Initialize from environment variables
 const supabase = createClient(
@@ -13,6 +14,9 @@ const supabase = createClient(
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY
 });
+
+// Initialize Advisor Intelligence
+const advisorAI = new AdvisorIntelligence();
 
 // Twilio webhook security
 const twilioWebhook = twilio.webhook({
@@ -351,37 +355,163 @@ function generatePatientSummary(patient, events, alerts) {
   return summary;
 }
 
-// Web chat endpoint
+// Intent classification helper
+function classifyIntent(message) {
+  const lowerMessage = message.toLowerCase();
+
+  // Sales/prospect indicators
+  const prospectKeywords = [
+    'considering', 'thinking about', 'looking for', 'interested in',
+    'need help for', 'options for', 'information about', 'tell me about',
+    'how much', 'cost', 'pricing', 'services', 'facility', 'tour',
+    'admission', 'availability', 'what do you offer', 'home care',
+    'assisted living', 'recovery care', 'my mom', 'my dad', 'my parent',
+    'my husband', 'my wife', 'my spouse'
+  ];
+
+  // Existing family indicators
+  const familyKeywords = [
+    'how is', 'update on', 'status of', 'visited today', 'medication given',
+    'ate breakfast', 'therapy session', 'doctor said', 'nurse mentioned',
+    'room number', 'visiting hours', 'bring tomorrow'
+  ];
+
+  // Emergency indicators
+  const emergencyKeywords = [
+    'emergency', 'urgent', 'immediately', 'right now', 'fell', 'pain',
+    'not responding', 'breathing', 'chest pain', 'unconscious'
+  ];
+
+  // Check for emergency first
+  if (emergencyKeywords.some(keyword => lowerMessage.includes(keyword))) {
+    return 'emergency';
+  }
+
+  // Check for existing family context
+  const hasPatientReference = familyKeywords.some(keyword => lowerMessage.includes(keyword));
+  if (hasPatientReference) {
+    return 'existing_family';
+  }
+
+  // Check for sales/prospect intent
+  const hasProspectIntent = prospectKeywords.some(keyword => lowerMessage.includes(keyword));
+  if (hasProspectIntent) {
+    return 'prospect';
+  }
+
+  // Default to prospect for general inquiries
+  return 'general_inquiry';
+}
+
+// Web chat endpoint with intelligent multi-agent routing
 router.post('/chat', async (req, res) => {
   try {
-    const { message, context, sessionId } = req.body;
+    const { message, context, sessionId, userId } = req.body;
 
-    // Simple patient context (in production, identify user)
-    const patientContext = {
-      patientName: 'your loved one',
-      lastMeal: 'Breakfast at 8:00 AM - ate well',
-      lastMedication: 'Morning medications given at 8:30 AM',
-      currentStatus: 'Resting comfortably',
-      mood: 'Good spirits today'
-    };
+    // Classify the intent
+    const intent = classifyIntent(message);
+
+    // Try to identify if this is an existing family member
+    let familyMember = null;
+    let patient = null;
+
+    if (userId) {
+      // In production, lookup by authenticated user ID
+      const { data: fm } = await supabase
+        .from('family_members')
+        .select('*, patients(*)')
+        .eq('user_id', userId)
+        .single();
+
+      if (fm) {
+        familyMember = fm;
+        patient = fm.patients;
+      }
+    }
+
+    // Route based on intent and user status
+    let systemPrompt, contextInfo;
+
+    if (intent === 'emergency') {
+      // Emergency response
+      return res.json({
+        response: 'I understand this is urgent. Please call 911 immediately or contact our 24-hour care team at (215) 774-0743. A nurse is being notified now.',
+        emergency: true,
+        timestamp: new Date().toISOString()
+      });
+    }
+
+    if (familyMember && patient) {
+      // Existing family member with patient
+      const { data: recentEvents } = await supabase
+        .from('care_events')
+        .select('*')
+        .eq('patient_id', patient.id)
+        .gte('created_at', new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString())
+        .order('created_at', { ascending: false })
+        .limit(5);
+
+      contextInfo = {
+        patientName: `${patient.first_name} ${patient.last_name}`,
+        room: patient.room_number,
+        status: patient.status,
+        recentEvents: recentEvents.map(e => `${e.event_type}: ${e.description}`).join(', ')
+      };
+
+      systemPrompt = `You are the SENTINEL Advisor, a warm and professional care coordinator.
+      You're speaking with ${familyMember.first_name}, who is the ${familyMember.relationship} of ${patient.first_name} ${patient.last_name}.
+
+      Patient is in room ${patient.room_number}, status: ${patient.status}.
+      Recent events: ${contextInfo.recentEvents || 'No recent events'}
+
+      Provide accurate, compassionate updates. Be specific when you have information.
+      If you don't have specific information, offer to have a care manager follow up.`;
+
+    } else if (intent === 'prospect' || intent === 'general_inquiry') {
+      // Sales prospect or general inquiry
+      contextInfo = { type: 'prospect' };
+
+      systemPrompt = `You are the SENTINEL Advisor, a warm and professional representative for SENTINEL Recovery Care, Philadelphia's premier luxury private recovery and senior care facility.
+
+      You're speaking with a potential client who is exploring care options for their loved one.
+
+      Our services include:
+      - 24/7 professional medical supervision
+      - Luxury private suites with personalized care
+      - Post-surgical and post-hospitalization recovery
+      - Physical therapy and rehabilitation
+      - Medication management
+      - Gourmet nutrition programs
+      - Family communication and updates
+      - Concierge services
+
+      Key differentiators:
+      - Nurse-to-patient ratio of 1:3
+      - All private suites with premium amenities
+      - Located in Philadelphia's premier medical district
+      - Average length of stay: 30-90 days
+      - Accepts Medicare, most insurance, and private pay
+
+      Be warm, empathetic, and helpful. Listen to their concerns.
+      Don't quote specific prices - instead offer to schedule a consultation.
+      Emphasize our personalized approach and luxury care environment.
+      If they're comparing options, highlight what makes SENTINEL unique.`;
+
+    } else {
+      // Unknown context - treat as prospect
+      contextInfo = { type: 'unknown' };
+      systemPrompt = `You are the SENTINEL Advisor for SENTINEL Recovery Care.
+      Determine if this person is an existing family member or someone seeking information about our services.
+      Ask clarifying questions to understand how you can help them.
+      Be professional, warm, and helpful.`;
+    }
 
     // Process with Anthropic
     const response = await anthropic.messages.create({
       model: 'claude-3-5-sonnet-20241022',
-      max_tokens: 300,
+      max_tokens: 400,
       temperature: 0.7,
-      system: `You are the SENTINEL Advisor, a warm and professional care coordinator for a luxury senior care facility.
-      You're speaking with a family member about their loved one's care.
-
-      Current patient status:
-      - ${patientContext.patientName}
-      - Last meal: ${patientContext.lastMeal}
-      - Medications: ${patientContext.lastMedication}
-      - Current: ${patientContext.currentStatus}
-      - Mood: ${patientContext.mood}
-
-      Be warm, reassuring, and specific. Keep responses concise and clear for elderly family members.
-      Always sound positive but honest. Use simple language.`,
+      system: systemPrompt,
       messages: [
         ...(context || []),
         { role: 'user', content: message }
@@ -390,29 +520,51 @@ router.post('/chat', async (req, res) => {
 
     const advisorResponse = response.content[0].text;
 
-    // Log interaction
+    // Log interaction with proper classification
     await supabase
       .from('interactions')
       .insert({
+        family_member_id: familyMember?.id || null,
+        patient_id: patient?.id || null,
         interaction_type: 'web_chat',
         direction: 'inbound',
         transcript: message,
         summary: advisorResponse,
-        topics: extractTopics(message)
+        topics: [...extractTopics(message), intent],
+        metadata: {
+          intent,
+          sessionId,
+          hasAuth: !!userId
+        }
       });
+
+    // Track prospects for sales team
+    if (intent === 'prospect' && !familyMember) {
+      await supabase
+        .from('sales_leads')
+        .insert({
+          source: 'web_chat',
+          initial_inquiry: message,
+          response: advisorResponse,
+          session_id: sessionId,
+          status: 'new',
+          priority: message.toLowerCase().includes('urgent') ? 'high' : 'normal'
+        });
+    }
 
     res.json({
       response: advisorResponse,
-      context: patientContext,
+      context: contextInfo,
+      intent,
       timestamp: new Date().toISOString()
     });
 
   } catch (error) {
     console.error('Chat error:', error);
 
-    // Fallback response if API fails
+    // Fallback response
     res.json({
-      response: 'I understand your concern. Your loved one is receiving excellent care from our dedicated staff. Is there something specific you would like to know about their day?',
+      response: 'I apologize for the technical difficulty. Please call us directly at (215) 774-0743 to speak with a care coordinator who can assist you immediately.',
       timestamp: new Date().toISOString()
     });
   }

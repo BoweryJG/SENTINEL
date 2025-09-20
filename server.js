@@ -56,6 +56,7 @@ app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // Import SENTINEL Advisor routes
 const sentinelAdvisor = require('./routes/sentinel-advisor');
+const sentinelAdvisorV2 = require('./routes/sentinel-advisor-v2');
 const advisorAdmin = require('./routes/advisor-admin');
 const callIntelligence = require('./routes/call-intelligence');
 const payments = require('./routes/payments');
@@ -64,6 +65,7 @@ const aiOrchestrator = require('./routes/ai-orchestrator');
 
 // Mount SENTINEL Advisor routes
 app.use('/api/sentinel-advisor', sentinelAdvisor);
+app.use('/api/advisor/v2', sentinelAdvisorV2); // New intelligent multi-agent system
 app.use('/api/advisor-admin', advisorAdmin);
 app.use('/api/call-intelligence', callIntelligence);
 app.use('/api/payments', payments);
