@@ -3,14 +3,50 @@ const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const bodyParser = require('body-parser');
+const { createClient } = require('@supabase/supabase-js');
 const path = require('path');
 require('dotenv').config();
+
+// Initialize Supabase client for SENTINEL database
+const supabaseUrl = process.env.SUPABASE_URL || 'https://alkzliirqdofpygknsij.supabase.co';
+const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
+const supabase = supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
+
+// Authentication middleware
+const validateAuth = async (req, res, next) => {
+  try {
+    const authHeader = req.headers.authorization;
+    const token = authHeader && authHeader.split(' ')[1];
+
+    if (!token) {
+      return res.status(401).json({ error: 'No authentication token provided' });
+    }
+
+    // Verify token with Supabase
+    if (supabase) {
+      const { data: { user }, error } = await supabase.auth.getUser(token);
+      if (error || !user) {
+        return res.status(401).json({ error: 'Invalid or expired token' });
+      }
+
+      // Attach user and agency_id to request
+      req.user = user;
+      req.agency_id = req.headers['x-agency-id'] || user.user_metadata?.agency_id;
+    }
+
+    next();
+  } catch (err) {
+    console.error('Auth validation error:', err);
+    res.status(401).json({ error: 'Authentication failed' });
+  }
+};
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Trust proxy for Railway/production environments
-app.set('trust proxy', true);
+// Railway runs behind 1 proxy, so we trust 1 hop
+app.set('trust proxy', 1);
 
 // Security middleware
 app.use(helmet({
@@ -31,15 +67,24 @@ app.use(cors({
   credentials: true
 }));
 
-// Rate limiting
+// Rate limiting with proper trust proxy handling
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100 // limit each IP to 100 requests per windowMs
+  max: 100, // limit each IP to 100 requests per windowMs
+  standardHeaders: true,
+  legacyHeaders: false,
+  // Skip successful requests from rate limit
+  skipSuccessfulRequests: false,
+  // Use default key generator (respects trust proxy setting)
+  keyGenerator: (req) => req.ip
 });
 
 const contactLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 1 hour
-  max: 5 // limit each IP to 5 contact requests per hour
+  max: 5, // limit each IP to 5 contact requests per hour
+  standardHeaders: true,
+  legacyHeaders: false,
+  keyGenerator: (req) => req.ip
 });
 
 app.use('/api/', limiter);
@@ -62,6 +107,7 @@ const callIntelligence = require('./routes/call-intelligence');
 const payments = require('./routes/payments');
 const executiveDashboard = require('./routes/executive-dashboard');
 const aiOrchestrator = require('./routes/ai-orchestrator');
+const patientManagement = require('./routes/patient-management');
 
 // Mount SENTINEL Advisor routes
 app.use('/api/sentinel-advisor', sentinelAdvisor);
@@ -71,11 +117,12 @@ app.use('/api/call-intelligence', callIntelligence);
 app.use('/api/payments', payments);
 app.use('/api/dashboard', executiveDashboard);
 app.use('/api/ai-orchestrator', aiOrchestrator);
+app.use('/api/patients', patientManagement); // Patient management with agency isolation
 
 // API Routes
 app.post('/api/consultation', contactLimiter, async (req, res) => {
   try {
-    const { name, phone, email, message, preferredTime } = req.body;
+    const { name, phone, email, message, preferredTime, agency_id } = req.body;
 
     // Validate required fields
     if (!name || !phone) {
@@ -96,8 +143,28 @@ app.post('/api/consultation', contactLimiter, async (req, res) => {
       }
     }
 
-    // Log consultation request (in production, save to database)
+    // Save to database if Supabase is available
+    if (supabase && agency_id) {
+      const { error: dbError } = await supabase
+        .from('consultation_requests')
+        .insert({
+          agency_id,
+          name,
+          phone,
+          email: email || null,
+          message: message || null,
+          preferred_time: preferredTime || null,
+          created_at: new Date().toISOString()
+        });
+
+      if (dbError) {
+        console.error('Failed to save consultation to database:', dbError);
+      }
+    }
+
+    // Log consultation request
     console.log('New consultation request:', {
+      agency_id: agency_id || 'No agency',
       name,
       phone,
       email: email || 'Not provided',

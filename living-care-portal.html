@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Living Care Home Services - SENTINEL Portal</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Chart.js for analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .loading-spinner {
+            border: 3px solid #f3f4f6;
+            border-top: 3px solid #6366f1;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img src="/assets/images/sentinel-logo.png" alt="SENTINEL" class="h-10 w-10">
+                    <div>
+                        <h1 class="text-2xl font-bold">Living Care Home Services</h1>
+                        <p class="text-sm text-purple-200">SENTINEL Healthcare Intelligence Portal</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <span class="text-sm">Welcome, Dan</span>
+                    <button onclick="logout()" class="bg-purple-700 hover:bg-purple-800 px-4 py-2 rounded-lg transition">
+                        <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-6">
+            <div class="flex space-x-8 py-4">
+                <button onclick="showSection('dashboard')" class="nav-btn text-indigo-600 font-semibold border-b-2 border-indigo-600">
+                    <i class="fas fa-chart-line mr-2"></i>Dashboard
+                </button>
+                <button onclick="showSection('leads')" class="nav-btn text-gray-600 hover:text-indigo-600 transition">
+                    <i class="fas fa-users mr-2"></i>Leads
+                </button>
+                <button onclick="showSection('campaigns')" class="nav-btn text-gray-600 hover:text-indigo-600 transition">
+                    <i class="fas fa-bullhorn mr-2"></i>Campaigns
+                </button>
+                <button onclick="showSection('patients')" class="nav-btn text-gray-600 hover:text-indigo-600 transition">
+                    <i class="fas fa-user-nurse mr-2"></i>Patients
+                </button>
+                <button onclick="showSection('advisor')" class="nav-btn text-gray-600 hover:text-indigo-600 transition">
+                    <i class="fas fa-robot mr-2"></i>AI Advisor
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Dashboard Section -->
+        <section id="dashboard-section" class="section">
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">Total Leads</p>
+                            <p class="text-3xl font-bold text-gray-800" id="total-leads">12,112</p>
+                            <p class="text-green-600 text-sm mt-2">
+                                <i class="fas fa-arrow-up mr-1"></i>100% imported
+                            </p>
+                        </div>
+                        <div class="text-indigo-600 text-3xl">
+                            <i class="fas fa-address-book"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">Active Patients</p>
+                            <p class="text-3xl font-bold text-gray-800" id="active-patients">0</p>
+                            <p class="text-blue-600 text-sm mt-2">Ready to convert</p>
+                        </div>
+                        <div class="text-green-600 text-3xl">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">Campaigns Sent</p>
+                            <p class="text-3xl font-bold text-gray-800" id="campaigns-sent">0</p>
+                            <p class="text-purple-600 text-sm mt-2">Start outreach</p>
+                        </div>
+                        <div class="text-purple-600 text-3xl">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">Conversion Rate</p>
+                            <p class="text-3xl font-bold text-gray-800">0%</p>
+                            <p class="text-orange-600 text-sm mt-2">Pending data</p>
+                        </div>
+                        <div class="text-orange-600 text-3xl">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-xl font-semibold mb-4">Lead Pipeline</h3>
+                    <canvas id="pipelineChart"></canvas>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-xl font-semibold mb-4">Geographic Distribution</h3>
+                    <canvas id="geoChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leads Section -->
+        <section id="leads-section" class="section hidden">
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">CMS Home Health Providers</h2>
+                    <div class="flex space-x-4">
+                        <input type="text" id="search-leads" placeholder="Search providers..."
+                               class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <button onclick="exportLeads()" class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">
+                            <i class="fas fa-download mr-2"></i>Export
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                    <select id="filter-state" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="">All States</option>
+                        <option value="FL">Florida</option>
+                        <option value="TX">Texas</option>
+                        <option value="CA">California</option>
+                    </select>
+                    <select id="filter-rating" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="">All Ratings</option>
+                        <option value="5">5 Stars</option>
+                        <option value="4">4+ Stars</option>
+                        <option value="3">3+ Stars</option>
+                    </select>
+                    <select id="filter-status" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="">All Status</option>
+                        <option value="lead">New Lead</option>
+                        <option value="contacted">Contacted</option>
+                        <option value="qualified">Qualified</option>
+                        <option value="converted">Converted</option>
+                    </select>
+                    <button onclick="loadLeads()" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition">
+                        <i class="fas fa-filter mr-2"></i>Apply Filters
+                    </button>
+                </div>
+
+                <!-- Leads Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Provider Name</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Location</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rating</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leads-table-body" class="bg-white divide-y divide-gray-200">
+                            <!-- Leads will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="flex justify-between items-center mt-6">
+                    <div class="text-sm text-gray-700">
+                        Showing <span id="showing-start">1</span> to <span id="showing-end">20</span> of <span id="total-results">12,112</span> results
+                    </div>
+                    <div class="flex space-x-2">
+                        <button onclick="previousPage()" class="px-4 py-2 border rounded-lg hover:bg-gray-50 transition">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button onclick="nextPage()" class="px-4 py-2 border rounded-lg hover:bg-gray-50 transition">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campaigns Section -->
+        <section id="campaigns-section" class="section hidden">
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Email Campaigns</h2>
+                    <button onclick="createCampaign()" class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">
+                        <i class="fas fa-plus mr-2"></i>New Campaign
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Campaign templates -->
+                    <div class="border rounded-lg p-6 hover:shadow-lg transition cursor-pointer" onclick="selectTemplate('welcome')">
+                        <div class="text-indigo-600 text-3xl mb-4">
+                            <i class="fas fa-hand-wave"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2">Welcome Series</h3>
+                        <p class="text-gray-600 text-sm">Introduce Living Care services to new leads</p>
+                    </div>
+
+                    <div class="border rounded-lg p-6 hover:shadow-lg transition cursor-pointer" onclick="selectTemplate('partnership')">
+                        <div class="text-green-600 text-3xl mb-4">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2">Partnership Proposal</h3>
+                        <p class="text-gray-600 text-sm">Propose collaboration opportunities</p>
+                    </div>
+
+                    <div class="border rounded-lg p-6 hover:shadow-lg transition cursor-pointer" onclick="selectTemplate('medicare')">
+                        <div class="text-purple-600 text-3xl mb-4">
+                            <i class="fas fa-file-medical"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2">Medicare Benefits</h3>
+                        <p class="text-gray-600 text-sm">Highlight Medicare certification advantages</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Patients Section -->
+        <section id="patients-section" class="section hidden">
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Patient Portal</h2>
+                    <button onclick="convertToPatient()" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition">
+                        <i class="fas fa-user-plus mr-2"></i>Convert Lead to Patient
+                    </button>
+                </div>
+
+                <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+                    <div class="flex items-center">
+                        <i class="fas fa-info-circle text-yellow-600 text-xl mr-3"></i>
+                        <div>
+                            <p class="text-yellow-800 font-semibold">HIPAA Compliant Portal</p>
+                            <p class="text-yellow-700 text-sm">Patient data is securely handled through SENTINEL's HIPAA-compliant infrastructure</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Embedded SENTINEL Patient Portal -->
+                <div class="border rounded-lg p-6">
+                    <iframe id="patient-portal-iframe"
+                            src=""
+                            class="w-full h-screen rounded-lg"
+                            title="SENTINEL Patient Portal">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Advisor Section -->
+        <section id="advisor-section" class="section hidden">
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">SENTINEL AI Advisor</h2>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Chat Interface -->
+                    <div class="lg:col-span-2">
+                        <div class="border rounded-lg h-96 overflow-y-auto p-4 mb-4" id="chat-messages">
+                            <div class="text-center text-gray-500 py-8">
+                                <i class="fas fa-robot text-6xl mb-4"></i>
+                                <p>Start a conversation with your AI healthcare advisor</p>
+                            </div>
+                        </div>
+
+                        <div class="flex space-x-4">
+                            <input type="text" id="advisor-input"
+                                   placeholder="Ask about patient care, Medicare benefits, or business strategies..."
+                                   class="flex-1 px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <button onclick="sendAdvisorMessage()" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition">
+                                <i class="fas fa-paper-plane mr-2"></i>Send
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div>
+                        <h3 class="font-semibold text-lg mb-4">Quick Questions</h3>
+                        <div class="space-y-3">
+                            <button onclick="quickQuestion('Medicare requirements')" class="w-full text-left px-4 py-3 border rounded-lg hover:bg-gray-50 transition">
+                                <i class="fas fa-file-medical text-indigo-600 mr-2"></i>
+                                Medicare Requirements
+                            </button>
+                            <button onclick="quickQuestion('Patient acquisition')" class="w-full text-left px-4 py-3 border rounded-lg hover:bg-gray-50 transition">
+                                <i class="fas fa-user-friends text-green-600 mr-2"></i>
+                                Patient Acquisition Strategies
+                            </button>
+                            <button onclick="quickQuestion('Quality ratings')" class="w-full text-left px-4 py-3 border rounded-lg hover:bg-gray-50 transition">
+                                <i class="fas fa-star text-yellow-600 mr-2"></i>
+                                Improve Quality Ratings
+                            </button>
+                            <button onclick="quickQuestion('Compliance')" class="w-full text-left px-4 py-3 border rounded-lg hover:bg-gray-50 transition">
+                                <i class="fas fa-shield-alt text-purple-600 mr-2"></i>
+                                HIPAA Compliance
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Configuration
+        const API_BASE_URL = 'https://powerful-nourishment-production.up.railway.app/api';
+        const AGENCY_ID = '28296793-0ba7-44d3-992b-ebadab0ff206'; // Living Care agency ID
+
+        let currentPage = 1;
+        const pageSize = 20;
+        let totalLeads = 0;
+
+        // Initialize dashboard
+        async function initDashboard() {
+            await loadAnalytics();
+            await loadLeads();
+            initCharts();
+            loadPatientPortal();
+        }
+
+        // Load analytics data
+        async function loadAnalytics() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/sentinel-agency/analytics`, {
+                    headers: {
+                        'X-Agency-ID': AGENCY_ID,
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('total-leads').textContent = data.analytics.total_contacts.toLocaleString();
+                    document.getElementById('active-patients').textContent = data.analytics.converted || 0;
+                    document.getElementById('campaigns-sent').textContent = data.analytics.total_campaigns || 0;
+                }
+            } catch (error) {
+                console.error('Error loading analytics:', error);
+            }
+        }
+
+        // Load leads from database
+        async function loadLeads() {
+            try {
+                const searchQuery = document.getElementById('search-leads')?.value || '';
+                const state = document.getElementById('filter-state')?.value || '';
+                const rating = document.getElementById('filter-rating')?.value || '';
+                const status = document.getElementById('filter-status')?.value || '';
+
+                const params = new URLSearchParams({
+                    page: currentPage,
+                    limit: pageSize,
+                    query: searchQuery,
+                    state: state,
+                    quality_rating: rating,
+                    status: status
+                }).toString();
+
+                const response = await fetch(`${API_BASE_URL}/sentinel-agency/contacts?${params}`, {
+                    headers: {
+                        'X-Agency-ID': AGENCY_ID,
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    displayLeads(data.contacts);
+                    totalLeads = data.total;
+                    updatePagination();
+                }
+            } catch (error) {
+                console.error('Error loading leads:', error);
+            }
+        }
+
+        // Display leads in table
+        function displayLeads(leads) {
+            const tbody = document.getElementById('leads-table-body');
+            if (!tbody) return;
+
+            tbody.innerHTML = leads.map(lead => `
+                <tr>
+                    <td class="px-6 py-4">
+                        <div class="font-medium text-gray-900">${lead.name}</div>
+                        <div class="text-sm text-gray-500">${lead.provider_type}</div>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-900">
+                        ${lead.city}, ${lead.state} ${lead.zip}
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-900">${lead.phone || 'N/A'}</td>
+                    <td class="px-6 py-4">
+                        <div class="flex items-center">
+                            ${getStarRating(lead.quality_rating)}
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(lead.status)}">
+                            ${lead.status || 'Lead'}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 text-sm">
+                        <button onclick="viewLead('${lead.id}')" class="text-indigo-600 hover:text-indigo-900 mr-3">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button onclick="contactLead('${lead.id}')" class="text-green-600 hover:text-green-900 mr-3">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button onclick="convertToPatient('${lead.id}')" class="text-purple-600 hover:text-purple-900">
+                            <i class="fas fa-user-nurse"></i>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Get star rating HTML
+        function getStarRating(rating) {
+            if (!rating || rating === 'Not Rated') {
+                return '<span class="text-gray-400 text-sm">Not Rated</span>';
+            }
+            const stars = parseInt(rating);
+            return Array(5).fill(0).map((_, i) =>
+                `<i class="fas fa-star ${i < stars ? 'text-yellow-400' : 'text-gray-300'}"></i>`
+            ).join('');
+        }
+
+        // Get status color
+        function getStatusColor(status) {
+            const colors = {
+                lead: 'bg-blue-100 text-blue-800',
+                contacted: 'bg-yellow-100 text-yellow-800',
+                qualified: 'bg-purple-100 text-purple-800',
+                converted: 'bg-green-100 text-green-800'
+            };
+            return colors[status] || 'bg-gray-100 text-gray-800';
+        }
+
+        // Initialize charts
+        function initCharts() {
+            // Pipeline Chart
+            const pipelineCtx = document.getElementById('pipelineChart')?.getContext('2d');
+            if (pipelineCtx) {
+                new Chart(pipelineCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['New Leads', 'Contacted', 'Qualified', 'Converted'],
+                        datasets: [{
+                            label: 'Provider Pipeline',
+                            data: [12112, 0, 0, 0],
+                            backgroundColor: [
+                                'rgba(99, 102, 241, 0.8)',
+                                'rgba(251, 191, 36, 0.8)',
+                                'rgba(139, 92, 246, 0.8)',
+                                'rgba(34, 197, 94, 0.8)'
+                            ]
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true
+                    }
+                });
+            }
+
+            // Geographic Chart
+            const geoCtx = document.getElementById('geoChart')?.getContext('2d');
+            if (geoCtx) {
+                new Chart(geoCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Florida', 'Texas', 'California', 'New York', 'Other'],
+                        datasets: [{
+                            data: [2500, 1800, 1500, 1200, 5112],
+                            backgroundColor: [
+                                'rgba(99, 102, 241, 0.8)',
+                                'rgba(251, 191, 36, 0.8)',
+                                'rgba(139, 92, 246, 0.8)',
+                                'rgba(34, 197, 94, 0.8)',
+                                'rgba(156, 163, 175, 0.8)'
+                            ]
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true
+                    }
+                });
+            }
+        }
+
+        // Load patient portal
+        async function loadPatientPortal() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/sentinel-proxy/patient-portal-url`, {
+                    headers: {
+                        'X-Agency-ID': AGENCY_ID,
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const iframe = document.getElementById('patient-portal-iframe');
+                    if (iframe) {
+                        iframe.src = `${data.portal_url}?token=${data.embed_token}&agency=${AGENCY_ID}`;
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading patient portal:', error);
+            }
+        }
+
+        // Convert lead to patient
+        async function convertToPatient(leadId) {
+            if (!leadId) {
+                alert('Please select a lead to convert');
+                return;
+            }
+
+            if (!confirm('Convert this lead to a patient? This will transfer their data to the HIPAA-compliant SENTINEL system.')) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/sentinel-proxy/patient/convert`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Agency-ID': AGENCY_ID,
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    },
+                    body: JSON.stringify({
+                        contact_id: leadId,
+                        patient_info: {
+                            // Additional patient info can be collected here
+                        }
+                    })
+                });
+
+                if (response.ok) {
+                    alert('Lead successfully converted to patient!');
+                    loadLeads();
+                    loadAnalytics();
+                } else {
+                    alert('Failed to convert lead. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error converting lead:', error);
+                alert('An error occurred. Please try again.');
+            }
+        }
+
+        // Send advisor message
+        async function sendAdvisorMessage() {
+            const input = document.getElementById('advisor-input');
+            const message = input.value.trim();
+            if (!message) return;
+
+            const messagesDiv = document.getElementById('chat-messages');
+
+            // Add user message
+            messagesDiv.innerHTML += `
+                <div class="flex justify-end mb-4">
+                    <div class="bg-indigo-600 text-white px-4 py-2 rounded-lg max-w-md">
+                        ${message}
+                    </div>
+                </div>
+            `;
+
+            input.value = '';
+
+            // Send to SENTINEL advisor
+            try {
+                const response = await fetch(`${API_BASE_URL}/sentinel-proxy/advisor/chat`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Agency-ID': AGENCY_ID,
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        session_id: sessionStorage.getItem('advisor_session') || generateSessionId()
+                    })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    messagesDiv.innerHTML += `
+                        <div class="flex justify-start mb-4">
+                            <div class="bg-gray-100 text-gray-800 px-4 py-2 rounded-lg max-w-md">
+                                ${data.response}
+                            </div>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error sending message:', error);
+            }
+
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        // Quick questions
+        function quickQuestion(topic) {
+            document.getElementById('advisor-input').value = `Tell me about ${topic} for home health agencies`;
+            sendAdvisorMessage();
+        }
+
+        // Generate session ID
+        function generateSessionId() {
+            const id = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            sessionStorage.setItem('advisor_session', id);
+            return id;
+        }
+
+        // Show section
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+
+            // Show selected section
+            document.getElementById(`${section}-section`)?.classList.remove('hidden');
+
+            // Update nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-indigo-600', 'font-semibold', 'border-b-2', 'border-indigo-600');
+                btn.classList.add('text-gray-600');
+            });
+            event.target.classList.remove('text-gray-600');
+            event.target.classList.add('text-indigo-600', 'font-semibold', 'border-b-2', 'border-indigo-600');
+        }
+
+        // Pagination
+        function updatePagination() {
+            const start = (currentPage - 1) * pageSize + 1;
+            const end = Math.min(currentPage * pageSize, totalLeads);
+
+            document.getElementById('showing-start').textContent = start;
+            document.getElementById('showing-end').textContent = end;
+            document.getElementById('total-results').textContent = totalLeads.toLocaleString();
+        }
+
+        function nextPage() {
+            if (currentPage * pageSize < totalLeads) {
+                currentPage++;
+                loadLeads();
+            }
+        }
+
+        function previousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                loadLeads();
+            }
+        }
+
+        // Export leads
+        function exportLeads() {
+            alert('Export functionality will download leads as CSV');
+        }
+
+        // Create campaign
+        function createCampaign() {
+            alert('Campaign creation wizard coming soon');
+        }
+
+        // Select template
+        function selectTemplate(template) {
+            alert(`Selected ${template} template`);
+        }
+
+        // View lead details
+        function viewLead(leadId) {
+            alert(`View details for lead ${leadId}`);
+        }
+
+        // Contact lead
+        function contactLead(leadId) {
+            alert(`Contact lead ${leadId}`);
+        }
+
+        // Logout
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = '/login.html';
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            // For demo, set a mock token
+            if (!localStorage.getItem('token')) {
+                localStorage.setItem('token', 'demo-token');
+            }
+            initDashboard();
+        });
+    </script>
+</body>
+</html>
