@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel Deepgram Voice Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .voice-selector {
+            margin-bottom: 30px;
+        }
+
+        .voice-selector label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .voice-selector select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .voice-selector select:focus {
+            outline: none;
+            border-color: #2a5298;
+        }
+
+        .status-indicator {
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .status-indicator.idle {
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+        }
+
+        .status-indicator.listening {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            animation: pulse 2s infinite;
+        }
+
+        .status-indicator.speaking {
+            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+            animation: pulse 2s infinite;
+        }
+
+        .status-indicator.processing {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .status-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .status-details {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-start {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+        }
+
+        .btn-start:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-stop {
+            background: linear-gradient(135deg, #f44336, #da190b);
+            color: white;
+        }
+
+        .btn-stop:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(244, 67, 54, 0.3);
+        }
+
+        .conversation {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            min-height: 200px;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 12px 15px;
+            border-radius: 10px;
+            animation: messageSlide 0.3s ease;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .message.user {
+            background: linear-gradient(135deg, #2196F3, #1976d2);
+            color: white;
+            margin-left: 50px;
+            text-align: right;
+        }
+
+        .message.assistant {
+            background: white;
+            margin-right: 50px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .message-label {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-bottom: 4px;
+        }
+
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0,0,0,0.1);
+            border-radius: 50%;
+            border-top-color: #333;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            🎙️ Sentinel Voice Assistant
+        </h1>
+        <div class="subtitle">Powered by Deepgram Aura 2</div>
+
+        <div class="voice-selector">
+            <label for="voiceModel">Voice Model</label>
+            <select id="voiceModel">
+                <option value="aura-2-odysseus-en">Odysseus (Male) - Warm, Engaging Narrator</option>
+                <option value="aura-2-arcas-en">Arcas (Male) - Confident Professional</option>
+                <option value="aura-2-orpheus-en">Orpheus (Male) - Deep Authoritative</option>
+                <option value="aura-2-asteria-en">Asteria (Female) - Clear Articulate</option>
+                <option value="aura-2-luna-en">Luna (Female) - Friendly Conversational</option>
+                <option value="aura-2-stella-en">Stella (Female) - Bright Energetic</option>
+            </select>
+        </div>
+
+        <div class="status-indicator idle" id="statusIndicator">
+            <div class="status-text">Ready to Start</div>
+            <div class="status-details">Click Start to begin conversation</div>
+        </div>
+
+        <div class="controls">
+            <button id="startBtn" class="btn-start">
+                <span>🎤</span>
+                <span>Start Conversation</span>
+            </button>
+            <button id="stopBtn" class="btn-stop" disabled>
+                <span>⏹️</span>
+                <span>Stop</span>
+            </button>
+        </div>
+
+        <div class="conversation" id="conversation">
+            <div style="text-align: center; color: #999; padding: 50px;">
+                Conversation will appear here...
+            </div>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+    </div>
+
+    <script>
+        // Configuration
+        const BACKEND_URL = 'http://localhost:3001'; // Sentinel backend
+
+        let mediaRecorder;
+        let audioStream;
+        let websocket;
+        let isListening = false;
+        let audioContext;
+        let currentVoiceModel = 'aura-2-odysseus-en';
+
+        // DOM elements
+        const startBtn = document.getElementById('startBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const statusIndicator = document.getElementById('statusIndicator');
+        const statusText = statusIndicator.querySelector('.status-text');
+        const statusDetails = statusIndicator.querySelector('.status-details');
+        const conversation = document.getElementById('conversation');
+        const errorMessage = document.getElementById('errorMessage');
+        const voiceModelSelect = document.getElementById('voiceModel');
+
+        // Event listeners
+        startBtn.addEventListener('click', startConversation);
+        stopBtn.addEventListener('click', stopConversation);
+        voiceModelSelect.addEventListener('change', (e) => {
+            currentVoiceModel = e.target.value;
+        });
+
+        async function startConversation() {
+            try {
+                hideError();
+
+                // Request microphone permission
+                audioStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+                // Initialize audio context
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+                // Connect to Deepgram WebSocket
+                await connectToDeepgram();
+
+                // Update UI
+                updateStatus('listening', 'Listening...', 'Speak clearly into your microphone');
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+                conversation.innerHTML = '';
+
+                isListening = true;
+
+            } catch (error) {
+                console.error('Failed to start conversation:', error);
+                showError('Failed to start: ' + error.message);
+            }
+        }
+
+        async function connectToDeepgram() {
+            try {
+                // Get Deepgram configuration from backend
+                const response = await fetch(`${BACKEND_URL}/api/deepgram/config`);
+                const config = await response.json();
+
+                // Create WebSocket connection
+                const wsUrl = `wss://api.deepgram.com/v1/listen?` + new URLSearchParams({
+                    model: 'nova-3',
+                    language: 'en',
+                    punctuate: true,
+                    interim_results: true,
+                    endpointing: 300,
+                    vad_events: true
+                });
+
+                websocket = new WebSocket(wsUrl, ['token', config.apiKey]);
+
+                websocket.onopen = () => {
+                    console.log('Connected to Deepgram');
+                    startRecording();
+                };
+
+                websocket.onmessage = async (event) => {
+                    const data = JSON.parse(event.data);
+
+                    if (data.channel && data.channel.alternatives[0].transcript) {
+                        const transcript = data.channel.alternatives[0].transcript;
+                        const isFinal = data.is_final;
+
+                        if (isFinal && transcript.trim()) {
+                            addMessage(transcript, 'user');
+
+                            // Process with AI
+                            updateStatus('processing', 'Processing...', 'Generating response');
+                            const response = await processWithAI(transcript);
+
+                            if (response) {
+                                addMessage(response, 'assistant');
+                                await speakResponse(response);
+                            }
+                        }
+                    }
+                };
+
+                websocket.onerror = (error) => {
+                    console.error('WebSocket error:', error);
+                    showError('Connection error. Please try again.');
+                };
+
+                websocket.onclose = () => {
+                    console.log('Disconnected from Deepgram');
+                };
+
+            } catch (error) {
+                console.error('Failed to connect to Deepgram:', error);
+                throw error;
+            }
+        }
+
+        function startRecording() {
+            const source = audioContext.createMediaStreamSource(audioStream);
+            const processor = audioContext.createScriptProcessor(4096, 1, 1);
+
+            source.connect(processor);
+            processor.connect(audioContext.destination);
+
+            processor.onaudioprocess = (e) => {
+                if (!isListening) return;
+
+                const inputData = e.inputBuffer.getChannelData(0);
+                const output = new Int16Array(inputData.length);
+
+                for (let i = 0; i < inputData.length; i++) {
+                    const s = Math.max(-1, Math.min(1, inputData[i]));
+                    output[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
+                }
+
+                if (websocket && websocket.readyState === WebSocket.OPEN) {
+                    websocket.send(output.buffer);
+                }
+            };
+        }
+
+        async function processWithAI(text) {
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/ai/chat`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: text })
+                });
+
+                const data = await response.json();
+                return data.response || "I understand. How can I help you further?";
+
+            } catch (error) {
+                console.error('AI processing error:', error);
+                return "I'm here to help. Could you please repeat that?";
+            }
+        }
+
+        async function speakResponse(text) {
+            try {
+                updateStatus('speaking', 'Speaking...', 'Playing response');
+
+                // Call backend Deepgram TTS endpoint
+                const response = await fetch(`${BACKEND_URL}/api/deepgram/tts`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        text: text,
+                        model: currentVoiceModel,
+                        encoding: 'mp3'
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('TTS failed');
+                }
+
+                const audioBlob = await response.blob();
+                const audioUrl = URL.createObjectURL(audioBlob);
+                const audio = new Audio(audioUrl);
+
+                audio.onended = () => {
+                    updateStatus('listening', 'Listening...', 'Ready for your response');
+                    URL.revokeObjectURL(audioUrl);
+                };
+
+                await audio.play();
+
+            } catch (error) {
+                console.error('TTS error:', error);
+                updateStatus('listening', 'Listening...', 'Ready for input');
+            }
+        }
+
+        function addMessage(text, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+
+            const labelDiv = document.createElement('div');
+            labelDiv.className = 'message-label';
+            labelDiv.textContent = type === 'user' ? 'You' : 'Assistant';
+
+            const textDiv = document.createElement('div');
+            textDiv.textContent = text;
+
+            messageDiv.appendChild(labelDiv);
+            messageDiv.appendChild(textDiv);
+
+            conversation.appendChild(messageDiv);
+            conversation.scrollTop = conversation.scrollHeight;
+        }
+
+        function stopConversation() {
+            isListening = false;
+
+            if (websocket) {
+                websocket.close();
+            }
+
+            if (audioStream) {
+                audioStream.getTracks().forEach(track => track.stop());
+            }
+
+            if (audioContext) {
+                audioContext.close();
+            }
+
+            updateStatus('idle', 'Conversation Ended', 'Click Start to begin a new conversation');
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+        }
+
+        function updateStatus(state, text, details) {
+            statusIndicator.className = `status-indicator ${state}`;
+            statusText.textContent = text;
+            statusDetails.textContent = details;
+        }
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+        }
+
+        function hideError() {
+            errorMessage.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENTINEL Advisor Widget</title>
+    <style>
+        /* Floating Advisor Button */
+        .advisor-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: pulse 2s infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .advisor-button:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4); }
+            50% { box-shadow: 0 4px 30px rgba(102, 126, 234, 0.8); }
+            100% { box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4); }
+        }
+
+        .advisor-button svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
+        }
+
+        /* Advisor Chat Window */
+        .advisor-window {
+            position: fixed;
+            bottom: 120px;
+            right: 30px;
+            width: 400px;
+            height: 600px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 9998;
+            overflow: hidden;
+        }
+
+        .advisor-window.active {
+            display: flex;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .advisor-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .advisor-header h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+        }
+
+        .advisor-options {
+            padding: 20px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .option-card {
+            background: #f7f9fc;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .option-card:hover {
+            background: #ffffff;
+            border-color: #667eea;
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .option-card h4 {
+            margin: 0 0 10px 0;
+            color: #2d3748;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .option-card p {
+            margin: 0;
+            color: #718096;
+            font-size: 14px;
+        }
+
+        .option-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+
+        .chat-container {
+            padding: 20px;
+            flex-grow: 1;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .chat-container.active {
+            display: block;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.user {
+            text-align: right;
+        }
+
+        .message.advisor {
+            text-align: left;
+        }
+
+        .message-bubble {
+            display: inline-block;
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .user .message-bubble {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .advisor .message-bubble {
+            background: #f7f9fc;
+            color: #2d3748;
+        }
+
+        .input-container {
+            padding: 20px;
+            border-top: 1px solid #e2e8f0;
+            display: none;
+        }
+
+        .input-container.active {
+            display: block;
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 25px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .chat-input:focus {
+            border-color: #667eea;
+        }
+
+        .send-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .send-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            .advisor-window {
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                right: 0;
+                border-radius: 0;
+            }
+
+            .advisor-button {
+                width: 70px;
+                height: 70px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Advisor Button -->
+    <div class="advisor-button" onclick="toggleAdvisor()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+            <circle cx="12" cy="8" r="1"/>
+            <circle cx="8" cy="8" r="1"/>
+            <circle cx="16" cy="8" r="1"/>
+        </svg>
+    </div>
+
+    <!-- Advisor Window -->
+    <div class="advisor-window" id="advisorWindow">
+        <div class="advisor-header">
+            <h3>SENTINEL Advisor</h3>
+            <button class="close-btn" onclick="toggleAdvisor()">×</button>
+        </div>
+
+        <!-- Initial Options -->
+        <div class="advisor-options" id="advisorOptions">
+            <div class="option-card" onclick="startCall()">
+                <h4>
+                    <span class="option-icon">📞</span>
+                    Call Us Now
+                </h4>
+                <p>Speak directly with a care coordinator at (215) 774-0743</p>
+            </div>
+
+            <div class="option-card" onclick="startChat()">
+                <h4>
+                    <span class="option-icon">💬</span>
+                    Live Chat
+                </h4>
+                <p>Chat with our AI-powered SENTINEL Advisor for instant answers</p>
+            </div>
+
+            <div class="option-card" onclick="scheduleCallback()">
+                <h4>
+                    <span class="option-icon">📅</span>
+                    Schedule Callback
+                </h4>
+                <p>Have a care coordinator call you at your preferred time</p>
+            </div>
+
+            <div class="option-card" onclick="viewStatus()">
+                <h4>
+                    <span class="option-icon">👤</span>
+                    Patient Status
+                </h4>
+                <p>Get real-time updates about your loved one's care</p>
+            </div>
+
+            <div class="option-card" onclick="emergencyHelp()">
+                <h4>
+                    <span class="option-icon">🚨</span>
+                    Emergency Help
+                </h4>
+                <p>For urgent matters requiring immediate attention</p>
+            </div>
+        </div>
+
+        <!-- Chat Container (hidden initially) -->
+        <div class="chat-container" id="chatContainer"></div>
+
+        <!-- Input Container (hidden initially) -->
+        <div class="input-container" id="inputContainer">
+            <div class="input-wrapper">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+                <button class="send-btn" onclick="sendMessage()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isAdvisorOpen = false;
+        let chatMode = false;
+
+        function toggleAdvisor() {
+            const window = document.getElementById('advisorWindow');
+            isAdvisorOpen = !isAdvisorOpen;
+
+            if (isAdvisorOpen) {
+                window.classList.add('active');
+            } else {
+                window.classList.remove('active');
+                // Reset to options view
+                if (chatMode) {
+                    exitChat();
+                }
+            }
+        }
+
+        function startCall() {
+            window.location.href = 'tel:+12157740743';
+        }
+
+        function startChat() {
+            chatMode = true;
+            document.getElementById('advisorOptions').style.display = 'none';
+            document.getElementById('chatContainer').classList.add('active');
+            document.getElementById('inputContainer').classList.add('active');
+
+            // Add welcome message
+            addMessage('advisor', 'Hello! I\'m the SENTINEL Advisor. How can I help you today?');
+        }
+
+        function exitChat() {
+            chatMode = false;
+            document.getElementById('advisorOptions').style.display = 'block';
+            document.getElementById('chatContainer').classList.remove('active');
+            document.getElementById('inputContainer').classList.remove('active');
+            document.getElementById('chatContainer').innerHTML = '';
+        }
+
+        function scheduleCallback() {
+            addMessage('advisor', 'I\'ll help you schedule a callback. What time works best for you?');
+            startChat();
+        }
+
+        function viewStatus() {
+            addMessage('advisor', 'Please provide your loved one\'s name or patient ID, and I\'ll get you the latest update.');
+            startChat();
+        }
+
+        function emergencyHelp() {
+            if (confirm('This will immediately connect you with our emergency care team. Continue?')) {
+                window.location.href = 'tel:+12157740743';
+            }
+        }
+
+        function addMessage(sender, text) {
+            const container = document.getElementById('chatContainer');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+
+            const bubble = document.createElement('div');
+            bubble.className = 'message-bubble';
+            bubble.textContent = text;
+
+            messageDiv.appendChild(bubble);
+            container.appendChild(messageDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+
+            if (!message) return;
+
+            // Add user message
+            addMessage('user', message);
+            input.value = '';
+
+            // Send to backend
+            try {
+                const response = await fetch('https://sentinel-production-ded5.up.railway.app/api/sentinel-advisor/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        sessionId: generateSessionId()
+                    })
+                });
+
+                const data = await response.json();
+                addMessage('advisor', data.response);
+
+            } catch (error) {
+                addMessage('advisor', 'I apologize, but I\'m having trouble connecting. Please call us at (215) 774-0743 for immediate assistance.');
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function generateSessionId() {
+            return 'session_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        // Add widget to any page with this script
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('SENTINEL Advisor Widget Loaded');
+        });
+    </script>
+</body>
+</html>

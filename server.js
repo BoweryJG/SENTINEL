@@ -48,6 +48,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve static files
 app.use(express.static(path.join(__dirname)));
+
+// Import Deepgram routes
+const deepgramRoutes = require('./routes/deepgram-routes');
+app.use('/api/deepgram', deepgramRoutes);
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // Import SENTINEL Advisor routes
