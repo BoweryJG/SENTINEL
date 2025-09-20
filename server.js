@@ -24,7 +24,7 @@ app.use(helmet({
 
 // CORS configuration
 app.use(cors({
-  origin: process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:3000', 'https://sentinel-recovery.com'],
+  origin: process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:3000', 'https://sentinel-recovery.com', 'https://sentinel-care.netlify.app'],
   credentials: true
 }));
 

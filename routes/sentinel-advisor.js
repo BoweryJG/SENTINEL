@@ -79,7 +79,7 @@ router.post('/voice', twilioWebhook, async (req, res) => {
 
   } catch (error) {
     console.error('Voice webhook error:', error);
-    twiml.say('I apologize, but I'm having trouble accessing the system. Please try again or call our main line.');
+    twiml.say('I apologize, but I am having trouble accessing the system. Please try again or call our main line.');
   }
 
   res.type('text/xml');
